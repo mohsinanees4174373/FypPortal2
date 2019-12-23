@@ -15,7 +15,6 @@ import {
   ScrollView,
   SafeAreaView,
 } from 'react-native';
-import {SignupActivity} from './SignupActivity';
 
 class LoginActivity extends Component {
   constructor(props) {

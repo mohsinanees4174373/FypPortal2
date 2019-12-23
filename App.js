@@ -20,7 +20,8 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import { BottomNavigation } from 'react-native-paper';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
 import SecondActivity from './sidebarNavigationScreens/EditProfileActivity';
 import ThirdActivity from './sidebarNavigationScreens/SettingsActivity';
 import FourthActivity from './sidebarNavigationScreens/AboutUsActivity';
@@ -28,6 +29,7 @@ import FifthActivity from './sidebarNavigationScreens/ContactUsActivity';
 import AdvisorsListActivity from './BottomNavigationScreens/AdvisorsListActivity';
 import AppointmentsActivity from './BottomNavigationScreens/AppointmentsActivity';
 import FypRequestActivity from './BottomNavigationScreens/FypRequestActivity';
+import Chats from './BottomNavigationScreens/Chats';
 
 
 class HamburgerIcon extends Component {
@@ -60,7 +62,7 @@ class Custom_Side_Menu extends Component {
         <Image
           source={{
             uri:
-              'https://steemitimages.com/DQmcek9BSHCeexVtcntZWju6f2AsM9zgoF4GGYRp5e1Dy4Z/PU-College-Of-Information-Technology-PUCIT-Entry-Test-Result-2017-NTS-Answer-Keys.png',
+              'https://www.dontshake.org/media/k2/items/cache/71f67488b0857639cee631943a3fc6fa_XL.jpg',
           }}
           style={styles.sideMenuProfileIcon}
         />
@@ -78,9 +80,10 @@ class Custom_Side_Menu extends Component {
           <View
             style={{flexDirection: 'row', alignItems: 'center', marginTop: 20}}>
             <Image
+            
               source={{
                 uri:
-                  'https://reactnativecode.com/wp-content/uploads/2018/08/social.jpg',
+                  'https://image.flaticon.com/icons/png/512/2/2144.png',
               }}
               style={styles.sideMenuIcon}
             />
@@ -95,7 +98,7 @@ class Custom_Side_Menu extends Component {
             <Image
               source={{
                 uri:
-                  'https://reactnativecode.com/wp-content/uploads/2018/08/promotions.jpg',
+                  'https://image.flaticon.com/icons/png/512/149/149995.png',
               }}
               style={styles.sideMenuIcon}
             />
@@ -115,7 +118,7 @@ class Custom_Side_Menu extends Component {
             <Image
               source={{
                 uri:
-                  'https://reactnativecode.com/wp-content/uploads/2018/08/outbox.jpg',
+                  'https://image.flaticon.com/icons/png/512/60/60473.png',
               }}
               style={styles.sideMenuIcon}
             />
@@ -136,7 +139,7 @@ class Custom_Side_Menu extends Component {
             <Image
               source={{
                 uri:
-                  'https://reactnativecode.com/wp-content/uploads/2018/08/social.jpg',
+                  'https://image.flaticon.com/icons/png/512/15/15659.png',
               }}
               style={styles.sideMenuIcon}
             />
@@ -153,7 +156,7 @@ class Custom_Side_Menu extends Component {
             <Image
               source={{
                 uri:
-                  'https://reactnativecode.com/wp-content/uploads/2018/08/social.jpg',
+                  'https://image.flaticon.com/icons/png/512/1898/1898105.png',
               }}
               style={styles.sideMenuIcon}
             />
@@ -237,7 +240,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
             <Image
               source={{
                 uri:
-                  'https://reactnativecode.com/wp-content/uploads/2018/08/social.jpg',
+                  'https://www.iconsdb.com/icons/preview/color/2B60DE/conference-call-xxl.png',
               }}
               style={styles.sideMenuIcon}
             />
@@ -255,7 +258,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
             <Image
               source={{
                 uri:
-                  'https://reactnativecode.com/wp-content/uploads/2018/08/social.jpg',
+                  'https://www.iconsdb.com/icons/preview/color/2B60DE/appointment-reminders-xxl.png',
               }}
               style={styles.sideMenuIcon}
             />
@@ -276,7 +279,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
             <Image
               source={{
                 uri:
-                  'https://reactnativecode.com/wp-content/uploads/2018/08/social.jpg',
+                  'https://www.iconsdb.com/icons/preview/color/2B60DE/decision-xxl.png',
               }}
               style={styles.sideMenuIcon}
             />
@@ -287,13 +290,31 @@ const TabNavigator = createMaterialBottomTabNavigator(
 
       },
     },
+    Chats: {
+      screen: Chats,
+      navigationOptions: {
+        tabBarIcon: ({tintColor}) => (
+          <View>
+            <Image
+            source={{
+              uri:
+                'https://www.iconsdb.com/icons/preview/color/2B60DE/chat-4-xxl.png',
+            }}
+              style={styles.sideMenuIcon}
+            />
+          </View>
+        ),
+
+
+      },
+    },
 
   },
   {
     initialRouteName: 'AdvisorsList',
-    activeColor: '#fff',
+    activeColor: '#000',
     inactiveColor: '#3e2465',
-    barStyle: {backgroundColor: '#2B60DE'},
+    barStyle: {backgroundColor: '#fff'},
   },
 );
 
@@ -418,6 +439,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  inpIcons: {
+    padding: 10,
+    marginLeft: 10,
+    height: 25,
+    width: 25,
+    resizeMode: 'stretch',
+    alignItems: 'center',
+  },
 
   sideMenuContainer: {
     width: '100%',
@@ -437,14 +466,18 @@ const styles = StyleSheet.create({
 
   sideMenuIcon: {
     resizeMode: 'center',
-    width: 28,
-    height: 28,
-    marginRight: 10,
-    marginLeft: 20,
+    width: 25,
+    height: 25,
+    marginLeft: 15,
+    marginRight: 20,
+    marginBottom:8,
+    
   },
 
   menuText: {
     fontSize: 15,
     color: '#222222',
+    marginBottom:8,
+
   },
 });
