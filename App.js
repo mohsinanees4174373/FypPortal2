@@ -29,6 +29,9 @@ import FourthActivity from './sidebarNavigationScreens/AboutUsActivity';
 import FifthActivity from './sidebarNavigationScreens/ContactUsActivity';
 import AdvisorsListActivity from './BottomNavigationScreens/AdvisorsListActivity';
 import FypRequestActivity from './BottomNavigationScreens/FypRequestActivity';
+import FYPRequestScreen from "./requestScreens/FypRequestForm";
+import AppointmentRequestScreen from "./requestScreens/AppointmentRquestForm";
+
 import Chats from './BottomNavigationScreens/Chats';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import HamburgerIcon from './StudentHomeAfterLogin/HamburgerIcon';
@@ -231,6 +234,26 @@ const MainNavigator = createStackNavigator(
     },
     StudentHomeScreen: {
       screen: MyDrawerNavigator,
+    },
+    FypForm: {
+      screen: FYPRequestScreen,
+      navigationOptions: ({navigation}) => ({
+        title: 'FYP Request Form',
+        headerStyle: {
+          backgroundColor: '#2B60DE',
+        },
+        headerTintColor: '#fff',
+      }),
+    },
+    AppointmentForm: {
+      screen: AppointmentRequestScreen,
+      navigationOptions: ({navigation}) => ({
+        title: 'Appointment Request Form',
+        headerStyle: {
+          backgroundColor: '#2B60DE',
+        },
+        headerTintColor: '#fff',
+      }),
     },
   },
   {
