@@ -9,8 +9,8 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, TextInput, View ,Platform , Dimensions, Image, YellowBox} from "react-native";
 import Button  from "react-native-button";
-import { AppStyles } from "./styles/RequestFormStyle";
-import {styles } from "./styles/AppointmentRequestStyles";
+import { AppStyles } from "../styles/RequestFormStyle";
+import {styles } from "../styles/AppointmentRequestStyles";
 import DatePicker from 'react-native-datepicker'
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
@@ -68,7 +68,7 @@ class AppointmentRequestScreen extends React.Component {
         
         <View style={styles.InputContainer}>
           <View style={styles.SectionStyle}>
-          <Image source = {require('./assets/icons/person.png')} style={styles.Icon}/>
+          <Image source = {require('../assets/icons/person.png')} style={styles.Icon}/>
             <TextInput
               style={styles.body}
               placeholder="Full Name"
@@ -82,7 +82,7 @@ class AppointmentRequestScreen extends React.Component {
 
         <View style={styles.InputContainer}>
           <View style={styles.SectionStyle}>
-          <Image source = {require('./assets/icons/count.png')} style={styles.Icon}/>
+          <Image source = {require('../assets/icons/count.png')} style={styles.Icon}/>
             <TextInput
               style={styles.body}
               placeholder="Members Count"
@@ -96,7 +96,7 @@ class AppointmentRequestScreen extends React.Component {
 
         <View style={styles.DateTimeContainer}>
           <View style={styles.DateSectionStyle}>
-            <Image source = {require('./assets/icons/date.png')} style={styles.Icon}/>
+            <Image source = {require('../assets/icons/date.png')} style={styles.Icon}/>
             <DatePicker
               style={styles.date}
               value={this.state.date}
@@ -122,7 +122,7 @@ class AppointmentRequestScreen extends React.Component {
             </View>
 
             <View style={styles.TimeSectionStyle}>
-          <Image source = {require('./assets/icons/time.png')} style={styles.Icon}/>
+          <Image source = {require('../assets/icons/time.png')} style={styles.Icon}/>
           <DatePicker
             style={styles.date}
             placeholder="Time"
@@ -150,7 +150,7 @@ class AppointmentRequestScreen extends React.Component {
 
         <View style={styles.InputContainer} >
         <View style={styles.description}>
-          <Image source = {require('./assets/icons/pen.png')} style={styles.Icon}/>
+          <Image source = {require('../assets/icons/pen.png')} style={styles.Icon}/>
           <TextInput
             style={styles.purpose}
             placeholder="Meeting Purpose"
