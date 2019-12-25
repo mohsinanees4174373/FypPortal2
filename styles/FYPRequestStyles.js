@@ -1,132 +1,124 @@
-import { Platform, StyleSheet, Dimensions } from "react-native";
-import { AppStyles } from "./RequestFormStyle";
+import {Platform, StyleSheet, Dimensions} from 'react-native';
+import {AppStyles} from './RequestFormStyle';
 //import { Configuration } from "./Configuration";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center"
+    alignItems: 'center',
   },
   Icon: {
     padding: 10,
-    width:10,
-    height:10,
+    width: 10,
+    height: 10,
   },
   idIcon: {
     padding: 10,
-    width:10,
-    height:30,
+    width: 10,
+    height: 30,
   },
   techIcon: {
     padding: 10,
-    width:10,
-    height:30,
+    width: 10,
+    height: 30,
   },
   groupIcon: {
     padding: 10,
-    width:10,
-    height:25,
-    marginRight:10
+    width: 10,
+    height: 25,
+    marginRight: 10,
   },
-  menuItem:{
-    
-    color: AppStyles.color.text
+  menuItem: {
+    color: AppStyles.color.text,
   },
-  picker:{
-    width:'90%',
-    paddingLeft:40,
+  picker: {
+    width: '90%',
+    paddingLeft: 40,
     paddingRight: 20,
-    color: AppStyles.color.text
-
+    color: AppStyles.color.text,
   },
   SectionStyle: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingLeft:20,
-    flex:1
+    paddingLeft: 20,
+    flex: 1,
   },
-  
+
   description: {
     flexDirection: 'row',
-    alignItems:"center",
-    paddingLeft:20,
+    alignItems: 'center',
+    paddingLeft: 20,
     height: 130,
-    top:-40
+    top: -40,
   },
-  upperBar:{
-    backgroundColor: "#2B60DE",
-    paddingLeft:90,
-    paddingRight:90,
-    flexDirection:'row',
+  upperBar: {
+    backgroundColor: '#2B60DE',
+    paddingLeft: 90,
+    paddingRight: 90,
+    flexDirection: 'row',
     height: 65,
-    
   },
-  scroll:
-  {
-    width: '100%'
-  },
-  CustomScroll:
-  {
+  scroll: {
     width: '100%',
-    alignItems:"center"
+  },
+  CustomScroll: {
+    width: '100%',
+    alignItems: 'center',
   },
   title: {
     fontSize: 30,
-    fontWeight: "bold",
-    width:300,
+    fontWeight: 'bold',
+    width: 300,
     color: AppStyles.color.white,
     marginTop: 10,
     marginBottom: 20,
-    textAlign:"center",
-   
+    textAlign: 'center',
   },
   content: {
     paddingLeft: 50,
     paddingRight: 50,
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: AppStyles.fontSize.content,
-    color: AppStyles.color.text
+    color: AppStyles.color.text,
   },
   placeholder: {
     fontFamily: AppStyles.fontName.text,
-    color: "red"
+    color: 'red',
   },
   InputContainer: {
     width: AppStyles.textInputWidth.main,
     marginTop: 30,
     borderWidth: 1,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     borderColor: AppStyles.color.grey,
     borderRadius: AppStyles.borderRadius.main,
-    
   },
-  
+
   body: {
     height: 42,
     paddingLeft: 20,
     paddingRight: 20,
-    color: AppStyles.color.text
+    color: AppStyles.color.text,
   },
   facebookContainer: {
     width: AppStyles.buttonWidth.main,
-    backgroundColor: "#2B60DE",
+    backgroundColor: '#2B60DE',
     borderRadius: AppStyles.borderRadius.main,
     padding: 10,
-    marginTop: 30
+    marginTop: 30,
   },
   facebookText: {
-    color: AppStyles.color.white
+    color: AppStyles.color.white,
   },
-  purpose:
-  {
-    height:130,
+  purpose: {
+    height: 130,
     justifyContent: 'flex-start',
-    paddingLeft:10,
-    width:230,
-    top:45,
+    paddingLeft: 10,
+    width: 230,
+    top: 45,
     color: AppStyles.color.text,
     textAlignVertical: 'top',
-    flexDirection: "row-reverse",
-    borderColor:"#2B60DE",
-  }
+    flexDirection: 'row-reverse',
+    borderColor: '#2B60DE',
+  },
 });
