@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import {
   StyleSheet,
   Text,
@@ -9,18 +8,19 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   Image,
-  YellowBox,
   Alert,
   ImageBackground,
+  YellowBox,
   ScrollView,
   SafeAreaView,
 } from 'react-native';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
-class LoginActivity extends Component {
+import LoginActivity from './LoginActivity';
+
+class SignupActivity extends Component {
   constructor(props) {
     super(props);
-
     YellowBox.ignoreWarnings([
       'Warning: componentWillMount is deprecated',
       'Warning: componentWillReceiveProps is deprecated',
@@ -44,8 +44,26 @@ class LoginActivity extends Component {
             </TouchableHighlight>
             <View style={styles.line} />
             <TouchableHighlight style={styles.headingContainer}>
-              <Text style={styles.signin}>LOGIN{'\n'}</Text>
+              <Text style={styles.signin}>Create Account{'\n'}</Text>
             </TouchableHighlight>
+            <View style={styles.inputContainer}>
+              <Image
+                style={styles.inpIcons}
+                source={{
+                  uri:
+                    'https://p7.hiclipart.com/preview/201/51/681/computer-icons-customer-service-user-others-thumbnail.jpg',
+                }}
+              />
+              <TextInput
+                style={styles.inputs}
+                placeholder="Person Name"
+                returnKeyType="next"
+                //keyboardType="email-address"
+                //underlineColorAndroid='transparent'
+                onChangeText={name => this.setState({name})}
+              />
+            </View>
+
             <View style={styles.inputContainer}>
               <Image
                 style={styles.inpIcons}
@@ -56,11 +74,29 @@ class LoginActivity extends Component {
               />
               <TextInput
                 style={styles.inputs}
-                placeholder="Your Email Address"
+                placeholder="Email Address"
                 returnKeyType="next"
                 keyboardType="email-address"
                 //underlineColorAndroid='transparent'
                 onChangeText={email => this.setState({email})}
+              />
+            </View>
+
+            <View style={styles.inputContainer}>
+              <Image
+                style={styles.inpIcons}
+                source={{
+                  uri:
+                    'https://i7.pngguru.com/preview/754/38/561/telephone-mobile-phones-computer-icons-clip-art-phone-icon.jpg',
+                }}
+              />
+              <TextInput
+                style={styles.inputs}
+                placeholder="Phone Number"
+                returnKeyType="next"
+                keyboardType="phone-pad"
+                //underlineColorAndroid='transparent'
+                onChangeText={ph => this.setState({ph})}
               />
             </View>
 
@@ -76,36 +112,46 @@ class LoginActivity extends Component {
                 style={styles.inputs}
                 placeholder="Password"
                 secureTextEntry={true}
-                returnKeyType="go"
+                returnKeyType="next"
                 //underlineColorAndroid='transparent'
                 onChangeText={password => this.setState({password})}
               />
             </View>
 
-            <TouchableOpacity
-              style={[styles.buttonContainer, styles.loginButton]}
-              onPress={() =>
-                this.props.navigation.navigate('StudentHomeScreen')
-              }>
-              <Text style={styles.loginText}>Login</Text>
-            </TouchableOpacity>
+            <View style={styles.inputContainer}>
+              <Image
+                style={styles.inpIcons}
+                source={{
+                  uri:
+                    'https://library.kissclipart.com/20180829/iae/kissclipart-password-icon-clipart-password-computer-icons-clip-d813f06606bcdc9a.png',
+                }}
+              />
+              <TextInput
+                style={styles.inputs}
+                placeholder="Confirm Password"
+                secureTextEntry={true}
+                returnKeyType="next"
+                //underlineColorAndroid='transparent'
+                onChangeText={cfmpwd => this.setState({cfmpwd})}
+              />
+            </View>
 
             <TouchableOpacity
-              style={styles.buttonContainerForgetPwd}
-              onPress={() => this.props.navigation.navigate('')}>
-              <Text style={styles.forgetPwd}>Forgot Password?</Text>
+              style={[styles.buttonContainer, styles.signupButton]}
+              onPress={() => this.props.navigation.navigate('Login')}>
+              <Text style={styles.signupText}>CREATE ACCOUNT</Text>
             </TouchableOpacity>
 
             <View style={styles.line} />
 
             <TouchableHighlight>
-              <Text>New on FYP PORTAL?{'\n'}</Text>
+              <Text>Already Have Account?{'\n'}</Text>
             </TouchableHighlight>
 
             <TouchableOpacity
-              style={[styles.buttonContainer, styles.registerButton]}
-              onPress={() => this.props.navigation.navigate('Signup')}>
-              <Text>Register</Text>
+              style={[styles.buttonContainer, styles.signinButton]}
+              onPress={() => this.props.navigation.navigate('Login')}>
+              <Text>SIGN IN</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -113,6 +159,7 @@ class LoginActivity extends Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -142,7 +189,7 @@ const styles = StyleSheet.create({
     //height: 150,
     //width: 150,
     textAlign: 'center',
-    fontSize: 22,
+    fontSize: 21,
     fontWeight: 'bold',
     fontFamily: 'serif',
     color: 'black',
@@ -179,7 +226,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     height: 35,
-    marginBottom: 20,
+    marginBottom: 15,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -216,23 +263,17 @@ const styles = StyleSheet.create({
     marginLeft: 220,
     marginRight: 10,
   },
-  forgetPwd: {
-    flex: 1,
-    textAlign: 'right',
-    textDecorationLine: 'underline',
-    alignSelf: 'stretch',
-    marginTop: 10,
-  },
-  loginButton: {
+  signupButton: {
     backgroundColor: '#2B60DE',
+    marginBottom: 20,
   },
-  registerButton: {
+  signinButton: {
     flex: 0,
     borderWidth: 1,
     borderColor: '#2B60DE',
     marginBottom: 150,
   },
-  loginText: {
+  signupText: {
     color: 'white',
   },
   line: {
@@ -243,4 +284,5 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 });
-export default LoginActivity;
+
+export default SignupActivity;
