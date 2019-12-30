@@ -37,6 +37,9 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 import HamburgerIcon from './StudentHomeAfterLogin/HamburgerIcon';
 import Custom_Side_Menu from './StudentHomeAfterLogin/Custom_Side_ Menu';
 
+import FypRequestViewScreen from "./requestScreens/FypRequestView";
+import AppointmentViewScreen from "./requestScreens/AppointmentView";
+
 const TabNavigator = createMaterialBottomTabNavigator(
   {
     // Second: {
@@ -228,12 +231,21 @@ const MainNavigator = createStackNavigator(
   {
     Login: {
       screen: LoginActivity,
+      navigationOptions: ({navigation}) => ({
+        header:null,
+      }),
     },
     Signup: {
       screen: SignupActivity,
+      navigationOptions: ({navigation}) => ({
+        header:null,
+      }),
     },
     StudentHomeScreen: {
       screen: MyDrawerNavigator,
+      navigationOptions: ({navigation}) => ({
+        header:null,
+      }),
     },
     FypForm: {
       screen: FYPRequestScreen,
@@ -255,9 +267,27 @@ const MainNavigator = createStackNavigator(
         headerTintColor: '#fff',
       }),
     },
-  },
-  {
-    headerMode: 'none',
+    FypRequestView: {
+      screen: FypRequestViewScreen,
+      navigationOptions: ({navigation}) => ({
+        title: 'FYP Request',
+        headerStyle: {
+          backgroundColor: '#2B60DE',
+        },
+        headerTintColor: '#fff',
+      }),
+        
+    },
+    AppointmentView:{
+      screen: AppointmentViewScreen,
+      navigationOptions: ({navigation}) => ({
+        title: 'Appointment Request',
+        headerStyle: {
+          backgroundColor: '#2B60DE',
+        },
+        headerTintColor: '#fff',
+      }),
+    }
   },
 );
 
