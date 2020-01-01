@@ -105,7 +105,13 @@ class LoginActivity extends Component {
             <TouchableOpacity
               style={[styles.buttonContainer, styles.registerButton]}
               onPress={() => this.props.navigation.navigate('Signup')}>
-              <Text>Register</Text>
+              <Text>Register as Student</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.buttonContainer, styles.registerButton]}
+              onPress={() => this.props.navigation.navigate('Signup')}>
+              <Text>Register as Advisor</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -230,7 +236,7 @@ const styles = StyleSheet.create({
     flex: 0,
     borderWidth: 1,
     borderColor: '#2B60DE',
-    marginBottom: 150,
+    marginBottom: 13,
   },
   loginText: {
     color: 'white',

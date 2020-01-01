@@ -29,18 +29,21 @@ import FourthActivity from './sidebarNavigationScreens/AboutUsActivity';
 import FifthActivity from './sidebarNavigationScreens/ContactUsActivity';
 import AdvisorsListActivity from './BottomNavigationScreens/AdvisorsListActivity';
 import FypRequestActivity from './BottomNavigationScreens/FypRequestActivity';
-import FYPRequestScreen from "./requestScreens/FypRequestForm";
-import AppointmentRequestScreen from "./requestScreens/AppointmentRquestForm";
+import FYPRequestScreen from './requestScreens/FypRequestForm';
+import AppointmentRequestScreen from './requestScreens/AppointmentRquestForm';
 
 import Chats from './BottomNavigationScreens/Chats';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import HamburgerIcon from './StudentHomeAfterLogin/HamburgerIcon';
 import Custom_Side_Menu from './StudentHomeAfterLogin/Custom_Side_ Menu';
 
-import FypRequestViewScreen from "./requestScreens/FypRequestView";
-import AppointmentViewScreen from "./requestScreens/AppointmentView";
+import FypRequestViewScreen from './requestScreens/FypRequestView';
+import AppointmentViewScreen from './requestScreens/AppointmentView';
+import AdvisorAppointmentsActivity from './AdvisorBottomNavigation/AdvisorAppointmentRequests';
+import AdvisorFypRequestActivity from './AdvisorBottomNavigation/AdvisorFYPRequests';
+import AdvisorChat from './AdvisorBottomNavigation/AdvisorChat';
 
-const TabNavigator = createMaterialBottomTabNavigator(
+const StudentTabNavigator = createMaterialBottomTabNavigator(
   {
     // Second: {
     //   screen: SecondActivity,
@@ -127,9 +130,73 @@ const TabNavigator = createMaterialBottomTabNavigator(
   },
 );
 
+const AdvisorTabNavigator = createMaterialBottomTabNavigator(
+  {
+    AppointmentRequests: {
+      screen: AdvisorAppointmentsActivity,
+      navigationOptions: {
+        tabBarIcon: ({tintColor}) => (
+          <View>
+            <Image
+              source={{
+                uri:
+                  'https://www.iconsdb.com/icons/preview/color/2B60DE/appointment-reminders-xxl.png',
+              }}
+              style={styles.sideMenuIcon}
+            />
+          </View>
+        ),
+      },
+    },
+    FYPRequests: {
+      screen: AdvisorFypRequestActivity,
+      navigationOptions: {
+        tabBarIcon: ({tintColor}) => (
+          <View>
+            {/* <Icon style={[{color: tintColor}]} size={25} name=
+
+{'facebook'}/> */}
+
+            <View>
+              <Image
+                source={{
+                  uri:
+                    'https://www.iconsdb.com/icons/preview/color/2B60DE/decision-xxl.png',
+                }}
+                style={styles.sideMenuIcon}
+              />
+            </View>
+          </View>
+        ),
+      },
+    },
+    Chats: {
+      screen: AdvisorChat,
+      navigationOptions: {
+        tabBarIcon: ({tintColor}) => (
+          <View>
+            <Image
+              source={{
+                uri:
+                  'https://www.iconsdb.com/icons/preview/color/2B60DE/chat-4-xxl.png',
+              }}
+              style={styles.sideMenuIcon}
+            />
+          </View>
+        ),
+      },
+    },
+  },
+  {
+    initialRouteName: 'AppointmentRequests',
+    activeColor: '#000',
+    inactiveColor: '#3e2465',
+    barStyle: {backgroundColor: '#fff'},
+  },
+);
 const FirstActivity_StackNavigator = createStackNavigator({
   First: {
-    screen: TabNavigator,
+    screen: StudentTabNavigator,
     navigationOptions: ({navigation}) => ({
       title: 'Home',
       headerLeft: <HamburgerIcon navigationProps={navigation} />,
@@ -227,69 +294,66 @@ const MyDrawerNavigator = createDrawerNavigator(
   },
 );
 
-const MainNavigator = createStackNavigator(
-  {
-    Login: {
-      screen: LoginActivity,
-      navigationOptions: ({navigation}) => ({
-        header:null,
-      }),
-    },
-    Signup: {
-      screen: SignupActivity,
-      navigationOptions: ({navigation}) => ({
-        header:null,
-      }),
-    },
-    StudentHomeScreen: {
-      screen: MyDrawerNavigator,
-      navigationOptions: ({navigation}) => ({
-        header:null,
-      }),
-    },
-    FypForm: {
-      screen: FYPRequestScreen,
-      navigationOptions: ({navigation}) => ({
-        title: 'FYP Request Form',
-        headerStyle: {
-          backgroundColor: '#2B60DE',
-        },
-        headerTintColor: '#fff',
-      }),
-    },
-    AppointmentForm: {
-      screen: AppointmentRequestScreen,
-      navigationOptions: ({navigation}) => ({
-        title: 'Appointment Request Form',
-        headerStyle: {
-          backgroundColor: '#2B60DE',
-        },
-        headerTintColor: '#fff',
-      }),
-    },
-    FypRequestView: {
-      screen: FypRequestViewScreen,
-      navigationOptions: ({navigation}) => ({
-        title: 'FYP Request',
-        headerStyle: {
-          backgroundColor: '#2B60DE',
-        },
-        headerTintColor: '#fff',
-      }),
-        
-    },
-    AppointmentView:{
-      screen: AppointmentViewScreen,
-      navigationOptions: ({navigation}) => ({
-        title: 'Appointment Request',
-        headerStyle: {
-          backgroundColor: '#2B60DE',
-        },
-        headerTintColor: '#fff',
-      }),
-    }
+const MainNavigator = createStackNavigator({
+  Login: {
+    screen: LoginActivity,
+    navigationOptions: ({navigation}) => ({
+      header: null,
+    }),
   },
-);
+  Signup: {
+    screen: SignupActivity,
+    navigationOptions: ({navigation}) => ({
+      header: null,
+    }),
+  },
+  StudentHomeScreen: {
+    screen: MyDrawerNavigator,
+    navigationOptions: ({navigation}) => ({
+      header: null,
+    }),
+  },
+  FypForm: {
+    screen: FYPRequestScreen,
+    navigationOptions: ({navigation}) => ({
+      title: 'FYP Request Form',
+      headerStyle: {
+        backgroundColor: '#2B60DE',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+  AppointmentForm: {
+    screen: AppointmentRequestScreen,
+    navigationOptions: ({navigation}) => ({
+      title: 'Appointment Request Form',
+      headerStyle: {
+        backgroundColor: '#2B60DE',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+  FypRequestView: {
+    screen: FypRequestViewScreen,
+    navigationOptions: ({navigation}) => ({
+      title: 'FYP Request',
+      headerStyle: {
+        backgroundColor: '#2B60DE',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+  AppointmentView: {
+    screen: AppointmentViewScreen,
+    navigationOptions: ({navigation}) => ({
+      title: 'Appointment Request',
+      headerStyle: {
+        backgroundColor: '#2B60DE',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
 
 const App = createAppContainer(MainNavigator);
 export default App;
