@@ -188,7 +188,7 @@ const FifthActivity_StackNavigator = createStackNavigator({
   Fourth: {
     screen: FifthActivity,
     navigationOptions: ({navigation}) => ({
-      title: 'About Us',
+      title: 'Contact Us',
       headerLeft: <HamburgerIcon navigationProps={navigation} />,
 
       headerStyle: {

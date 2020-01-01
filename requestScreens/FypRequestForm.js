@@ -6,17 +6,12 @@
  * @flow
  */
 
-<<<<<<< HEAD
 import React, {Component} from 'react';
-=======
-import React, { Component } from 'react'
-import { StyleSheet, Text, TextInput, View ,Platform , Dimensions, Image, Picker, YellowBox} from "react-native";
 import Button  from "react-native-button";
 import { AppStyles } from "../styles/RequestFormStyle";
 import {styles } from "../styles/FYPRequestStyles";
 
 
->>>>>>> fece1ef90dba9098621c43096faaa62a6050b462
 import {
   StyleSheet,
   Text,
@@ -28,10 +23,6 @@ import {
   Picker,
   YellowBox,
 } from 'react-native';
-import Button from 'react-native-button';
-import {AppStyles} from '../styles/RequestFormStyle';
-import styles from '../styles/FYPRequestStyles';
-import {SafeAreaView, ScrollView, StatusBar} from 'react-native';
 
 import {
   Header,
@@ -74,14 +65,11 @@ class FYPRequestScreen extends React.Component {
           contentContainerStyle={styles.CustomScroll}>
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
-<<<<<<< HEAD
               <Image
                 source={require('../assets/icons/person.png')}
                 style={styles.Icon}
               />
-=======
             <Image source = {require('../assets/icons/person.png')} style={styles.Icon}/>
->>>>>>> fece1ef90dba9098621c43096faaa62a6050b462
               <TextInput
                 style={styles.body}
                 placeholder="Full Name"
@@ -95,14 +83,11 @@ class FYPRequestScreen extends React.Component {
 
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
-<<<<<<< HEAD
               <Image
                 source={require('../assets/icons/id.jpg')}
                 style={styles.idIcon}
               />
-=======
             <Image source = {require('../assets/icons/id.jpg')} style={styles.idIcon}/>
->>>>>>> fece1ef90dba9098621c43096faaa62a6050b462
               <TextInput
                 style={styles.body}
                 placeholder="Roll Number"
@@ -116,14 +101,11 @@ class FYPRequestScreen extends React.Component {
 
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
-<<<<<<< HEAD
               <Image
                 source={require('../assets/icons/project.jpg')}
                 style={styles.Icon}
               />
-=======
             <Image source = {require('../assets/icons/project.jpg')} style={styles.Icon}/>
->>>>>>> fece1ef90dba9098621c43096faaa62a6050b462
               <TextInput
                 style={styles.body}
                 placeholder="Project Name"
@@ -136,7 +118,6 @@ class FYPRequestScreen extends React.Component {
           </View>
 
           <View style={styles.InputContainer}>
-<<<<<<< HEAD
             <View style={styles.SectionStyle}>
               <Image
                 source={require('../assets/icons/count.png')}
@@ -151,7 +132,8 @@ class FYPRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
-=======
+            </View>
+
           <View style={styles.SectionStyle}>
           <Image source = {require('../assets/icons/count.png')} style={styles.Icon}/>
             <TextInput
@@ -162,10 +144,8 @@ class FYPRequestScreen extends React.Component {
               placeholderTextColor={AppStyles.color.grey}
               underlineColorAndroid="transparent"
             />
->>>>>>> fece1ef90dba9098621c43096faaa62a6050b462
           </View>
 
-<<<<<<< HEAD
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
               <Image
@@ -189,7 +169,8 @@ class FYPRequestScreen extends React.Component {
                 <Picker.Item label="Taimoor" value="Taimoor" />
               </Picker>
             </View>
-=======
+           </View>
+
         <View style={styles.InputContainer}>
           <View style={styles.SectionStyle}>
           <Image source = {require('../assets/icons/group.png')} style={styles.groupIcon}/>
@@ -211,19 +192,16 @@ class FYPRequestScreen extends React.Component {
               <Picker.Item label="Mohsin" value="Mohsin" />
               <Picker.Item label="Taimoor" value="Taimoor" />
             </Picker>
->>>>>>> fece1ef90dba9098621c43096faaa62a6050b462
           </View>
+         </View>
 
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
-<<<<<<< HEAD
               <Image
                 source={require('../assets/icons/tech.png')}
                 style={styles.techIcon}
               />
-=======
             <Image source = {require('../assets/icons/tech.png')} style={styles.techIcon}/>
->>>>>>> fece1ef90dba9098621c43096faaa62a6050b462
               <TextInput
                 style={styles.body}
                 placeholder="Technology"
@@ -237,14 +215,11 @@ class FYPRequestScreen extends React.Component {
 
           <View style={styles.InputContainer}>
             <View style={styles.description}>
-<<<<<<< HEAD
               <Image
                 source={require('../assets/icons/pen.png')}
                 style={styles.Icon}
               />
-=======
               <Image source = {require('../assets/icons/pen.png')} style={styles.Icon}/>
->>>>>>> fece1ef90dba9098621c43096faaa62a6050b462
               <TextInput
                 style={styles.purpose}
                 placeholder="Project Description"
@@ -268,7 +243,7 @@ class FYPRequestScreen extends React.Component {
             onPress={() => this.props.navigation.goBack()}>
             Submit Request
           </Button>
-        </ScrollView>
+        </ScrollView>                     
       </View>
     );
   }
