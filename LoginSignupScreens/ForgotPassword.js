@@ -17,7 +17,7 @@ import {
 } from 'react-native';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
-class LoginActivity extends Component {
+class ForgotPassword extends Component {
   constructor(props) {
     super(props);
 
@@ -43,9 +43,18 @@ class LoginActivity extends Component {
               <Text style={styles.header}>FYP PORTAL</Text>
             </TouchableHighlight>
             <View style={styles.line} />
+            <Image
+              style={styles.fpasswordIcon}
+              source={{
+                uri:
+                  'https://tse4.mm.bing.net/th?id=OIP.-Of0VjQL5FFB-DYzDlQPigHaHa&pid=Api&P=0&w=300&h=300',
+              }}
+            />
             <TouchableHighlight style={styles.headingContainer}>
-              <Text style={styles.signin}>LOGIN{'\n'}</Text>
+              <Text style={styles.signin}>Recover your Password{'\n'}</Text>
             </TouchableHighlight>
+            <View style={styles.line} />
+
             <View style={styles.inputContainer}>
               <Image
                 style={styles.inpIcons}
@@ -64,56 +73,12 @@ class LoginActivity extends Component {
               />
             </View>
 
-            <View style={styles.inputContainer}>
-              <Image
-                style={styles.inpIcons}
-                source={{
-                  uri:
-                    'https://library.kissclipart.com/20180829/iae/kissclipart-password-icon-clipart-password-computer-icons-clip-d813f06606bcdc9a.png',
-                }}
-              />
-              <TextInput
-                style={styles.inputs}
-                placeholder="Password"
-                secureTextEntry={true}
-                returnKeyType="go"
-                //underlineColorAndroid='transparent'
-                onChangeText={password => this.setState({password})}
-              />
-            </View>
-
             <TouchableOpacity
               style={[styles.buttonContainer, styles.loginButton]}
               onPress={() =>
                 this.props.navigation.navigate('StudentHomeScreen')
               }>
-              <Text style={styles.loginText}>Login</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.buttonContainerForgetPwd}
-              onPress={() =>
-                this.props.navigation.navigate('ForgotPasswordScreen')
-              }>
-              <Text style={styles.forgetPwd}>Forgot Password?</Text>
-            </TouchableOpacity>
-
-            <View style={styles.line} />
-
-            <TouchableHighlight>
-              <Text>New on FYP PORTAL?{'\n'}</Text>
-            </TouchableHighlight>
-
-            <TouchableOpacity
-              style={[styles.buttonContainer, styles.registerButton]}
-              onPress={() => this.props.navigation.navigate('Signup')}>
-              <Text>Register as Student</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={[styles.buttonContainer, styles.registerButton]}
-              onPress={() => this.props.navigation.navigate('Signup')}>
-              <Text>Register as Advisor</Text>
+              <Text style={styles.loginText}>Get Verification Code</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -133,6 +98,16 @@ const styles = StyleSheet.create({
     marginTop: 10,
     height: 150,
     width: 150,
+    resizeMode: 'contain',
+    alignItems: 'center',
+  },
+  fpasswordIcon: {
+    flex: 1,
+    padding: 10,
+    marginTop: 5,
+    marginBottom: 20,
+    height: 40,
+    width: 40,
     resizeMode: 'contain',
     alignItems: 'center',
   },
@@ -251,4 +226,4 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 });
-export default LoginActivity;
+export default ForgotPassword;

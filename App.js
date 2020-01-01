@@ -42,6 +42,7 @@ import AppointmentViewScreen from './requestScreens/AppointmentView';
 import AdvisorAppointmentsActivity from './AdvisorBottomNavigation/AdvisorAppointmentRequests';
 import AdvisorFypRequestActivity from './AdvisorBottomNavigation/AdvisorFYPRequests';
 import AdvisorChat from './AdvisorBottomNavigation/AdvisorChat';
+import ForgotPassword from './LoginSignupScreens/ForgotPassword';
 
 const StudentTabNavigator = createMaterialBottomTabNavigator(
   {
@@ -309,6 +310,12 @@ const MainNavigator = createStackNavigator({
   },
   StudentHomeScreen: {
     screen: MyDrawerNavigator,
+    navigationOptions: ({navigation}) => ({
+      header: null,
+    }),
+  },
+  ForgotPasswordScreen: {
+    screen: ForgotPassword,
     navigationOptions: ({navigation}) => ({
       header: null,
     }),
