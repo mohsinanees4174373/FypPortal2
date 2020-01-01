@@ -5,6 +5,7 @@
  * @format
  * @flow
  */
+<<<<<<< HEAD
 
 import React, {Component} from 'react';
 import Button  from "react-native-button";
@@ -12,6 +13,9 @@ import { AppStyles } from "../styles/RequestFormStyle";
 import {styles } from "../styles/FYPRequestStyles";
 
 
+=======
+import React, {Component} from 'react';
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
 import {
   StyleSheet,
   Text,
@@ -31,7 +35,6 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
 class FYPRequestScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -55,7 +58,6 @@ class FYPRequestScreen extends React.Component {
       member: '',
     };
   }
-
   render() {
     return (
       <View style={styles.container}>
@@ -69,7 +71,14 @@ class FYPRequestScreen extends React.Component {
                 source={require('../assets/icons/person.png')}
                 style={styles.Icon}
               />
+<<<<<<< HEAD
             <Image source = {require('../assets/icons/person.png')} style={styles.Icon}/>
+=======
+              <Image
+                source={require('../assets/icons/person.png')}
+                style={styles.Icon}
+              />
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
               <TextInput
                 style={styles.body}
                 placeholder="Full Name"
@@ -80,14 +89,20 @@ class FYPRequestScreen extends React.Component {
               />
             </View>
           </View>
-
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
               <Image
                 source={require('../assets/icons/id.jpg')}
                 style={styles.idIcon}
               />
+<<<<<<< HEAD
             <Image source = {require('../assets/icons/id.jpg')} style={styles.idIcon}/>
+=======
+              <Image
+                source={require('../assets/icons/id.jpg')}
+                style={styles.idIcon}
+              />
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
               <TextInput
                 style={styles.body}
                 placeholder="Roll Number"
@@ -98,14 +113,20 @@ class FYPRequestScreen extends React.Component {
               />
             </View>
           </View>
-
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
               <Image
                 source={require('../assets/icons/project.jpg')}
                 style={styles.Icon}
               />
+<<<<<<< HEAD
             <Image source = {require('../assets/icons/project.jpg')} style={styles.Icon}/>
+=======
+              <Image
+                source={require('../assets/icons/project.jpg')}
+                style={styles.Icon}
+              />
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
               <TextInput
                 style={styles.body}
                 placeholder="Project Name"
@@ -116,7 +137,6 @@ class FYPRequestScreen extends React.Component {
               />
             </View>
           </View>
-
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
               <Image
@@ -132,20 +152,30 @@ class FYPRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
+<<<<<<< HEAD
             </View>
 
+=======
+          </View>
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
           <View style={styles.SectionStyle}>
-          <Image source = {require('../assets/icons/count.png')} style={styles.Icon}/>
+            <Image
+              source={require('../assets/icons/count.png')}
+              style={styles.Icon}
+            />
             <TextInput
               style={styles.body}
               placeholder="Group members count"
-              onChangeText={text => this.setState({ memberCount: text })}
+              onChangeText={text => this.setState({memberCount: text})}
               value={this.state.memberCount}
               placeholderTextColor={AppStyles.color.grey}
               underlineColorAndroid="transparent"
             />
           </View>
+<<<<<<< HEAD
 
+=======
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
               <Image
@@ -169,6 +199,7 @@ class FYPRequestScreen extends React.Component {
                 <Picker.Item label="Taimoor" value="Taimoor" />
               </Picker>
             </View>
+<<<<<<< HEAD
            </View>
 
         <View style={styles.InputContainer}>
@@ -197,11 +228,48 @@ class FYPRequestScreen extends React.Component {
 
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
+=======
+          </View>
+          <View style={styles.InputContainer}>
+            <View style={styles.SectionStyle}>
+              <Image
+                source={require('../assets/icons/group.png')}
+                style={styles.groupIcon}
+              />
+              <Picker
+                selectedValue={this.state.member}
+                onValueChange={(itemValue, itemIndex) =>
+                  this.setState({member: itemValue})
+                }
+                itemStyle={styles.menuItem}
+                style={styles.picker}
+                mode={'dropdown'}
+                placeholder="Select a value">
+                >
+                <Picker.Item label="Select Member" />
+                <Picker.Item label="Aroob" value="Aroob" />
+                <Picker.Item label="Fatima" value="Fatima" />
+                <Picker.Item label="Mahroosh" value="Mahroosh" />
+                <Picker.Item label="Mohsin" value="Mohsin" />
+                <Picker.Item label="Taimoor" value="Taimoor" />
+              </Picker>
+            </View>
+          </View>
+          <View style={styles.InputContainer}>
+            <View style={styles.SectionStyle}>
               <Image
                 source={require('../assets/icons/tech.png')}
                 style={styles.techIcon}
               />
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
+              <Image
+                source={require('../assets/icons/tech.png')}
+                style={styles.techIcon}
+              />
+<<<<<<< HEAD
             <Image source = {require('../assets/icons/tech.png')} style={styles.techIcon}/>
+=======
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
               <TextInput
                 style={styles.body}
                 placeholder="Technology"
@@ -212,14 +280,20 @@ class FYPRequestScreen extends React.Component {
               />
             </View>
           </View>
-
           <View style={styles.InputContainer}>
             <View style={styles.description}>
               <Image
                 source={require('../assets/icons/pen.png')}
                 style={styles.Icon}
               />
+<<<<<<< HEAD
               <Image source = {require('../assets/icons/pen.png')} style={styles.Icon}/>
+=======
+              <Image
+                source={require('../assets/icons/pen.png')}
+                style={styles.Icon}
+              />
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
               <TextInput
                 style={styles.purpose}
                 placeholder="Project Description"
@@ -233,7 +307,6 @@ class FYPRequestScreen extends React.Component {
               />
             </View>
           </View>
-
           <Button
             containerStyle={[
               styles.facebookContainer,
@@ -248,5 +321,4 @@ class FYPRequestScreen extends React.Component {
     );
   }
 }
-
 export default FYPRequestScreen;

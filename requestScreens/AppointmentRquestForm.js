@@ -5,7 +5,10 @@
  * @format
  * @flow
  */
+<<<<<<< HEAD
 
+=======
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
 import React, {Component} from 'react';
 import {
   StyleSheet,
@@ -21,12 +24,13 @@ import Button from 'react-native-button';
 import {AppStyles} from '../styles/RequestFormStyle';
 import {styles} from '../styles/AppointmentRequestStyles';
 import DatePicker from 'react-native-datepicker';
+<<<<<<< HEAD
 
+=======
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
-
 import {SafeAreaView, ScrollView, StatusBar} from 'react-native';
-
 import {
   Header,
   LearnMoreLinks,
@@ -34,11 +38,9 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
 class AppointmentRequestScreen extends React.Component {
   constructor(props) {
     super(props);
-
     YellowBox.ignoreWarnings([
       'Warning: componentWillMount is deprecated',
       'Warning: componentWillReceiveProps is deprecated',
@@ -47,7 +49,6 @@ class AppointmentRequestScreen extends React.Component {
       'Warning: DatePickerAndroid has been merged with DatePickerIOS',
       'Warning: TimePickerAndroid has been merged with DatePickerIOS',
     ]);
-
     this.state = {
       loading: true,
       fullname: '',
@@ -57,11 +58,13 @@ class AppointmentRequestScreen extends React.Component {
       members: '',
     };
   }
-
   render() {
     return (
       <ScrollView>
+<<<<<<< HEAD
 
+=======
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
         <View style={styles.container}>
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
@@ -78,6 +81,7 @@ class AppointmentRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
+<<<<<<< HEAD
             </View>           
         
         <View style={styles.InputContainer}>
@@ -95,6 +99,9 @@ class AppointmentRequestScreen extends React.Component {
           </View>
         </View>
 
+=======
+          </View>
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
               <Image
@@ -110,6 +117,7 @@ class AppointmentRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
+<<<<<<< HEAD
             </View>
 
         <View style={styles.InputContainer}>
@@ -127,6 +135,9 @@ class AppointmentRequestScreen extends React.Component {
           </View>
           </View>
 
+=======
+          </View>
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
           <View style={styles.DateTimeContainer}>
             <View style={styles.DateSectionStyle}>
               <Image
@@ -157,7 +168,6 @@ class AppointmentRequestScreen extends React.Component {
                 }}
               />
             </View>
-
             <View style={styles.TimeSectionStyle}>
               <Image
                 source={require('../assets/icons/time.png')}
@@ -185,6 +195,7 @@ class AppointmentRequestScreen extends React.Component {
                 }}
               />
             </View>
+<<<<<<< HEAD
             </View>
 
         <View style={styles.DateTimeContainer}>
@@ -240,6 +251,9 @@ class AppointmentRequestScreen extends React.Component {
           </View>
           </View>
 
+=======
+          </View>
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
           <View style={styles.InputContainer}>
             <View style={styles.description}>
               <Image
@@ -258,6 +272,7 @@ class AppointmentRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
+<<<<<<< HEAD
             </View>
 
         <View style={styles.InputContainer} >
@@ -274,6 +289,8 @@ class AppointmentRequestScreen extends React.Component {
             
             underlineColorAndroid="transparent"
           />
+=======
+>>>>>>> b663787b2935002be1cc0eff4703224687152b00
           </View>
           </View>
 
