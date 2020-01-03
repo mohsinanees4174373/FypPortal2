@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import {
   StyleSheet,
   Text,
@@ -31,19 +30,16 @@ import AdvisorsListActivity from './StudentBottomNavigationScreens/AdvisorsListA
 import FypRequestActivity from './StudentBottomNavigationScreens/FypRequestActivity';
 import FYPRequestScreen from './requestScreens/FypRequestForm';
 import AppointmentRequestScreen from './requestScreens/AppointmentRquestForm';
-
 import Chats from './StudentBottomNavigationScreens/Chats';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import HamburgerIcon from './StudentHomeAfterLogin/HamburgerIcon';
 import Custom_Side_Menu from './StudentHomeAfterLogin/Custom_Side_ Menu';
-
 import FypRequestViewScreen from './requestScreens/FypRequestView';
 import AppointmentViewScreen from './requestScreens/AppointmentView';
 import AdvisorAppointmentsActivity from './AdvisorBottomNavigation/AdvisorAppointmentRequests';
 import AdvisorFypRequestActivity from './AdvisorBottomNavigation/AdvisorFYPRequests';
 import AdvisorChat from './AdvisorBottomNavigation/AdvisorChat';
 import ForgotPassword from './LoginSignupScreens/ForgotPassword';
-
 const StudentTabNavigator = createMaterialBottomTabNavigator(
   {
     // Second: {
