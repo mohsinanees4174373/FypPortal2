@@ -53,7 +53,7 @@ class Custom_Side_Menu extends Component {
               <Text
                 style={styles.menuText}
                 onPress={() => {
-                  this.props.navigation.navigate('First');}}>Home</Text>
+                  this.props.navigation.navigate('StudentHome');}}>Home</Text>
   
             </View>
             <View
@@ -73,34 +73,16 @@ class Custom_Side_Menu extends Component {
               <Text
                 style={styles.menuText}
                 onPress={() => {
-                  this.props.navigation.navigate('Second');
+                  this.props.navigation.navigate('StudentEditProfile');
                 }}>
                 {' '}
                 Edit Profile{' '}
               </Text>
             </View>
+
+
   
-            <View
-              style={{flexDirection: 'row', alignItems: 'center', marginTop: 
-  
-  20}}>
-              <Image
-                source={{
-                  uri:
-                    'https://image.flaticon.com/icons/png/512/60/60473.png',
-                }}
-                style={styles.sideMenuIcon}
-              />
-  
-              <Text
-                style={styles.menuText}
-                onPress={() => {
-                  this.props.navigation.navigate('Third');
-                }}>
-                {' '}
-                Settings{' '}
-              </Text>
-            </View>
+            
   
   
             <View
@@ -117,11 +99,9 @@ class Custom_Side_Menu extends Component {
               <Text
                 style={styles.menuText}
                 onPress={() => {
-                  this.props.navigation.navigate('Fourth');}}>About Us</Text>
+                  this.props.navigation.navigate('AboutUs');}}>About Us</Text>
   
             </View>
-  
-  
             <View
               style={{flexDirection: 'row', alignItems: 'center', marginTop: 
   
@@ -129,20 +109,36 @@ class Custom_Side_Menu extends Component {
               <Image
                 source={{
                   uri:
-                    
-  
-  'https://image.flaticon.com/icons/png/512/1898/1898105.png',
+                    'https://image.flaticon.com/icons/png/512/15/15659.png',
                 }}
                 style={styles.sideMenuIcon}
               />
               <Text
                 style={styles.menuText}
                 onPress={() => {
-                  this.props.navigation.navigate('Fifth');}}>Contact 
-  
-  Us</Text>
+                  this.props.navigation.navigate('ContactUs');}}>Contact Us</Text>
   
             </View>
+            <View
+              style={{flexDirection: 'row', alignItems: 'center', marginTop: 
+  
+  20}}>
+              <Image
+                source={{
+                  uri:
+                    'https://image.flaticon.com/icons/png/512/15/15659.png',
+                }}
+                style={styles.sideMenuIcon}
+              />
+              <Text
+                style={styles.menuText}
+                onPress={() => {
+                  this.props.navigation.navigate('Settings');}}>Settings</Text>
+  
+            </View>
+  
+  
+            
   
           </View>
   

@@ -17,7 +17,7 @@ import {
   Image,
 } from 'react-native';
 
-import { GiftedChat } from 'react-native-gifted-chat';
+import {GiftedChat} from 'react-native-gifted-chat';
 
 export default class ChatActivity extends Component {
   state = {
@@ -28,18 +28,17 @@ export default class ChatActivity extends Component {
       messages: [
         {
           _id: 1,
-          text: "Hello :)",
+          text: 'Hello :)',
           createdAt: new Date(),
           user: {
             _id: 2,
-            name: "React Native",
-            avatar: "https://placeimg.com/140/140/any",
+            name: 'React Native',
+            avatar: 'https://placeimg.com/140/140/any',
           },
-            image: 'https://reactjs.org/logo-og.png',
+          image: 'https://reactjs.org/logo-og.png',
           // You can also add a video prop:
-            //video: 'https://www.youtube.com/watch?v=LT06zadR_fo',
+          //video: 'https://www.youtube.com/watch?v=LT06zadR_fo',
           // Any additional custom parameters are passed through
-
         },
       ],
     });
@@ -51,8 +50,7 @@ export default class ChatActivity extends Component {
   }
   render() {
     return (
-        
-        <GiftedChat
+      <GiftedChat
         messages={this.state.messages}
         onSend={messages => this.onSend(messages)}
         user={{

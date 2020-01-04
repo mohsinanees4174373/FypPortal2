@@ -5,7 +5,7 @@ import {StyleSheet, Text, View, Button, YellowBox} from 'react-native';
 import {BottomNavigation} from 'react-native-paper';
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 
-class ThirdActivity extends Component {
+class SettingsActivity extends Component {
   constructor(props) {
     super(props);
 
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ThirdActivity;
+export default SettingsActivity;

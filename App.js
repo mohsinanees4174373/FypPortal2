@@ -22,10 +22,8 @@ import LoginActivity from './LoginSignupScreens/LoginActivity';
 import AppointmentsActivity from './StudentBottomNavigationScreens/AppointmentsActivity';
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import SecondActivity from './sidebarNavigationScreens/EditProfileActivity';
-import ThirdActivity from './sidebarNavigationScreens/SettingsActivity';
-import FourthActivity from './sidebarNavigationScreens/AboutUsActivity';
-import FifthActivity from './sidebarNavigationScreens/ContactUsActivity';
+import StudentEditProfileActivity from './sidebarNavigationScreens/EditProfileActivity';
+import AboutUsActivity from './sidebarNavigationScreens/AboutUsActivity';
 import AdvisorsListActivity from './StudentBottomNavigationScreens/AdvisorsListActivity';
 import FypRequestActivity from './StudentBottomNavigationScreens/FypRequestActivity';
 import FYPRequestScreen from './requestScreens/FypRequestForm';
@@ -40,6 +38,8 @@ import AdvisorAppointmentsActivity from './AdvisorBottomNavigation/AdvisorAppoin
 import AdvisorFypRequestActivity from './AdvisorBottomNavigation/AdvisorFYPRequests';
 import AdvisorChat from './AdvisorBottomNavigation/AdvisorChat';
 import ForgotPassword from './LoginSignupScreens/ForgotPassword';
+import SettingsActivity from './sidebarNavigationScreens/SettingsActivity';
+import ContactUsActivity from './sidebarNavigationScreens/ContactUsActivity';
 const StudentTabNavigator = createMaterialBottomTabNavigator(
   {
     // Second: {
@@ -191,8 +191,8 @@ const AdvisorTabNavigator = createMaterialBottomTabNavigator(
     barStyle: {backgroundColor: '#fff'},
   },
 );
-const FirstActivity_StackNavigator = createStackNavigator({
-  First: {
+const StudentHome_StackNavigator = createStackNavigator({
+  StudentHome: {
     screen: StudentTabNavigator,
     navigationOptions: ({navigation}) => ({
       title: 'Home',
@@ -205,10 +205,9 @@ const FirstActivity_StackNavigator = createStackNavigator({
     }),
   },
 });
-
-const SecondActivity_StackNavigator = createStackNavigator({
-  Second: {
-    screen: SecondActivity,
+const StudentEditProfileActivity_StackNavigator = createStackNavigator({
+  StudentEditProfile: {
+    screen: StudentEditProfileActivity,
     navigationOptions: ({navigation}) => ({
       title: 'Edit Profile',
       headerLeft: <HamburgerIcon navigationProps={navigation} />,
@@ -221,24 +220,9 @@ const SecondActivity_StackNavigator = createStackNavigator({
   },
 });
 
-const ThirdActivity_StackNavigator = createStackNavigator({
-  Third: {
-    screen: ThirdActivity,
-    navigationOptions: ({navigation}) => ({
-      title: 'Settings',
-      headerLeft: <HamburgerIcon navigationProps={navigation} />,
-
-      headerStyle: {
-        backgroundColor: '#2B60DE',
-      },
-      headerTintColor: '#fff',
-    }),
-  },
-});
-
-const FourthActivity_StackNavigator = createStackNavigator({
-  Fourth: {
-    screen: FourthActivity,
+const AboutUsActivity_StackNavigator = createStackNavigator({
+  AboutUs: {
+    screen: AboutUsActivity,
     navigationOptions: ({navigation}) => ({
       title: 'About Us',
       headerLeft: <HamburgerIcon navigationProps={navigation} />,
@@ -250,12 +234,25 @@ const FourthActivity_StackNavigator = createStackNavigator({
     }),
   },
 });
-
-const FifthActivity_StackNavigator = createStackNavigator({
-  Fourth: {
-    screen: FifthActivity,
+const ContactUsActivity_StackNavigator = createStackNavigator({
+  ContactUs: {
+    screen: ContactUsActivity,
     navigationOptions: ({navigation}) => ({
-      title: 'Contact Us',
+      title: 'Settings',
+      headerLeft: <HamburgerIcon navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: '#2B60DE',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+const SettingsActivity_StackNavigator = createStackNavigator({
+  Settings: {
+    screen: SettingsActivity,
+    navigationOptions: ({navigation}) => ({
+      title: 'Settings',
       headerLeft: <HamburgerIcon navigationProps={navigation} />,
 
       headerStyle: {
@@ -269,20 +266,20 @@ const FifthActivity_StackNavigator = createStackNavigator({
 const MyDrawerNavigator = createDrawerNavigator(
   {
     MainStack: {
-      screen: FirstActivity_StackNavigator,
+      screen: StudentHome_StackNavigator,
     },
     SecondStack: {
-      screen: SecondActivity_StackNavigator,
+      screen: StudentEditProfileActivity_StackNavigator,
     },
 
     ThirdStack: {
-      screen: ThirdActivity_StackNavigator,
+      screen: AboutUsActivity_StackNavigator,
     },
     FourthStack: {
-      screen: FourthActivity_StackNavigator,
+      screen: ContactUsActivity_StackNavigator,
     },
     FifthStack: {
-      screen: FifthActivity_StackNavigator,
+      screen: SettingsActivity_StackNavigator,
     },
   },
   {
