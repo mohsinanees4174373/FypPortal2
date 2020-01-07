@@ -1,26 +1,33 @@
 /* eslint-disable no-undef */
 import React, {Component} from 'react';
-import {StyleSheet,FlatList, Text, View, Button, YellowBox} from 'react-native';
+import {
+  StyleSheet,
+  FlatList,
+  Text,
+  View,
+  Button,
+  YellowBox,
+} from 'react-native';
 import {BottomNavigation} from 'react-native-paper';
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 import faker from 'faker';
-import {SearchBar,ListItem} from 'react-native-elements';
+import {SearchBar, ListItem} from 'react-native-elements';
 class AdvisorsListActivity extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],      
-      search:'',
+      data: [],
+      search: '',
     };
     this.arrayholder = [];
-    for (i=0 ; i <30 ; i++)
-    {
+    for (i = 0; i < 30; i++) {
       this.state.data.push({
-      id : i,
-      avatar_url: faker.image.avatar(),
-      name : faker.name.firstName(),
-      description: faker.random.words(5),    
-    })}
+        id: i,
+        avatar_url: faker.image.avatar(),
+        name: faker.name.firstName(),
+        description: faker.random.words(5),
+      });
+    }
     this.arrayholder = this.state.data;
 
     YellowBox.ignoreWarnings([
@@ -28,61 +35,70 @@ class AdvisorsListActivity extends Component {
       'Warning: componentWillReceiveProps is deprecated',
     ]);
   }
-  navigateToProfile=(item)=>(
-    this.props.navigation.navigate('Stu_AdvisorProfile',
-    {
-      image : faker.image.avatar(),
+  navigateToProfile = item =>
+    this.props.navigation.navigate('Stu_AdvisorProfile', {
+      image: faker.image.avatar(),
       name: item.name,
-      description : item.description,
+      description: item.description,
       slots: 2,
-      available:true
-    }) )
+      available: true,
+    });
 
-  searchFilterFunction = text => {   
-    const newData = this.arrayholder.filter(item => {      
-      const itemData = `${item.name[0].toUpperCase()}`;      
-      const textData = text.toUpperCase();       
-           return itemData.indexOf(textData) > -1;    
-        });  
-      this.setState({ data: newData ,search:text});  
-      };
+  searchFilterFunction = text => {
+    const newData = this.arrayholder.filter(item => {
+      const itemData = `${item.name[0].toUpperCase()}`;
+      const textData = text.toUpperCase();
+      return itemData.indexOf(textData) > -1;
+    });
+    this.setState({data: newData, search: text});
+  };
 
-  keyExtractor = (item, index) => index.toString()
+  keyExtractor = (item, index) => index.toString();
 
-  renderItem = ({ item }) => (
+  renderItem = ({item}) => (
     <ListItem
       title={item.name}
       titleStyle={styles.title}
       subtitle={item.description}
-      leftAvatar={{ source: { uri: item.avatar_url } ,size:70}}
+      leftAvatar={{source: {uri: item.avatar_url}, size: 70}}
       bottomDivider
-      chevron={{color:'#2b60de',raised:true,name:'visibility',size:20, onPress:this.navigateToProfile.bind(this,item) }}
+      chevron={{
+        color: '#2b60de',
+        raised: true,
+        name: 'visibility',
+        size: 20,
+        onPress: this.navigateToProfile.bind(this, item),
+      }}
     />
-    )
-    render() {
-      const { search } = this.state.search;
-    
-        return (
-          <View style={{flex:1}}>  
-            <SearchBar
-              placeholder="Search Advisor..."
-              onChangeText={this.searchFilterFunction}
-              value={search}
-              round={true}
-              inputContainerStyle={{borderRadius:20,backgroundColor:'#FFF',height:45}}
-              containerStyle={styles.container}
-              inputStyle={{color:'#2b60de'}}
-              searchIcon={{color:'#2b60de',size:28}}
-              clearIcon={{color:'#2b60de',size:28}}      
-          />
-            <FlatList
-              keyExtractor={this.keyExtractor}
-              data={this.state.data}
-              renderItem={this.renderItem}
-            />
-          </View>
-        );
-      }
+  );
+  render() {
+    const {search} = this.state.search;
+
+    return (
+      <View style={{flex: 1}}>
+        <SearchBar
+          placeholder="Search Advisor..."
+          onChangeText={this.searchFilterFunction}
+          value={search}
+          round={true}
+          inputContainerStyle={{
+            borderRadius: 20,
+            backgroundColor: '#FFF',
+            height: 45,
+          }}
+          containerStyle={styles.container}
+          inputStyle={{color: '#2b60de'}}
+          searchIcon={{color: '#2b60de', size: 28}}
+          clearIcon={{color: '#2b60de', size: 28}}
+        />
+        <FlatList
+          keyExtractor={this.keyExtractor}
+          data={this.state.data}
+          renderItem={this.renderItem}
+        />
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -121,10 +137,11 @@ const styles = StyleSheet.create({
     color: '#222222',
   },
   title: {
-    color:'#2b60de',fontWeight:'bold'
+    color: '#2b60de',
+    fontWeight: 'bold',
   },
   container: {
-    backgroundColor:'#2b60de'
+    backgroundColor: '#2b60de',
   },
 });
 

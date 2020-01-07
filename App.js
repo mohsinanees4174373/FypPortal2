@@ -40,8 +40,8 @@ import AdvisorChat from './AdvisorBottomNavigation/AdvisorChat';
 import ForgotPassword from './LoginSignupScreens/ForgotPassword';
 import SettingsActivity from './sidebarNavigationScreens/SettingsActivity';
 import ContactUsActivity from './sidebarNavigationScreens/ContactUsActivity';
-import Stu_AdvisorProfile from './ProfileScreens/Stu_AdvisorProfile'
-import Adv_AdvisorProfile from './ProfileScreens/Adv_AdvisorProfile'
+import Stu_AdvisorProfile from './ProfileScreens/Stu_AdvisorProfile';
+import Adv_AdvisorProfile from './ProfileScreens/Adv_AdvisorProfile';
 
 const StudentTabNavigator = createMaterialBottomTabNavigator(
   {
@@ -356,16 +356,16 @@ const MainNavigator = createStackNavigator({
       headerTintColor: '#fff',
     }),
   },
-  Adv_AdvisorProfile:{
+  Adv_AdvisorProfile: {
     screen: Adv_AdvisorProfile,
     navigationOptions: ({navigation}) => ({
-      headerShown:false,
+      headerShown: false,
     }),
   },
-  Stu_AdvisorProfile:{
+  Stu_AdvisorProfile: {
     screen: Stu_AdvisorProfile,
     navigationOptions: ({navigation}) => ({
-      headerShown:false,
+      headerShown: false,
     }),
   },
 });
