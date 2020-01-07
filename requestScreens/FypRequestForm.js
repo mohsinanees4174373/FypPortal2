@@ -5,19 +5,10 @@
  * @format
  * @flow
  */
-<<<<<<< HEAD
-
-import React, {Component} from 'react';
-import Button  from "react-native-button";
-import { AppStyles } from "../styles/RequestFormStyle";
-import {styles } from "../styles/FYPRequestStyles";
-
-=======
 import React, {Component} from 'react';
 import Button from 'react-native-button';
 import {AppStyles} from '../styles/RequestFormStyle';
 import {styles} from '../styles/FYPRequestStyles';
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
 import {
   StyleSheet,
   Text,
@@ -74,21 +65,14 @@ class FYPRequestScreen extends React.Component {
                 source={require('../assets/icons/person.png')}
                 style={styles.Icon}
               />
-<<<<<<< HEAD
-            <Image source = {require('../assets/icons/person.png')} style={styles.Icon}/>
-=======
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
               <Image
                 source={require('../assets/icons/person.png')}
                 style={styles.Icon}
               />
-<<<<<<< HEAD
-=======
               <Image
                 source={require('../assets/icons/person.png')}
                 style={styles.Icon}
               />
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
               <TextInput
                 style={styles.body}
                 placeholder="Full Name"
@@ -105,21 +89,14 @@ class FYPRequestScreen extends React.Component {
                 source={require('../assets/icons/id.jpg')}
                 style={styles.idIcon}
               />
-<<<<<<< HEAD
-            <Image source = {require('../assets/icons/id.jpg')} style={styles.idIcon}/>
-=======
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
               <Image
                 source={require('../assets/icons/id.jpg')}
                 style={styles.idIcon}
               />
-<<<<<<< HEAD
-=======
               <Image
                 source={require('../assets/icons/id.jpg')}
                 style={styles.idIcon}
               />
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
               <TextInput
                 style={styles.body}
                 placeholder="Roll Number"
@@ -136,21 +113,14 @@ class FYPRequestScreen extends React.Component {
                 source={require('../assets/icons/project.jpg')}
                 style={styles.Icon}
               />
-<<<<<<< HEAD
-            <Image source = {require('../assets/icons/project.jpg')} style={styles.Icon}/>
-=======
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
               <Image
                 source={require('../assets/icons/project.jpg')}
                 style={styles.Icon}
               />
-<<<<<<< HEAD
-=======
               <Image
                 source={require('../assets/icons/project.jpg')}
                 style={styles.Icon}
               />
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
               <TextInput
                 style={styles.body}
                 placeholder="Project Name"
@@ -176,11 +146,7 @@ class FYPRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
-<<<<<<< HEAD
-            </View>
-=======
           </View>
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
 
           <View style={styles.SectionStyle}>
             <Image
@@ -196,10 +162,7 @@ class FYPRequestScreen extends React.Component {
               underlineColorAndroid="transparent"
             />
           </View>
-<<<<<<< HEAD
-=======
 
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
               <Image
@@ -223,38 +186,10 @@ class FYPRequestScreen extends React.Component {
                 <Picker.Item label="Taimoor" value="Taimoor" />
               </Picker>
             </View>
-<<<<<<< HEAD
-           </View>
-
-        <View style={styles.InputContainer}>
-          <View style={styles.SectionStyle}>
-          <Image source = {require('../assets/icons/group.png')} style={styles.groupIcon}/>
-            <Picker
-            selectedValue={this.state.member}
-            onValueChange={(itemValue, itemIndex) =>
-            this.setState({member: itemValue})     
-            }
-            itemStyle={styles.menuItem}
-            style={styles.picker}
-            mode={"dropdown"}
-            placeholder="Select a value"
-            
-            >
-              <Picker.Item label="Select Member"   />
-              <Picker.Item label="Aroob" value="Aroob" />
-              <Picker.Item label="Fatima" value="Fatima" />
-              <Picker.Item label="Mahroosh" value="Mahroosh" />
-              <Picker.Item label="Mohsin" value="Mohsin" />
-              <Picker.Item label="Taimoor" value="Taimoor" />
-            </Picker>
-=======
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
           </View>
 
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
-<<<<<<< HEAD
-=======
               <Image
                 source={require('../assets/icons/group.png')}
                 style={styles.groupIcon}
@@ -281,7 +216,6 @@ class FYPRequestScreen extends React.Component {
 
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
               <Image
                 source={require('../assets/icons/group.png')}
                 style={styles.groupIcon}
@@ -315,14 +249,10 @@ class FYPRequestScreen extends React.Component {
                 source={require('../assets/icons/tech.png')}
                 style={styles.techIcon}
               />
-<<<<<<< HEAD
-            <Image source = {require('../assets/icons/tech.png')} style={styles.techIcon}/>
-=======
               <Image
                 source={require('../assets/icons/tech.png')}
                 style={styles.techIcon}
               />
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
               <TextInput
                 style={styles.body}
                 placeholder="Technology"
@@ -339,21 +269,14 @@ class FYPRequestScreen extends React.Component {
                 source={require('../assets/icons/pen.png')}
                 style={styles.Icon}
               />
-<<<<<<< HEAD
-              <Image source = {require('../assets/icons/pen.png')} style={styles.Icon}/>
-=======
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
               <Image
                 source={require('../assets/icons/pen.png')}
                 style={styles.Icon}
               />
-<<<<<<< HEAD
-=======
               <Image
                 source={require('../assets/icons/pen.png')}
                 style={styles.Icon}
               />
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
               <TextInput
                 style={styles.purpose}
                 placeholder="Project Description"

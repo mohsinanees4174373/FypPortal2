@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 import React, {Component} from 'react';
 
 import {
@@ -18,7 +17,7 @@ import {
 } from 'react-native';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
-class LoginActivity extends Component {
+class AdvisorEditProfileActivity extends Component {
   constructor(props) {
     super(props);
 
@@ -26,23 +25,6 @@ class LoginActivity extends Component {
       'Warning: componentWillMount is deprecated',
       'Warning: componentWillReceiveProps is deprecated',
     ]);
-    this.state = {
-      email: '',
-      password: '',
-    };
-  }
-  checkLogin() {
-    const {email, password} = this.state;
-    // eslint-disable-next-line eqeqeq
-    if (email == 'student@gmail.com' && password == 'student') {
-      this.props.navigation.navigate('StudentHomeScreen');
-    } else if (email == 'advisor@gmail.com' && password == 'advisor') {
-      this.props.navigation.navigate('AdvisorHomeScreen');
-    } else if (email == '' || password == '') {
-      Alert.alert('Email/Password cannot be empty!');
-    } else {
-      Alert.alert('Invalid Username/Password');
-    }
   }
 
   render() {
@@ -51,84 +33,82 @@ class LoginActivity extends Component {
         <ScrollView contentInsetAdjustmentBehavior="automatic">
           <View style={styles.container}>
             <Image
-              style={styles.logo}
-              source={{
-                uri:
-                  'https://paperpks.com/wp-content/uploads/2018/12/pucit.png',
-              }}
+              style={styles.image}
+              source={require('../assets/icons/a.jpg')}
             />
+            <TouchableOpacity
+              style={[styles.uploadbuttonContainer, styles.loginButton]}
+              onPress={() => this.props.navigation.navigate('')}>
+              <Text style={styles.loginText}>Upload Image</Text>
+            </TouchableOpacity>
             <TouchableHighlight style={styles.headingContainer}>
-              <Text style={styles.header}>FYP PORTAL</Text>
-            </TouchableHighlight>
-            <View style={styles.line} />
-            <TouchableHighlight style={styles.headingContainer}>
-              <Text style={styles.signin}>LOGIN{'\n'}</Text>
+              <Text style={styles.signin}>Name{'\n'}</Text>
             </TouchableHighlight>
             <View style={styles.inputContainer}>
               <Image
                 style={styles.inpIcons}
                 source={{
-                  uri: 'https://i.dlpng.com/static/png/287100_thumb.png',
+                  uri:
+                    'https://www.flaticon.com/premium-icon/icons/svg/2217/2217312.svg',
                 }}
               />
               <TextInput
                 style={styles.inputs}
-                placeholder="Your Email Address"
+                placeholder="Mohsin Anees"
+                placeholderTextColor="#000000"
                 returnKeyType="next"
                 keyboardType="email-address"
                 //underlineColorAndroid='transparent'
                 onChangeText={email => this.setState({email})}
               />
             </View>
+            <TouchableHighlight style={styles.headingContainer}>
+              <Text style={styles.signin}>Advisor Email Address{'\n'}</Text>
+            </TouchableHighlight>
 
             <View style={styles.inputContainer}>
               <Image
                 style={styles.inpIcons}
                 source={{
                   uri:
-                    'https://i.pinimg.com/originals/4d/eb/3c/4deb3c920b25c70288af20d66c559b72.png',
+                    'https://www.flaticon.com/premium-icon/icons/svg/2217/2217312.svg',
                 }}
               />
               <TextInput
                 style={styles.inputs}
-                placeholder="Password"
+                placeholder="mochinanees@gmail.com"
+                placeholderTextColor="#000000"
                 secureTextEntry={true}
                 returnKeyType="go"
                 //underlineColorAndroid='transparent'
                 onChangeText={password => this.setState({password})}
               />
             </View>
-
+            <TouchableHighlight style={styles.headingContainer}>
+              <Text style={styles.signin}>Advisor Phone Number{'\n'}</Text>
+            </TouchableHighlight>
+            <View style={styles.inputContainer}>
+              <Image
+                style={styles.inpIcons}
+                source={{
+                  uri:
+                    'https://www.flaticon.com/premium-icon/icons/svg/2217/2217312.svg',
+                }}
+              />
+              <TextInput
+                style={styles.inputs}
+                placeholder="+923204174373"
+                placeholderTextColor="#000000"
+                secureTextEntry={true}
+                returnKeyType="go"
+                //underlineColorAndroid='transparent'
+                onChangeText={password => this.setState({password})}
+              />
+            </View>
             <TouchableOpacity
               style={[styles.buttonContainer, styles.loginButton]}
-              onPress={() => this.checkLogin()}>
-              <Text style={styles.loginText}>Login</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.buttonContainerForgetPwd}
-              onPress={() =>
-                this.props.navigation.navigate('ForgotPasswordScreen')
-              }>
-              <Text style={styles.forgetPwd}>Forgot Password?</Text>
-            </TouchableOpacity>
-
-            <View style={styles.line} />
-
-            <TouchableHighlight>
-              <Text>New on FYP PORTAL?{'\n'}</Text>
-            </TouchableHighlight>
-
-            <TouchableOpacity
-              style={[styles.buttonContainer, styles.registerButton]}
-              onPress={() => this.props.navigation.navigate('Signup')}>
-              <Text>Register as Student</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={[styles.buttonContainer, styles.registerButton]}
-              onPress={() => this.props.navigation.navigate('AdvisorSignup')}>
-              <Text>Register as Advisor</Text>
+              onPress={() => this.props.navigation.navigate('')}>
+              <Text style={styles.loginText}>Save Changes</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -148,46 +128,43 @@ const styles = StyleSheet.create({
     marginTop: 10,
     height: 150,
     width: 150,
+    borderRadius: 50,
+    borderWidth: 1,
+    borderColor: 'rgba(0,0,0,0.2)',
     resizeMode: 'contain',
     alignItems: 'center',
   },
   headingContainer: {
     flex: 1,
-    height: 50,
+    height: 22,
     //width: 200,
     flexDirection: 'row',
-    alignItems: 'center',
   },
-  header: {
-    flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    //height: 150,
-    //width: 150,
-    textAlign: 'center',
-    fontSize: 22,
-    fontWeight: 'bold',
-    fontFamily: 'serif',
-    color: 'black',
-    //textDecorationLine: 'underline'
-  },
+
   signin: {
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
     //height: 150,
     //width: 150,
-    textAlign: 'center',
-    fontSize: 20,
+    fontSize: 14,
     fontWeight: 'bold',
     fontFamily: 'serif',
     color: '#2B60DE',
+    marginLeft: 20,
+
     //textDecorationLine: 'underline'
+  },
+  image: {
+    marginTop: 20,
+    height: 128,
+    width: 128,
+    borderRadius: 64,
   },
   inpIcons: {
     padding: 10,
-    marginLeft: 10,
-    height: 25,
+    marginLeft: 7,
+    height: 23,
     width: 25,
     resizeMode: 'stretch',
     alignItems: 'center',
@@ -195,14 +172,14 @@ const styles = StyleSheet.create({
   inputContainer: {
     borderColor: '#2B60DE',
     //backgroundColor: '#FFFFFF',
-    borderRadius: 50,
+    borderRadius: 10,
     borderWidth: 1,
     //width:300,
     alignSelf: 'stretch',
     marginLeft: 20,
     marginRight: 20,
-    height: 35,
-    marginBottom: 20,
+    height: 32,
+    marginBottom: 15,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -221,22 +198,34 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     //marginBottom:10,
     //width:300,
-    borderRadius: 50,
+    borderRadius: 10,
     alignSelf: 'stretch',
     marginLeft: 20,
     marginRight: 20,
   },
-  buttonContainerForgetPwd: {
-    flex: 1,
-    height: 45,
-    //flexDirection: 'row',
-    //justifyContent: 'center',
-    //alignItems: 'right',
+  uploadbuttonContainer: {
+    height: 37,
     //marginBottom:10,
     //width:300,
-    //borderRadius: 50,
-    alignSelf: 'stretch',
-    //marginLeft: 220,
+    borderRadius: 10,
+    width: 100,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 30,
+    marginTop: 15,
+  },
+  buttonContainerForgetPwd: {
+    flex: 0,
+    height: 45,
+    flexDirection: 'row',
+    //justifyContent: 'center',
+    alignItems: 'center',
+    //marginBottom:10,
+    //width:300,
+    borderRadius: 50,
+    //alignSelf: 'stretch',
+    marginLeft: 220,
     marginRight: 10,
   },
   forgetPwd: {
@@ -266,4 +255,4 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 });
-export default LoginActivity;
+export default AdvisorEditProfileActivity;
