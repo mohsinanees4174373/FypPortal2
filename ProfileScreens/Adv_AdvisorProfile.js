@@ -173,7 +173,7 @@ export default class Adv_AdvisorProfile extends Component {
                   icon={{name: 'visibility', size: 25, color: '#FFF'}}
                   buttonStyle={styles.buttonStyle}
                   title="View Requests"
-                  onPress={this.navigateToFYPForm}
+                  onPress={this.navigateToFypForm}
                 />
               </View>
 

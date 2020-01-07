@@ -113,7 +113,7 @@ export default class Stu_AdvisorProfile extends Component {
                 icon={{name: 'send', size: 25, color: '#FFF'}}
                 buttonStyle={styles.buttonStyle}
                 title="Send Request"
-                onPress={this.navigateToFYPForm}
+                onPress={() => this.props.navigation.navigate('FypForm')}
               />
             </View>
 
