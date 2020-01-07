@@ -10,11 +10,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "faker": "^4.1.0",
     "jetifier": "^1.6.5",
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-button": "^2.4.0",
     "react-native-datepicker": "^1.7.2",
+    "react-native-elements": "^1.2.7",
     "react-native-email": "^1.0.2",
     "react-native-fontawesome": "^7.0.0",
     "react-native-gesture-handler": "^1.5.2",
@@ -22,6 +24,8 @@
     "react-native-paper": "^3.3.0",
     "react-native-reanimated": "^1.4.0",
     "react-native-screens": "1.0.0-alpha.23",
+    "react-native-stars": "^1.1.6",
+    "react-native-switch-toggle": "^1.1.4",
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^4.0.10",
     "react-navigation-drawer": "^2.3.3",

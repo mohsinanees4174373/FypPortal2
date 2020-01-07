@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -21,10 +22,15 @@ import Button from 'react-native-button';
 import {AppStyles} from '../styles/RequestFormStyle';
 import {styles} from '../styles/AppointmentRequestStyles';
 import DatePicker from 'react-native-datepicker';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
+
 import {SafeAreaView, ScrollView, StatusBar} from 'react-native';
+
 import {
   Header,
   LearnMoreLinks,
@@ -32,9 +38,11 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
 class AppointmentRequestScreen extends React.Component {
   constructor(props) {
     super(props);
+
     YellowBox.ignoreWarnings([
       'Warning: componentWillMount is deprecated',
       'Warning: componentWillReceiveProps is deprecated',
@@ -43,6 +51,7 @@ class AppointmentRequestScreen extends React.Component {
       'Warning: DatePickerAndroid has been merged with DatePickerIOS',
       'Warning: TimePickerAndroid has been merged with DatePickerIOS',
     ]);
+
     this.state = {
       loading: true,
       fullname: '',
@@ -52,10 +61,14 @@ class AppointmentRequestScreen extends React.Component {
       members: '',
     };
   }
+
   render() {
     return (
       <ScrollView>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
         <View style={styles.container}>
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
@@ -72,6 +85,7 @@ class AppointmentRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
+<<<<<<< HEAD
             </View>           
         
         <View style={styles.InputContainer}>
@@ -88,6 +102,10 @@ class AppointmentRequestScreen extends React.Component {
 
           </View>
         </View>
+=======
+          </View>
+
+>>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
               <Image
@@ -103,6 +121,7 @@ class AppointmentRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
+<<<<<<< HEAD
             </View>
 
         <View style={styles.InputContainer}>
@@ -119,6 +138,10 @@ class AppointmentRequestScreen extends React.Component {
 
           </View>
           </View>
+=======
+          </View>
+
+>>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
           <View style={styles.DateTimeContainer}>
             <View style={styles.DateSectionStyle}>
               <Image
@@ -149,6 +172,7 @@ class AppointmentRequestScreen extends React.Component {
                 }}
               />
             </View>
+
             <View style={styles.TimeSectionStyle}>
               <Image
                 source={require('../assets/icons/time.png')}
@@ -165,7 +189,6 @@ class AppointmentRequestScreen extends React.Component {
                 onDateChange={time => {
                   this.setState({time: time});
                 }}
-                // eslint-disable-next-line react/jsx-no-duplicate-props
                 iconSource=""
                 customStyles={{
                   dateInput: {
@@ -176,6 +199,7 @@ class AppointmentRequestScreen extends React.Component {
                 }}
               />
             </View>
+<<<<<<< HEAD
             </View>
 
         <View style={styles.DateTimeContainer}>
@@ -231,6 +255,9 @@ class AppointmentRequestScreen extends React.Component {
           </View>
           </View>
 
+=======
+          </View>
+>>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
           <View style={styles.InputContainer}>
             <View style={styles.description}>
               <Image
@@ -249,6 +276,7 @@ class AppointmentRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
+<<<<<<< HEAD
             </View>
 
         <View style={styles.InputContainer} >
@@ -267,8 +295,9 @@ class AppointmentRequestScreen extends React.Component {
           />
 
           </View>
+=======
+>>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
           </View>
-
           <Button
             containerStyle={[
               styles.facebookContainer,

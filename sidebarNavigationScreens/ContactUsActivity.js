@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import {
   SafeAreaView,
@@ -13,9 +12,8 @@ import {
 } from 'react-native';
 import email from 'react-native-email';
 
-export default class FifthActivity extends Component {
-    
-    constructor(props) {
+export default class ContactUsActivity extends Component {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -23,75 +21,73 @@ export default class FifthActivity extends Component {
       message: '',
     };
   }
-    
+
   render() {
     return (
-        <ScrollView contentInsetAdjustmentBehavior="automatic">
-         <View style={styles.container}>    
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <View style={styles.container}>
+          <Image
+            style={styles.logo}
+            source={{
+              uri: 'https://paperpks.com/wp-content/uploads/2018/12/pucit.png',
+            }}
+          />
+
+          <View style={styles.line} />
+
+          <Text style={styles.heading}>
+            {'\n'}Get in Touch{'\n'}
+          </Text>
+
+          <View style={styles.inputContainer}>
             <Image
-              style={styles.logo}
+              style={styles.inpIcons}
               source={{
                 uri:
-                  'https://paperpks.com/wp-content/uploads/2018/12/pucit.png',
+                  'https://cdn1.iconfinder.com/data/icons/communication-bold-line-4/48/167-512.png',
               }}
             />
-            
-            <View style={styles.line} />
-       
-            <Text style={styles.heading}>
-                {'\n'}Get in Touch{'\n'}
-            </Text>
+            <TextInput
+              style={styles.inputs}
+              placeholder="Subject"
+              returnKeyType="next"
+              onChangeText={subject => this.setState({subject})}
+            />
+          </View>
 
-            <View style={styles.inputContainer}>
-              <Image
-                style={styles.inpIcons}
-                source={{
-                  uri:
-                    'https://cdn1.iconfinder.com/data/icons/communication-bold-line-4/48/167-512.png',
-                }}
-              />
-              <TextInput
-                style={styles.inputs}
-                placeholder="Subject"
-                returnKeyType="next"
-                onChangeText={subject => this.setState({subject})}
-              />
-            </View>
+          <View style={styles.inputMsgContainer}>
+            <Image
+              style={styles.inpIcons}
+              source={{
+                uri:
+                  'https://cdn4.iconfinder.com/data/icons/devine_icons/Black/PNG/System%20and%20Internet/JAVA.png',
+              }}
+            />
+            <TextInput
+              style={styles.inputs}
+              placeholder="Your Message Here"
+              returnKeyType="go"
+              multiline={true}
+              onChangeText={message => this.setState({message})}
+            />
+          </View>
 
-            <View style={styles.inputMsgContainer}>
-              <Image
-                style={styles.inpIcons}
-                source={{
-                  uri:
-                    'https://cdn4.iconfinder.com/data/icons/devine_icons/Black/PNG/System%20and%20Internet/JAVA.png',
-                }}
-              />
-              <TextInput
-                style={styles.inputs}
-                placeholder="Your Message Here"
-                returnKeyType="go"
-                multiline={true}
-                onChangeText={message => this.setState({message})}
-              />
-            </View>
-
-            <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]}
-            onPress={this.handleEmail.bind(this)}
-            >
-              <Text style={styles.buttonText}>Send Email</Text>
-            </TouchableOpacity>
-
-         </View>
-        </ScrollView>
+          <TouchableOpacity
+            style={[styles.buttonContainer, styles.loginButton]}
+            onPress={this.handleEmail.bind(this)}>
+            <Text style={styles.buttonText}>Send Email</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     );
   }
   handleEmail = () => {
-        const to = ['bsef16m010@pucit.edu.pk', 'mahroosh16hashmi@gmail.com'] // string or array of email addresses
-        email(to, {
-            subject: this.state.subject,
-            body: this.state.message
-        }).catch(console.error)
-    }
+    const to = ['bsef16m010@pucit.edu.pk', 'mahroosh16hashmi@gmail.com']; // string or array of email addresses
+    email(to, {
+      subject: this.state.subject,
+      body: this.state.message,
+    }).catch(console.error);
+  };
 }
 
 const styles = StyleSheet.create({

@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import {
   SafeAreaView,
@@ -10,66 +9,121 @@ import {
   Image,
 } from 'react-native';
 
-export default class FourthActivity extends Component {
-    
+export default class AboutUsActivity extends Component {
   render() {
     return (
-        <ScrollView contentInsetAdjustmentBehavior="automatic">
-         <View style={styles.container}>    
-            <Image
-              style={styles.logo}
-              source={{
-                uri:
-                  'https://paperpks.com/wp-content/uploads/2018/12/pucit.png',
-              }}
-            />
-            <Text style={styles.missionHeading}>
-                {'\n'}Our Mission
-            </Text>
-            <Text style={styles.mission}>
-                To reduce manual work and moves toward Smart Campus
-            </Text>
-            <View style={styles.line} />
-            <View style={styles.developerContainer}>
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <View style={styles.container}>
+          <Image
+            style={styles.logo}
+            source={{
+              uri: 'https://paperpks.com/wp-content/uploads/2018/12/pucit.png',
+            }}
+          />
+          <Text style={styles.missionHeading}>{'\n'}Our Mission</Text>
+          <Text style={styles.mission}>
+            To reduce manual work and moves toward Smart Campus
+          </Text>
+          <View style={styles.line} />
+          <View style={styles.developerContainer}>
             <Text>
+              <Image source={require('./mahroosh.jpg')} style={styles.myPic} />
+            </Text>
+            <Text>
+              {'\n'}
+              {'\n'}
+              {'\n'}
+              {'\n'} Mahroosh Hashmi{'\n'}
+              "Student of PUCIT. Developing{'\n'}this app as FYP and to provide
+              {'\n'}a digitized solution of FYP{'\n'}interaction problems."
+            </Text>
+          </View>
+          <View style={styles.developerContainer}>
+            <Text>
+              <Image source={require('./mypic.jpg')} style={styles.myPic} />
+            </Text>
+            <Text>
+              {'\n'}
+              {'\n'}
+              {'\n'}
+              {'\n'} Mohsin Anees{'\n'}
+              "Student of PUCIT. Developing{'\n'}this app as FYP and to provide
+              {'\n'}a digitized solution of FYP{'\n'}interaction problems."
+            </Text>
+          </View>
+          <View style={styles.developerContainer}>
+            <Text>
+              <Image source={require('./mypic.jpg')} style={styles.myPic} />
+            </Text>
+            <Text>
+<<<<<<< HEAD
                 <Image source={require('./mahroosh.jpg')} style={styles.myPic} /></Text>
                 <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'     '}Mahroosh Hashmi{'\n'}{'    '}
                 "Student of PUCIT. Developing{'\n'}{'    '}this app as FYP and to provide{'\n'}{'    '}a digitized solution of FYP{'\n'}{'    '}interaction problems."
+=======
+              {'\n'}
+              {'\n'}
+              {'\n'}
+              {'\n'} Aroob Kauser{'\n'}
+              "Student of PUCIT. Developing{'\n'}this app as FYP and to provide
+              {'\n'}a digitized solution of FYP{'\n'}interaction problems."
+>>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
             </Text>
-            </View>
-            <View style={styles.developerContainer}>
+          </View>
+          <View style={styles.developerContainer}>
             <Text>
+<<<<<<< HEAD
                 <Image source={require('./mypic.jpg')} style={styles.myPic} /></Text>
                 <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'     '}Mohsin Anees{'\n'}{'    '}
                 "Student of PUCIT. Developing{'\n'}{'    '}this app as FYP and to provide{'\n'}{'    '}a digitized solution of FYP{'\n'}{'    '}interaction problems."
+=======
+              <Image source={require('./mypic.jpg')} style={styles.myPic} />
+>>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
             </Text>
-            </View>
-            <View style={styles.developerContainer}>
             <Text>
+<<<<<<< HEAD
                 <Image source={require('./mypic.jpg')} style={styles.myPic} /></Text>
                 <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'     '}Aroob Kauser{'\n'}{'    '}
                 "Student of PUCIT. Developing{'\n'}{'    '}this app as FYP and to provide{'\n'}{'    '}a digitized solution of FYP{'\n'}{'    '}interaction problems."
+=======
+              {'\n'}
+              {'\n'}
+              {'\n'}
+              {'\n'} Taimoor Hassan{'\n'}
+              "Student of PUCIT. Developing{'\n'}this app as FYP and to provide
+              {'\n'}a digitized solution of FYP{'\n'}interaction problems."
+>>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
             </Text>
-            </View>
-            <View style={styles.developerContainer}>
+          </View>
+          <View style={styles.developerContainer}>
             <Text>
+<<<<<<< HEAD
                 <Image source={require('./mypic.jpg')} style={styles.myPic} /></Text>
                 <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'     '}Taimoor Hassan{'\n'}{'    '}
                 "Student of PUCIT. Developing{'\n'}{'    '}this app as FYP and to provide{'\n'}{'    '}a digitized solution of FYP{'\n'}{'    '}interaction problems."
+=======
+              <Image source={require('./mypic.jpg')} style={styles.myPic} />
+>>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
             </Text>
-            </View>
-            <View style={styles.developerContainer}>
             <Text>
+<<<<<<< HEAD
                 <Image source={require('./mypic.jpg')} style={styles.myPic} /></Text>
                 <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'     '}Fatima Batool{'\n'}{'    '}
                 "Student of PUCIT. Developing{'\n'}{'    '}this app as FYP and to provide{'\n'}{'    '}a digitized solution of FYP{'\n'}{'    '}interaction problems."
+=======
+              {'\n'}
+              {'\n'}
+              {'\n'}
+              {'\n'} Fatima Batool{'\n'}
+              "Student of PUCIT. Developing{'\n'}this app as FYP and to provide
+              {'\n'}a digitized solution of FYP{'\n'}interaction problems."
+>>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
             </Text>
-            </View>
+          </View>
 
-            <View style={styles.line} />
-                
-         </View>
-        </ScrollView>
+          <View style={styles.line} />
+        </View>
+      </ScrollView>
     );
   }
 }
