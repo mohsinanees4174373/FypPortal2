@@ -13,6 +13,7 @@ import {
   YellowBox,
   ScrollView,
   SafeAreaView,
+  Picker,
 } from 'react-native';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
@@ -25,6 +26,9 @@ class SignupActivity extends Component {
       'Warning: componentWillMount is deprecated',
       'Warning: componentWillReceiveProps is deprecated',
     ]);
+    this.state = {
+      degree: '',
+    };
   }
 
   render() {
@@ -51,7 +55,7 @@ class SignupActivity extends Component {
                 style={styles.inpIcons}
                 source={{
                   uri:
-                    'https://p7.hiclipart.com/preview/201/51/681/computer-icons-customer-service-user-others-thumbnail.jpg',
+                    'https://image.flaticon.com/icons/png/128/44/44948.png',
                 }}
               />
               <TextInput
@@ -69,7 +73,7 @@ class SignupActivity extends Component {
                 style={styles.inpIcons}
                 source={{
                   uri:
-                    'https://i7.pngguru.com/preview/787/587/583/computer-icons-email-icon-design-email.jpg',
+                    'https://i.dlpng.com/static/png/287100_thumb.png',
                 }}
               />
               <TextInput
@@ -87,7 +91,7 @@ class SignupActivity extends Component {
                 style={styles.inpIcons}
                 source={{
                   uri:
-                    'https://i7.pngguru.com/preview/754/38/561/telephone-mobile-phones-computer-icons-clip-art-phone-icon.jpg',
+                    'https://cdn1.iconfinder.com/data/icons/web-62/48/23-512.png',
                 }}
               />
               <TextInput
@@ -105,7 +109,7 @@ class SignupActivity extends Component {
                 style={styles.inpIcons}
                 source={{
                   uri:
-                    'https://library.kissclipart.com/20180829/iae/kissclipart-password-icon-clipart-password-computer-icons-clip-d813f06606bcdc9a.png',
+                    'https://i.pinimg.com/originals/4d/eb/3c/4deb3c920b25c70288af20d66c559b72.png',
                 }}
               />
               <TextInput
@@ -123,7 +127,7 @@ class SignupActivity extends Component {
                 style={styles.inpIcons}
                 source={{
                   uri:
-                    'https://library.kissclipart.com/20180829/iae/kissclipart-password-icon-clipart-password-computer-icons-clip-d813f06606bcdc9a.png',
+                    'https://i.pinimg.com/originals/4d/eb/3c/4deb3c920b25c70288af20d66c559b72.png',
                 }}
               />
               <TextInput
@@ -134,6 +138,30 @@ class SignupActivity extends Component {
                 //underlineColorAndroid='transparent'
                 onChangeText={cfmpwd => this.setState({cfmpwd})}
               />
+            </View>
+
+            <View style={styles.inputContainer}>
+              <Image
+                style={styles.inpIcons}
+                source={{
+                  uri:
+                    'https://www.konfest.com/wp-content/uploads/2019/06/Konfest-PNG-JPG-Image-Pic-Photo-Free-Download-Royalty-Unlimited-clip-art-sticker-cap-graduate-award-degree-ceremony-bachelor-graduation-46.png',
+                }}
+              />
+              <Picker
+                style={styles.inputs}
+                itemStyle={styles.inputs}
+                mode="dropdown"
+                selectedValue={this.state.degree}
+                onValueChange={(itemValue, itemIndex) =>
+                this.setState({degree: itemValue})}
+              >
+                  <Picker.Item label="BSSE" value="BSSE"/>
+                  <Picker.Item label="BSCS" value="BSCS"/>
+                  <Picker.Item label="BSIT" value="BSIT"/>
+                  <Picker.Item label="MSE" value="MSE"/>
+                  <Picker.Item label="MCS" value="MCS"/>
+            </Picker>
             </View>
 
             <TouchableOpacity
@@ -237,6 +265,8 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     fontStyle: 'italic',
+    alignItems:'center', 
+    justifyContent:'center',
   },
   buttonContainer: {
     height: 45,

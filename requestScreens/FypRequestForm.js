@@ -5,17 +5,12 @@
  * @format
  * @flow
  */
-<<<<<<< HEAD
 
 import React, {Component} from 'react';
 import Button  from "react-native-button";
 import { AppStyles } from "../styles/RequestFormStyle";
 import {styles } from "../styles/FYPRequestStyles";
 
-
-=======
-import React, {Component} from 'react';
->>>>>>> b663787b2935002be1cc0eff4703224687152b00
 import {
   StyleSheet,
   Text,
@@ -71,14 +66,11 @@ class FYPRequestScreen extends React.Component {
                 source={require('../assets/icons/person.png')}
                 style={styles.Icon}
               />
-<<<<<<< HEAD
             <Image source = {require('../assets/icons/person.png')} style={styles.Icon}/>
-=======
               <Image
                 source={require('../assets/icons/person.png')}
                 style={styles.Icon}
               />
->>>>>>> b663787b2935002be1cc0eff4703224687152b00
               <TextInput
                 style={styles.body}
                 placeholder="Full Name"
@@ -95,14 +87,11 @@ class FYPRequestScreen extends React.Component {
                 source={require('../assets/icons/id.jpg')}
                 style={styles.idIcon}
               />
-<<<<<<< HEAD
             <Image source = {require('../assets/icons/id.jpg')} style={styles.idIcon}/>
-=======
               <Image
                 source={require('../assets/icons/id.jpg')}
                 style={styles.idIcon}
               />
->>>>>>> b663787b2935002be1cc0eff4703224687152b00
               <TextInput
                 style={styles.body}
                 placeholder="Roll Number"
@@ -119,14 +108,11 @@ class FYPRequestScreen extends React.Component {
                 source={require('../assets/icons/project.jpg')}
                 style={styles.Icon}
               />
-<<<<<<< HEAD
             <Image source = {require('../assets/icons/project.jpg')} style={styles.Icon}/>
-=======
               <Image
                 source={require('../assets/icons/project.jpg')}
                 style={styles.Icon}
               />
->>>>>>> b663787b2935002be1cc0eff4703224687152b00
               <TextInput
                 style={styles.body}
                 placeholder="Project Name"
@@ -152,12 +138,8 @@ class FYPRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
-<<<<<<< HEAD
             </View>
 
-=======
-          </View>
->>>>>>> b663787b2935002be1cc0eff4703224687152b00
           <View style={styles.SectionStyle}>
             <Image
               source={require('../assets/icons/count.png')}
@@ -172,10 +154,6 @@ class FYPRequestScreen extends React.Component {
               underlineColorAndroid="transparent"
             />
           </View>
-<<<<<<< HEAD
-
-=======
->>>>>>> b663787b2935002be1cc0eff4703224687152b00
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
               <Image
@@ -199,7 +177,6 @@ class FYPRequestScreen extends React.Component {
                 <Picker.Item label="Taimoor" value="Taimoor" />
               </Picker>
             </View>
-<<<<<<< HEAD
            </View>
 
         <View style={styles.InputContainer}>
@@ -226,10 +203,6 @@ class FYPRequestScreen extends React.Component {
           </View>
          </View>
 
-          <View style={styles.InputContainer}>
-            <View style={styles.SectionStyle}>
-=======
-          </View>
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
               <Image
@@ -261,15 +234,11 @@ class FYPRequestScreen extends React.Component {
                 source={require('../assets/icons/tech.png')}
                 style={styles.techIcon}
               />
->>>>>>> b663787b2935002be1cc0eff4703224687152b00
               <Image
                 source={require('../assets/icons/tech.png')}
                 style={styles.techIcon}
               />
-<<<<<<< HEAD
             <Image source = {require('../assets/icons/tech.png')} style={styles.techIcon}/>
-=======
->>>>>>> b663787b2935002be1cc0eff4703224687152b00
               <TextInput
                 style={styles.body}
                 placeholder="Technology"
@@ -286,14 +255,11 @@ class FYPRequestScreen extends React.Component {
                 source={require('../assets/icons/pen.png')}
                 style={styles.Icon}
               />
-<<<<<<< HEAD
               <Image source = {require('../assets/icons/pen.png')} style={styles.Icon}/>
-=======
               <Image
                 source={require('../assets/icons/pen.png')}
                 style={styles.Icon}
               />
->>>>>>> b663787b2935002be1cc0eff4703224687152b00
               <TextInput
                 style={styles.purpose}
                 placeholder="Project Description"

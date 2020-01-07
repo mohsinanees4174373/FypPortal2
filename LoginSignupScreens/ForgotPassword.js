@@ -60,7 +60,7 @@ class ForgotPassword extends Component {
                 style={styles.inpIcons}
                 source={{
                   uri:
-                    'https://i7.pngguru.com/preview/787/587/583/computer-icons-email-icon-design-email.jpg',
+                    'https://i.dlpng.com/static/png/287100_thumb.png',
                 }}
               />
               <TextInput
