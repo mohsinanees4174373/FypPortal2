@@ -1,27 +1,121 @@
 /* eslint-disable no-undef */
 import React, {Component} from 'react';
-
-import {StyleSheet, Text, View, Button, YellowBox} from 'react-native';
+import {StyleSheet,FlatList, Text, View, Button, YellowBox} from 'react-native';
 import {BottomNavigation} from 'react-native-paper';
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
-
+import faker from 'faker';
+import {SearchBar,ListItem} from 'react-native-elements';
 class AppointmentsActivity extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      data: [],      
+      search:'',
+    };
+    this.arrayholder = [];
+    
+      this.state.data.push({
+      id : 1,
+      avatar_url: faker.image.avatar(),
+      //name : faker.name.firstName(),
+      description: "Shahzad Sadfar has accepted your appointment request.",    
+    },
+    {
+      id : 1,
+      avatar_url: faker.image.avatar(),
+      //name : faker.name.firstName(),
+      description: "Zia Afzal has accepted your appointment request.",
+    },
+    {
+      id : 1,
+      avatar_url: faker.image.avatar(),
+      //name : faker.name.firstName(),
+      description: "Murtaza Yousaf has accepted your appointment request.",
+    },
+    {
+      id : 1,
+      avatar_url: faker.image.avatar(),
+      //name : faker.name.firstName(),
+      description: "Shahzad Sadfar has accepted your appointment request.",
+    },
+    {
+      id : 1,
+      avatar_url: faker.image.avatar(),
+      //name : faker.name.firstName(),
+      description: "Sadia Shahzad has rejected your appointment request.",
+    },
+    {
+      id : 1,
+      avatar_url: faker.image.avatar(),
+      //name : faker.name.firstName(),
+      description: "Shahzad Sadfar has accepted your appointment request.",
+    },
+    {
+      id : 1,
+      avatar_url: faker.image.avatar(),
+      //name : faker.name.firstName(),
+      description: "Shahzad Sadfar has accepted your appointment request.",
+    },
+    {
+
+    }
+    
+    
+    
+    
+    )
+    this.arrayholder = this.state.data;
 
     YellowBox.ignoreWarnings([
       'Warning: componentWillMount is deprecated',
       'Warning: componentWillReceiveProps is deprecated',
     ]);
   }
+  navigateToProfile=(item)=>(
+    this.props.navigation.navigate('Stu_AdvisorProfile',
+    {
+      image : faker.image.avatar(),
+      name: item.name,
+      description : item.description,
+      slots: 2,
+      available:true
+    }) )
 
-  render() {
-    return (
-      <View style={styles.MainContainer}>
-        <Text style={{fontSize: 29}}> Appointments Activity </Text>
-      </View>
-    );
-  }
+  searchFilterFunction = text => {   
+    const newData = this.arrayholder.filter(item => {      
+      const itemData = `${item.name[0].toUpperCase()}`;      
+      const textData = text.toUpperCase();       
+           return itemData.indexOf(textData) > -1;    
+        });  
+      this.setState({ data: newData ,search:text});  
+      };
+
+  keyExtractor = (item, index) => index.toString()
+
+  renderItem = ({ item }) => (
+    <ListItem
+     // title={item.name}
+      titleStyle={styles.title}
+      subtitle={item.description}
+      leftAvatar={{ source: { uri: item.avatar_url } ,size:70}}
+      bottomDivider
+      //chevron={{color:'#2b60de',raised:true,name:'visibility',size:20, onPress:this.navigateToProfile.bind(this,item) }}
+    />
+    )
+    render() {
+      const { search } = this.state.search;
+    
+        return (
+          <View style={{flex:1}}>  
+            
+            <FlatList
+              keyExtractor={this.keyExtractor}
+              data={this.state.data}
+              renderItem={this.renderItem}
+            />
+          </View>
+        );
+      }
 }
 
 const styles = StyleSheet.create({
@@ -58,6 +152,12 @@ const styles = StyleSheet.create({
   menuText: {
     fontSize: 15,
     color: '#222222',
+  },
+  title: {
+    color:'#2b60de',fontWeight:'bold'
+  },
+  container: {
+    backgroundColor:'#2b60de'
   },
 });
 

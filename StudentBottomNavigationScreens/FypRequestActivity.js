@@ -1,57 +1,122 @@
 /* eslint-disable no-undef */
 import React, {Component} from 'react';
-
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  YellowBox,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import {StyleSheet,FlatList, Text, View, Button, YellowBox} from 'react-native';
 import {BottomNavigation} from 'react-native-paper';
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
-
+import faker from 'faker';
+import {SearchBar,ListItem} from 'react-native-elements';
 class FypRequestActivity extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      data: [],      
+      search:'',
+    };
+    this.arrayholder = [];
+    
+      this.state.data.push({
+      id : 1,
+      avatar_url: faker.image.avatar(),
+     // name : "Fareed-ul-Hassan has accepted your FYP request.",
+      description: "Fareed-ul-Hassan has accepted your FYP request.",    
+    },
+    {
+      id : 2,
+      avatar_url: faker.image.avatar(),
+     // name : "Sameen Javed",
+      description: "Madiha Saleem has rejected your FYP request.",
+
+    },
+    {
+      id : 3,
+      avatar_url: faker.image.avatar(),
+      //name : "Mudassar Hassan",
+      description: "M.Abdullah has rejected your FYP request.",
+    },
+    {
+      id : 4,
+      avatar_url: faker.image.avatar(),
+      //name : "Muiz Khan",
+      description: "Shahzad Safdar has accepted your FYP request.",
+    },
+    {
+      id : 1,
+      avatar_url: faker.image.avatar(),
+     // name : "Fareed-ul-Hassan has accepted your FYP request.",
+      description: "Fareed-ul-Hassan has accepted your FYP request.",    
+    },
+    {
+      id : 2,
+      avatar_url: faker.image.avatar(),
+     // name : "Sameen Javed",
+      description: "Madiha Saleem has rejected your FYP request.",
+
+    },
+    {
+      id : 3,
+      avatar_url: faker.image.avatar(),
+      //name : "Mudassar Hassan",
+      description: "M.Abdullah has rejected your FYP request.",
+    },
+    {
+      id : 4,
+      avatar_url: faker.image.avatar(),
+      //name : "Muiz Khan",
+      description: "Shahzad Safdar has accepted your FYP request.",
+    }
+    )
+    this.arrayholder = this.state.data;
 
     YellowBox.ignoreWarnings([
       'Warning: componentWillMount is deprecated',
       'Warning: componentWillReceiveProps is deprecated',
     ]);
   }
+  navigateToProfile=(item)=>(
+    this.props.navigation.navigate('Stu_AdvisorProfile',
+    {
+      image : faker.image.avatar(),
+      name: item.name,
+      description : item.description,
+      slots: 2,
+      available:true
+    }) )
 
-  render() {
-    return (
-      <View style={styles.MainContainer}>
-        <Text style={{fontSize: 29}}> FYP Request Activity </Text>
-      </View>
-    );
-  }
-}
-class HamburgerIcon extends Component {
-  toggleDrawer = () => {
-    console.log(this.props.navigationProps);
+  searchFilterFunction = text => {   
+    const newData = this.arrayholder.filter(item => {      
+      const itemData = `${item.name[0].toUpperCase()}`;      
+      const textData = text.toUpperCase();       
+           return itemData.indexOf(textData) > -1;    
+        });  
+      this.setState({ data: newData ,search:text});  
+      };
 
-    this.props.navigationProps.toggleDrawer();
-  };
-  render() {
-    return (
-      <View style={{flexDirection: 'row'}}>
-        <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
-          <Image
-            source={{
-              uri:
-                'https://reactnativecode.com/wp-content/uploads/2018/04/hamburger_icon.png',
-            }}
-            style={{width: 25, height: 25, marginLeft: 5}}
-          />
-        </TouchableOpacity>
-      </View>
-    );
-  }
+  keyExtractor = (item, index) => index.toString()
+
+  renderItem = ({ item }) => (
+    <ListItem
+     // title={item.name}
+     // titleStyle={styles.title}
+      subtitle={item.description}
+      leftAvatar={{ source: { uri: item.avatar_url } ,size:70}}
+      bottomDivider
+      chevron={{color:'#2b60de',raised:true,name:'visibility',size:20, onPress:this.navigateToProfile.bind(this,item) }}
+    />
+    )
+    render() {
+      const { search } = this.state.search;
+    
+        return (
+          <View style={{flex:1}}>  
+            
+            <FlatList
+              keyExtractor={this.keyExtractor}
+              data={this.state.data}
+              renderItem={this.renderItem}
+            />
+          </View>
+        );
+      }
 }
 
 const styles = StyleSheet.create({
@@ -88,6 +153,12 @@ const styles = StyleSheet.create({
   menuText: {
     fontSize: 15,
     color: '#222222',
+  },
+  title: {
+    color:'#2b60de',fontWeight:'bold'
+  },
+  container: {
+    backgroundColor:'#2b60de'
   },
 });
 

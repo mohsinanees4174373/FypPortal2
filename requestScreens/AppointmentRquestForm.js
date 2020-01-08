@@ -1,11 +1,4 @@
-/* eslint-disable react/jsx-no-duplicate-props */
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+
 
 import React, {Component} from 'react';
 import {
@@ -22,10 +15,6 @@ import Button from 'react-native-button';
 import {AppStyles} from '../styles/RequestFormStyle';
 import {styles} from '../styles/AppointmentRequestStyles';
 import DatePicker from 'react-native-datepicker';
-<<<<<<< HEAD
-
-=======
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 
@@ -65,10 +54,6 @@ class AppointmentRequestScreen extends React.Component {
   render() {
     return (
       <ScrollView>
-<<<<<<< HEAD
-
-=======
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
         <View style={styles.container}>
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
@@ -85,7 +70,6 @@ class AppointmentRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
-<<<<<<< HEAD
             </View>           
         
         <View style={styles.InputContainer}>
@@ -102,10 +86,6 @@ class AppointmentRequestScreen extends React.Component {
 
           </View>
         </View>
-=======
-          </View>
-
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
               <Image
@@ -121,7 +101,6 @@ class AppointmentRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
-<<<<<<< HEAD
             </View>
 
         <View style={styles.InputContainer}>
@@ -138,10 +117,6 @@ class AppointmentRequestScreen extends React.Component {
 
           </View>
           </View>
-=======
-          </View>
-
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
           <View style={styles.DateTimeContainer}>
             <View style={styles.DateSectionStyle}>
               <Image
@@ -199,7 +174,6 @@ class AppointmentRequestScreen extends React.Component {
                 }}
               />
             </View>
-<<<<<<< HEAD
             </View>
 
         <View style={styles.DateTimeContainer}>
@@ -255,9 +229,6 @@ class AppointmentRequestScreen extends React.Component {
           </View>
           </View>
 
-=======
-          </View>
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
           <View style={styles.InputContainer}>
             <View style={styles.description}>
               <Image
@@ -276,7 +247,6 @@ class AppointmentRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
-<<<<<<< HEAD
             </View>
 
         <View style={styles.InputContainer} >
@@ -295,8 +265,6 @@ class AppointmentRequestScreen extends React.Component {
           />
 
           </View>
-=======
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
           </View>
           <Button
             containerStyle={[

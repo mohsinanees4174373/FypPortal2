@@ -15,12 +15,92 @@ class AdvisorsListActivity extends Component {
     this.arrayholder = [];
     for (i=0 ; i <30 ; i++)
     {
-      this.state.data.push({
-      id : i,
+      this.state.data.push(
+        {
+      id : 1,
       avatar_url: faker.image.avatar(),
-      name : faker.name.firstName(),
-      description: faker.random.words(5),    
-    })}
+      name : "Fareed-ul-Hassan Baig",
+      description: "PF, Object Oriented Programming, Data Structures",    
+    },
+    {
+      id : 2,
+      avatar_url: faker.image.avatar(),
+      name : "Abdul Khaliq",
+      description: "DLD, COAL",    
+    },
+    {
+      id : 3,
+      avatar_url: faker.image.avatar(),
+      name : "M.Abdullah",
+      description: "COAL, OOP, DLD",    
+    },
+    {
+      id : 4,
+      avatar_url: faker.image.avatar(),
+      name : "Shahzad Safdar",
+      description: "Operating Systems, Computer Networks",    
+    },
+    {
+      id : 5,
+      avatar_url: faker.image.avatar(),
+      name : "Murtaza Yousaf",
+      description: "Computer Networks",    
+    },
+    {
+      id : 6,
+      avatar_url: faker.image.avatar(),
+      name : "Zia Afzal",
+      description: "Calculus",    
+    },
+    {
+      id : 7,
+      avatar_url: faker.image.avatar(),
+      name : "Fareed-ul-Hassan Baig",
+      description: "PF, Object Oriented Programming, Data Structures",    
+    },
+    {
+      id : 1,
+      avatar_url: faker.image.avatar(),
+      name : "Fareed-ul-Hassan Baig",
+      description: "PF, Object Oriented Programming, Data Structures",    
+    },
+    {
+      id : 1,
+      avatar_url: faker.image.avatar(),
+      name : "Fareed-ul-Hassan Baig",
+      description: "PF, Object Oriented Programming, Data Structures",    
+    },
+    {
+      id : 1,
+      avatar_url: faker.image.avatar(),
+      name : "Fareed-ul-Hassan Baig",
+      description: "PF, Object Oriented Programming, Data Structures",    
+    },
+    {
+      id : 1,
+      avatar_url: faker.image.avatar(),
+      name : "Fareed-ul-Hassan Baig",
+      description: "PF, Object Oriented Programming, Data Structures",    
+    },
+    {
+      id : 1,
+      avatar_url: faker.image.avatar(),
+      name : "Fareed-ul-Hassan Baig",
+      description: "PF, Object Oriented Programming, Data Structures",    
+    },
+    {
+      id : 1,
+      avatar_url: faker.image.avatar(),
+      name : "Fareed-ul-Hassan Baig",
+      description: "PF, Object Oriented Programming, Data Structures",    
+    },
+    {
+      id : 1,
+      avatar_url: faker.image.avatar(),
+      name : "Fareed-ul-Hassan Baig",
+      description: "PF, Object Oriented Programming, Data Structures",    
+    }
+    )}
     this.arrayholder = this.state.data;
 
     YellowBox.ignoreWarnings([
