@@ -12,7 +12,7 @@ import {Icon, Button, ListItem, Divider} from 'react-native-elements';
 import SwitchToggle from 'react-native-switch-toggle';
 import {styles} from '../styles/ProfileStyles';
 const winWidth = Dimensions.get('window').width;
-export default class Adv_AdvisorProfile extends Component {
+export default class Stu_StudentProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,13 +21,7 @@ export default class Adv_AdvisorProfile extends Component {
       stars: 0,
     };
   }
-  navigateToEditProfile = item =>
-    this.props.navigation.navigate('AppointmentView');
-  navigateToAppointmentView = item =>
-    this.props.navigation.navigate('AppointmentView');
-
-  navigateToFYPForm = item => this.props.navigation.navigate('AppointmentForm');
-
+  
   onPress1 = () => {
     this.setState({availableSwitch: !this.state.availableSwitch});
   };
@@ -70,7 +64,7 @@ export default class Adv_AdvisorProfile extends Component {
                   name="account-edit"
                   size={35}
                   type="material-community"
-                  onPress={() => this.props.navigation.navigate('Adv_EditProfile')}
+                  onPress={() => this.props.navigation.navigate('EditProfile')}
                 />
               </View>
             </View>
@@ -162,9 +156,10 @@ export default class Adv_AdvisorProfile extends Component {
                 />
               </View>
 
-              
+  
 
               
+             
             </View>
           </View>
         </View>

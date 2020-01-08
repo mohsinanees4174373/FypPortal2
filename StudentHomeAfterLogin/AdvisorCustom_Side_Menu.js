@@ -75,8 +75,8 @@ class AdvisorCustom_Side_Menu extends Component {
                 onPress={() => {
                   this.props.navigation.navigate('AdvisorEditProfile');
                 }}>
-                {' '}
-                Edit Profile{' '}
+                
+                View Profile{' '}
               </Text>
             </View>
 
@@ -126,7 +126,7 @@ class AdvisorCustom_Side_Menu extends Component {
               <Image
                 source={{
                   uri:
-                    'https://image.flaticon.com/icons/png/512/15/15659.png',
+                    'https://cdn3.iconfinder.com/data/icons/vector-icons-for-mobile-apps-2/512/Settings_black-512.png',
                 }}
                 style={styles.sideMenuIcon}
               />
