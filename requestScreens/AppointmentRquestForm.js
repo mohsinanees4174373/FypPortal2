@@ -22,10 +22,7 @@ import Button from 'react-native-button';
 import {AppStyles} from '../styles/RequestFormStyle';
 import {styles} from '../styles/AppointmentRequestStyles';
 import DatePicker from 'react-native-datepicker';
-<<<<<<< HEAD
 
-=======
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 
@@ -65,10 +62,7 @@ class AppointmentRequestScreen extends React.Component {
   render() {
     return (
       <ScrollView>
-<<<<<<< HEAD
 
-=======
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
         <View style={styles.container}>
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
@@ -85,27 +79,8 @@ class AppointmentRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
-<<<<<<< HEAD
             </View>           
-        
-        <View style={styles.InputContainer}>
-          <View style={styles.SectionStyle}>
-          <Image source = {require('../assets/icons/person.png')} style={styles.Icon}/>
-            <TextInput
-              style={styles.body}
-              placeholder="Full Name"
-              onChangeText={text => this.setState({ fullname: text })}
-              value={this.state.fullname}
-              placeholderTextColor={AppStyles.color.grey}
-              underlineColorAndroid="transparent"
-            />
 
-          </View>
-        </View>
-=======
-          </View>
-
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
               <Image
@@ -121,28 +96,9 @@ class AppointmentRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
-<<<<<<< HEAD
             </View>
 
-        <View style={styles.InputContainer}>
-          <View style={styles.SectionStyle}>
-          <Image source = {require('../assets/icons/count.png')} style={styles.Icon}/>
-            <TextInput
-              style={styles.body}
-              placeholder="Members Count"
-              onChangeText={text => this.setState({ members: text })}
-              value={this.state.members}
-              placeholderTextColor={AppStyles.color.grey}
-              underlineColorAndroid="transparent"
-            />
-
-          </View>
-          </View>
-=======
-          </View>
-
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
-          <View style={styles.DateTimeContainer}>
+            <View style={styles.DateTimeContainer}>
             <View style={styles.DateSectionStyle}>
               <Image
                 source={require('../assets/icons/date.png')}
@@ -199,65 +155,8 @@ class AppointmentRequestScreen extends React.Component {
                 }}
               />
             </View>
-<<<<<<< HEAD
             </View>
 
-        <View style={styles.DateTimeContainer}>
-          <View style={styles.DateSectionStyle}>
-            <Image source = {require('../assets/icons/date.png')} style={styles.Icon}/>
-            <DatePicker
-              style={styles.date}
-              value={this.state.date}
-              date={this.state.date}
-              format="DD-MM-YYYY"
-              minDate="01-01-2020"
-              onDateChange={(date) => {this.setState({date: date})}}
-              placeholder='Date'
-              placeholderTextColor={AppStyles.color.grey}
-              iconSource=''
-              customStyles={{
-                dateInput: {
-                  borderWidth:0,
-                  height: 42,
-                  paddingRight: 20,
-                },
-                placeholder:
-                {
-                  color:AppStyles.color.grey
-                }
-              }}
-            />
-            </View>
-
-            <View style={styles.TimeSectionStyle}>
-          <Image source = {require('../assets/icons/time.png')} style={styles.Icon}/>
-          <DatePicker
-            style={styles.date}
-            placeholder="Time"
-            placeholderTextColor={AppStyles.color.grey}
-            mode='time'
-            iconSource=""
-            
-            value={this.state.time}
-            date={this.state.time}
-            onDateChange={(time) => {this.setState({time: time})}}
-            
-            iconSource=''
-            customStyles={{
-              dateInput: {
-                height: 42,
-                paddingRight: 20,
-                borderWidth:0
-              }
-            }}
-          />
-
-          </View>
-          </View>
-
-=======
-          </View>
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
           <View style={styles.InputContainer}>
             <View style={styles.description}>
               <Image
@@ -276,28 +175,8 @@ class AppointmentRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
-<<<<<<< HEAD
             </View>
 
-        <View style={styles.InputContainer} >
-        <View style={styles.description}>
-          <Image source = {require('../assets/icons/pen.png')} style={styles.Icon}/>
-          <TextInput
-            style={styles.purpose}
-            placeholder="Meeting Purpose"
-            securnpx eTextEntry={true}
-            onChangeText={text => this.setState({ reason: text })}
-            value={this.state.reason}
-            placeholderTextColor={AppStyles.color.grey}
-            multiline={true}
-            
-            underlineColorAndroid="transparent"
-          />
-
-          </View>
-=======
->>>>>>> 4fe974b40058cc728d2ffdf0536ebde852857b94
-          </View>
           <Button
             containerStyle={[
               styles.facebookContainer,
