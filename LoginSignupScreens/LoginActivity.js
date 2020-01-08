@@ -118,18 +118,19 @@ class LoginActivity extends Component {
             <TouchableHighlight>
               <Text>New on FYP PORTAL?{'\n'}</Text>
             </TouchableHighlight>
+            <View style={styles.sideBySideButtonContainer}>
+              <TouchableOpacity
+                style={[styles.Button1, styles.registerButton]}
+                onPress={() => this.props.navigation.navigate('Signup')}>
+                <Text>Register as Student</Text>
+              </TouchableOpacity>
 
-            <TouchableOpacity
-              style={[styles.buttonContainer, styles.registerButton]}
-              onPress={() => this.props.navigation.navigate('Signup')}>
-              <Text>Register as Student</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={[styles.buttonContainer, styles.registerButton]}
-              onPress={() => this.props.navigation.navigate('AdvisorSignup')}>
-              <Text>Register as Advisor</Text>
-            </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.Button2, styles.registerButton]}
+                onPress={() => this.props.navigation.navigate('AdvisorSignup')}>
+                <Text>Register as Advisor</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -263,7 +264,31 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     height: 1,
     width: 175,
-    marginBottom: 20,
+    marginBottom: 10,
+  },
+  sideBySideButtonContainer:
+  {
+    flexDirection:"row",
+    width:"80%",
+  },
+  Button1: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    //marginBottom:10,
+    //width:300,
+    borderRadius: 50,
+    alignSelf: 'stretch',
+    height:45,
+    width:"50%",
+  },
+  Button2: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width:"50%",
+    borderRadius: 50,
+    alignSelf: 'stretch',
+    marginLeft: 10,
+    height:45
   },
 });
 export default LoginActivity;
