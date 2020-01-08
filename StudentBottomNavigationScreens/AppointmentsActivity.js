@@ -42,7 +42,7 @@ class AppointmentsActivity extends Component {
       id : 1,
       avatar_url: faker.image.avatar(),
       //name : faker.name.firstName(),
-      description: "Sadia Shahzad has rejected your appointment request.",
+      description: "Sadia Shahzad has  your appointment request.",
     },
     {
       id : 1,
@@ -56,12 +56,6 @@ class AppointmentsActivity extends Component {
       //name : faker.name.firstName(),
       description: "Shahzad Sadfar has accepted your appointment request.",
     },
-    {
-
-    }
-    
-    
-    
     
     )
     this.arrayholder = this.state.data;

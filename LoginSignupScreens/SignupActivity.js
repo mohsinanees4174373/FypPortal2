@@ -54,8 +54,7 @@ class SignupActivity extends Component {
               <Image
                 style={styles.inpIcons}
                 source={{
-                  uri:
-                    'https://image.flaticon.com/icons/png/128/44/44948.png',
+                  uri: 'https://image.flaticon.com/icons/png/128/44/44948.png',
                 }}
               />
               <TextInput
@@ -72,8 +71,7 @@ class SignupActivity extends Component {
               <Image
                 style={styles.inpIcons}
                 source={{
-                  uri:
-                    'https://i.dlpng.com/static/png/287100_thumb.png',
+                  uri: 'https://i.dlpng.com/static/png/287100_thumb.png',
                 }}
               />
               <TextInput
@@ -154,14 +152,14 @@ class SignupActivity extends Component {
                 mode="dropdown"
                 selectedValue={this.state.degree}
                 onValueChange={(itemValue, itemIndex) =>
-                this.setState({degree: itemValue})}
-              >
-                  <Picker.Item label="BSSE" value="BSSE"/>
-                  <Picker.Item label="BSCS" value="BSCS"/>
-                  <Picker.Item label="BSIT" value="BSIT"/>
-                  <Picker.Item label="MSE" value="MSE"/>
-                  <Picker.Item label="MCS" value="MCS"/>
-            </Picker>
+                  this.setState({degree: itemValue})
+                }>
+                <Picker.Item label="BSSE" value="BSSE" />
+                <Picker.Item label="BSCS" value="BSCS" />
+                <Picker.Item label="BSIT" value="BSIT" />
+                <Picker.Item label="MSE" value="MSE" />
+                <Picker.Item label="MCS" value="MCS" />
+              </Picker>
             </View>
 
             <TouchableOpacity
@@ -265,8 +263,8 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     fontStyle: 'italic',
-    alignItems:'center', 
-    justifyContent:'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonContainer: {
     height: 45,

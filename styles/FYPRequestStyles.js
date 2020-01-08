@@ -35,6 +35,7 @@ export const styles = StyleSheet.create({
     width: '90%',
     paddingLeft: 40,
     paddingRight: 20,
+    height:40,
     color: AppStyles.color.text,
   },
   SectionStyle: {
@@ -86,8 +87,8 @@ export const styles = StyleSheet.create({
     color: 'red',
   },
   InputContainer: {
-    width: AppStyles.textInputWidth.main,
-    marginTop: 30,
+    width: '87%',
+    marginTop: 10,
     borderWidth: 1,
     borderStyle: 'solid',
     borderColor: AppStyles.color.grey,
@@ -95,7 +96,7 @@ export const styles = StyleSheet.create({
   },
 
   body: {
-    height: 42,
+    height: 40,
     paddingLeft: 20,
     paddingRight: 20,
     color: AppStyles.color.text,
@@ -105,7 +106,6 @@ export const styles = StyleSheet.create({
     backgroundColor: '#2B60DE',
     borderRadius: AppStyles.borderRadius.main,
     padding: 10,
-    marginTop: 30,
   },
   facebookText: {
     color: AppStyles.color.white,
