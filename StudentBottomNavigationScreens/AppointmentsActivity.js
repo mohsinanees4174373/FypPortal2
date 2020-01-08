@@ -70,7 +70,7 @@ export default class   AppointmentsActivity  extends Component {
       titleStyle={styles.title}
       subtitle={item.description}
       leftAvatar={{ source: { uri: item.avatar_url } ,size:70}}
-      
+      bottomDivider
     />
     
   )
@@ -78,7 +78,7 @@ export default class   AppointmentsActivity  extends Component {
     const { search } = this.state.search;
   
       return (
-        <View>  
+        <View  style={{flex: 1}}>  
           
           <FlatList
             keyExtractor={this.keyExtractor}

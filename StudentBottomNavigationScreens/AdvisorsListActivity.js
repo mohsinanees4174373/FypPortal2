@@ -28,7 +28,8 @@ class AdvisorsListActivity extends Component {
         avatar_url: faker.image.avatar(),
         name: faker.name.firstName(),
         description: faker.random.words(5),
-      });
+      }
+      );
     }
     this.arrayholder = this.state.data;
 
