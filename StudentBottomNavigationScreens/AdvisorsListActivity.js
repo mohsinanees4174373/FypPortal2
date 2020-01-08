@@ -13,6 +13,8 @@ import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom
 import faker from 'faker';
 import {SearchBar, ListItem} from 'react-native-elements';
 class AdvisorsListActivity extends Component {
+  
+
   constructor(props) {
     super(props);
     this.state = {

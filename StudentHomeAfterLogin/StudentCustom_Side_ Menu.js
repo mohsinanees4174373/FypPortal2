@@ -75,7 +75,7 @@ class Custom_Side_Menu extends Component {
                 onPress={() => {
                   this.props.navigation.navigate('StudentEditProfile');
                 }}>
-                View Profile{' '}
+                Edit Profile{' '}
               </Text>
             </View>
 

@@ -41,7 +41,6 @@ import ForgotPassword from './LoginSignupScreens/ForgotPassword';
 import SettingsActivity from './sidebarNavigationScreens/SettingsActivity';
 import ContactUsActivity from './sidebarNavigationScreens/ContactUsActivity';
 import Stu_AdvisorProfile from './ProfileScreens/Stu_AdvisorProfile';
-import Stu_StudentProfile from './ProfileScreens/Stu_StudentProfile'
 import Adv_AdvisorProfile from './ProfileScreens/Adv_AdvisorProfile';
 import SingleChatActivity from './StudentBottomNavigationScreens/SingleChat';
 
@@ -75,7 +74,8 @@ const StudentTabNavigator = createMaterialBottomTabNavigator(
     },
     Appointments: {
       screen: AppointmentsActivity,
-      navigationOptions: {
+      navigationOptions:  {
+        
         tabBarIcon: ({tintColor}) => (
           <View>
             <Image
@@ -230,9 +230,15 @@ const AdvisorHome_StackNavigator = createStackNavigator({
 });
 const StudentEditProfileActivity_StackNavigator = createStackNavigator({
   StudentEditProfile: {
-    screen: Stu_StudentProfile,
+    screen: StudentEditProfileActivity,
     navigationOptions: ({navigation}) => ({
-      headerShown: false,
+      title: 'Edit Profile',
+      headerLeft: <HamburgerIcon navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: '#2B60DE',
+      },
+      headerTintColor: '#fff',
     }),
   },
 });
@@ -414,17 +420,6 @@ const MainNavigator = createStackNavigator({
       headerTintColor: '#fff',
     }),
   },
-  EditProfile: {
-    screen: StudentEditProfileActivity,
-    navigationOptions: ({navigation}) => ({
-      //headerShown: false,
-      title: 'Edit Profile',
-      headerStyle: {
-        backgroundColor: '#2B60DE',
-      },
-      headerTintColor: '#fff',
-    }),
-  },
   Adv_EditProfile: {
     screen: AdvisorEditProfileActivity,
     navigationOptions: ({navigation}) => ({
@@ -445,14 +440,16 @@ const MainNavigator = createStackNavigator({
   SingleChat: {
     screen: SingleChatActivity,
     navigationOptions: ({navigation}) => ({
-      title: 'Group A',
       headerStyle: {
         backgroundColor: '#2B60DE',
       },
       headerTintColor: '#fff',
     }),
   },
-});
+
+},
+
+);
 
 const App = createAppContainer(MainNavigator);
 export default App;

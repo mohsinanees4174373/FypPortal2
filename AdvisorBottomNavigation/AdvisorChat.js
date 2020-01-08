@@ -20,14 +20,35 @@ class AdvisorChat extends Component {
       search: '',
     };
     this.arrayholder = [];
-    for (i = 0; i < 30; i++) {
+    
       this.state.data.push({
         id: i,
         avatar_url: faker.image.avatar(),
-        name: faker.name.firstName(),
+        name: 'Fyp Portal (3)',
         description: faker.random.words(5),
-      });
-    }
+      },
+      {
+        id: i,
+        avatar_url: faker.image.avatar(),
+        name: 'Event Shevent',
+        description: faker.random.words(5),
+      },
+      {
+        id: i,
+        avatar_url: faker.image.avatar(),
+        name: 'Car Parking (2)',
+        description: faker.random.words(5),
+      },
+      {
+        id: i,
+        avatar_url: faker.image.avatar(),
+        name: 'Pharmacy',
+        description: faker.random.words(5),
+      }
+      
+      
+      );
+    
     this.arrayholder = this.state.data;
 
     YellowBox.ignoreWarnings([
@@ -51,14 +72,7 @@ class AdvisorChat extends Component {
       titleStyle={styles.title}
       subtitle={item.description}
       leftAvatar={{source: {uri: item.avatar_url}, size: 70}}
-      bottomDivider
-      chevron={{
-        color: '#2b60de',
-        raised: true,
-        name: 'visibility',
-        size: 20,
-        onPress: this.navigateToProfile.bind(this, item),
-      }}
+      onPress={ this.navigateToProfile.bind(this, item)}
     />
   );
   render() {

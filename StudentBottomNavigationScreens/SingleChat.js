@@ -18,8 +18,16 @@ import {
 } from 'react-native';
 
 import {GiftedChat} from 'react-native-gifted-chat';
+import { HeaderTitle } from 'react-navigation-stack';
 
 export default class SingleChatActivity extends Component {
+  
+  static navigationOptions = ({ navigation }) => ({
+      
+    title: navigation.getParam('name'),
+    
+    
+  })
   state = {
     messages: [],
   };
