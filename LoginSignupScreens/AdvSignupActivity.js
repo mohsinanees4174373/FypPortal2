@@ -50,8 +50,7 @@ class AdvSignupActivity extends Component {
               <Image
                 style={styles.inpIcons}
                 source={{
-                  uri:
-                    'https://image.flaticon.com/icons/png/128/44/44948.png',
+                  uri: 'https://image.flaticon.com/icons/png/128/44/44948.png',
                 }}
               />
               <TextInput
@@ -68,8 +67,7 @@ class AdvSignupActivity extends Component {
               <Image
                 style={styles.inpIcons}
                 source={{
-                  uri:
-                    'https://i.dlpng.com/static/png/287100_thumb.png',
+                  uri: 'https://i.dlpng.com/static/png/287100_thumb.png',
                 }}
               />
               <TextInput

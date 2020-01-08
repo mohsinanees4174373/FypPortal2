@@ -1,64 +1,110 @@
-/* eslint-disable no-undef */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import faker from 'faker';
+import {View, FlatList,StyleSheet,} from 'react-native';
+import {SearchBar,ListItem} from 'react-native-elements';
 
-import {StyleSheet, Text, View, Button, YellowBox} from 'react-native';
-import {BottomNavigation} from 'react-native-paper';
-import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 
-class AppointmentsActivity extends Component {
+
+export default class   AppointmentsActivity  extends Component {
+ 
   constructor(props) {
     super(props);
+    this.state = {
+      data: [],      
+      search:'',
+    };
+    this.arrayholder = [];
+    for (i=0 ; i <100 ; i++)
+    {
+      this.state.data.push(
+    {
+      id : i,
+      avatar_url: faker.image.avatar(),
+      name : "Sir Fareed",
+      description: "Sir Fareed accepted your appointment request",    
+    },
+    {
+      id : i,
+      avatar_url: faker.image.avatar(),
+      name : "Sir Anzar",
+      description: "Sir Anzar accepted your appointment request",    
+    },
+    {
+      id : i,
+      avatar_url: faker.image.avatar(),
+      name : "Sir Murtaza",
+      description: "Sir Fareed rejected your appointment request",    
+    },
+    {
+      id : i,
+      avatar_url: faker.image.avatar(),
+      name : "Sir Fareed",
+      description: "Sir Fareed rejected your appointment request",    
+    },
+    {
+      id : i,
+      avatar_url: faker.image.avatar(),
+      name : "Sir Kashif",
+      description: "Sir Fareed accepted your appointment request",    
+    },
 
-    YellowBox.ignoreWarnings([
-      'Warning: componentWillMount is deprecated',
-      'Warning: componentWillReceiveProps is deprecated',
-    ]);
+    
+    )}
+    this.arrayholder = this.state.data;
   }
 
+  searchFilterFunction = text => {   
+    const newData = this.arrayholder.filter(item => {      
+      const itemData = `${item.name[0].toUpperCase()}`;      
+      const textData = text.toUpperCase();       
+           return itemData.indexOf(textData) > -1;    
+        });  
+      this.setState({ data: newData ,search:text});  
+      };
+
+  keyExtractor = (item, index) => index.toString()
+
+  renderItem = ({ item }) => (
+    <ListItem
+      title={item.name}
+      titleStyle={styles.title}
+      subtitle={item.description}
+      leftAvatar={{ source: { uri: item.avatar_url } ,size:70}}
+      
+    />
+    
+  )
   render() {
-    return (
-      <View style={styles.MainContainer}>
-        <Text style={{fontSize: 29}}> Appointments Activity </Text>
-      </View>
-    );
-  }
+    const { search } = this.state.search;
+  
+      return (
+        <View>  
+          
+          <FlatList
+            keyExtractor={this.keyExtractor}
+            data={this.state.data}
+            renderItem={this.renderItem}
+          />
+        </View>
+      );
+    }
 }
 
 const styles = StyleSheet.create({
-  MainContainer: {
-    flex: 1,
-    paddingTop: Platform.OS === 'ios' ? 20 : 0,
-    alignItems: 'center',
-    justifyContent: 'center',
+  title: {
+    color:'#2b60de',fontWeight:'bold'
   },
-
-  sideMenuContainer: {
-    width: '100%',
-    height: '100%',
-
-    alignItems: 'center',
-    paddingTop: 20,
-  },
-
-  sideMenuProfileIcon: {
-    resizeMode: 'center',
-    width: 150,
-    height: 150,
-    borderRadius: 150 / 2,
-  },
-
-  sideMenuIcon: {
-    resizeMode: 'center',
-    width: 28,
-    height: 28,
-    marginRight: 10,
-    marginLeft: 20,
-  },
-
-  menuText: {
-    fontSize: 15,
-    color: '#222222',
+  container: {
+    backgroundColor:'#2b60de'
   },
 });
 
-export default AppointmentsActivity;
+
+
+
+
+
+
+
+
+

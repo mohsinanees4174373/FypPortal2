@@ -31,7 +31,7 @@ import AppointmentRequestScreen from './requestScreens/AppointmentRquestForm';
 import Chats from './StudentBottomNavigationScreens/Chats';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import HamburgerIcon from './StudentHomeAfterLogin/HamburgerIcon';
-import Custom_Side_Menu from './StudentHomeAfterLogin/Custom_Side_ Menu';
+import Custom_Side_Menu from './StudentHomeAfterLogin/StudentCustom_Side_ Menu';
 import FypRequestViewScreen from './requestScreens/FypRequestView';
 import AppointmentViewScreen from './requestScreens/AppointmentView';
 import AdvisorAppointmentsActivity from './AdvisorBottomNavigation/AdvisorAppointmentRequests';
@@ -40,9 +40,12 @@ import AdvisorChat from './AdvisorBottomNavigation/AdvisorChat';
 import ForgotPassword from './LoginSignupScreens/ForgotPassword';
 import SettingsActivity from './sidebarNavigationScreens/SettingsActivity';
 import ContactUsActivity from './sidebarNavigationScreens/ContactUsActivity';
-import Stu_AdvisorProfile from './ProfileScreens/Stu_AdvisorProfile'
-import Adv_AdvisorProfile from './ProfileScreens/Adv_AdvisorProfile'
-
+import Stu_AdvisorProfile from './ProfileScreens/Stu_AdvisorProfile';
+import Adv_AdvisorProfile from './ProfileScreens/Adv_AdvisorProfile';
+import SingleChatActivity from './StudentBottomNavigationScreens/SingleChat';
+import AdvisorEditProfileActivity from './sidebarNavigationScreens/AdvisorEditProfileActivity';
+import AdvisorCustom_Side_Menu from './StudentHomeAfterLogin/AdvisorCustom_Side_Menu';
+import AdvSignupActivity from './LoginSignupScreens/AdvSignupActivity';
 const StudentTabNavigator = createMaterialBottomTabNavigator(
   {
     // Second: {
@@ -208,11 +211,39 @@ const StudentHome_StackNavigator = createStackNavigator({
     }),
   },
 });
+const AdvisorHome_StackNavigator = createStackNavigator({
+  AdvisorHome: {
+    screen: AdvisorTabNavigator,
+    navigationOptions: ({navigation}) => ({
+      title: 'Home',
+      headerLeft: <HamburgerIcon navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: '#2B60DE',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
 const StudentEditProfileActivity_StackNavigator = createStackNavigator({
   StudentEditProfile: {
     screen: StudentEditProfileActivity,
     navigationOptions: ({navigation}) => ({
-      title: 'Edit Profile',
+      title: 'Student Edit Profile',
+      headerLeft: <HamburgerIcon navigationProps={navigation} />,
+
+      headerStyle: {
+        backgroundColor: '#2B60DE',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+const AdvisorEditProfileActivity_StackNavigator = createStackNavigator({
+  AdvisorEditProfile: {
+    screen: AdvisorEditProfileActivity,
+    navigationOptions: ({navigation}) => ({
+      title: 'Advisor Edit Profile',
       headerLeft: <HamburgerIcon navigationProps={navigation} />,
 
       headerStyle: {
@@ -266,7 +297,7 @@ const SettingsActivity_StackNavigator = createStackNavigator({
   },
 });
 
-const MyDrawerNavigator = createDrawerNavigator(
+const StudentDrawerNavigator = createDrawerNavigator(
   {
     MainStack: {
       screen: StudentHome_StackNavigator,
@@ -290,6 +321,30 @@ const MyDrawerNavigator = createDrawerNavigator(
     drawerWidth: Dimensions.get('window').width - 130,
   },
 );
+const AdvisorDrawerNavigator = createDrawerNavigator(
+  {
+    MainStack: {
+      screen: AdvisorHome_StackNavigator,
+    },
+    SecondStack: {
+      screen: AdvisorEditProfileActivity_StackNavigator,
+    },
+
+    ThirdStack: {
+      screen: AboutUsActivity_StackNavigator,
+    },
+    FourthStack: {
+      screen: ContactUsActivity_StackNavigator,
+    },
+    FifthStack: {
+      screen: SettingsActivity_StackNavigator,
+    },
+  },
+  {
+    contentComponent: AdvisorCustom_Side_Menu,
+    drawerWidth: Dimensions.get('window').width - 130,
+  },
+);
 
 const MainNavigator = createStackNavigator({
   Login: {
@@ -304,8 +359,20 @@ const MainNavigator = createStackNavigator({
       header: null,
     }),
   },
+  AdvisorSignup: {
+    screen: AdvSignupActivity,
+    navigationOptions: ({navigation}) => ({
+      header: null,
+    }),
+  },
   StudentHomeScreen: {
-    screen: MyDrawerNavigator,
+    screen: StudentDrawerNavigator,
+    navigationOptions: ({navigation}) => ({
+      header: null,
+    }),
+  },
+  AdvisorHomeScreen: {
+    screen: AdvisorDrawerNavigator,
     navigationOptions: ({navigation}) => ({
       header: null,
     }),
@@ -356,16 +423,22 @@ const MainNavigator = createStackNavigator({
       headerTintColor: '#fff',
     }),
   },
-  Adv_AdvisorProfile:{
+  Adv_AdvisorProfile: {
     screen: Adv_AdvisorProfile,
     navigationOptions: ({navigation}) => ({
-      headerShown:false,
+      headerShown: false,
     }),
   },
-  Stu_AdvisorProfile:{
+  Stu_AdvisorProfile: {
     screen: Stu_AdvisorProfile,
     navigationOptions: ({navigation}) => ({
-      headerShown:false,
+      headerShown: false,
+    }),
+  },
+  SingleChat: {
+    screen: SingleChatActivity,
+    navigationOptions: ({navigation}) => ({
+      headerShown: false,
     }),
   },
 });
