@@ -12,9 +12,6 @@ import Button  from "react-native-button";
 import { AppStyles } from "../styles/RequestFormStyle";
 import {styles } from "../styles/FYPRequestStyles";
 
-<<<<<<< HEAD
-=======
-
 import {
   SafeAreaView,
   ScrollView,
@@ -145,10 +142,7 @@ class FYPRequestScreen extends React.Component {
             </Picker>
           </View>
         </View>
-
-
-
-          
+ 
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
             <Image source = {require('../assets/icons/tech.png')} style={styles.techIcon}/>

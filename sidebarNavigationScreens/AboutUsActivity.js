@@ -56,14 +56,8 @@ export default class AboutUsActivity extends Component {
               {'\n'}
               {'\n'}
               {'\n'}
-<<<<<<< HEAD
               {'\n'}{'     '} Aroob Kausar{'\n'}{'    '}
                 "Student of PUCIT. Developing{'\n'}{'    '}this app as FYP and to provide{'\n'}{'    '}a digitized solution of FYP{'\n'}{'    '}interaction problems."
-=======
-              {'\n'} Aroob Kauser{'\n'}
-              "Student of PUCIT. Developing{'\n'}this app as FYP and to provide
-              {'\n'}a digitized solution of FYP{'\n'}interaction problems."
->>>>>>> 906abf2bc5b0ca901fa162d35f9bc3f2b7e86540
             </Text>
           </View>
 
@@ -72,45 +66,11 @@ export default class AboutUsActivity extends Component {
               <Image source={require('./mypic.jpg')} style={styles.myPic} />
             </Text>
             <Text>
-<<<<<<< HEAD
               {'\n'}
               {'\n'}
               {'\n'}
               {'\n'}{'     '} Taimoor Hassan{'\n'}{'    '}
                 "Student of PUCIT. Developing{'\n'}{'    '}this app as FYP and to provide{'\n'}{'    '}a digitized solution of FYP{'\n'}{'    '}interaction problems."
-=======
-              {'\n'}
-              {'\n'}
-              {'\n'}
-              {'\n'}
-              {'     '}Mohsin Anees{'\n'}
-              {'    '}
-              "Student of PUCIT. Developing{'\n'}
-              {'    '}this app as FYP and to provide{'\n'}
-              {'    '}a digitized solution of FYP{'\n'}
-              {'    '}interaction problems."
-            </Text>
-            <Text>
-              <Image source={require('./mypic.jpg')} style={styles.myPic} />
-            </Text>
-            <Text>
-              {'\n'}
-              {'\n'}
-              {'\n'}
-              {'\n'}
-              {'     '}Aroob Kauser{'\n'}
-              {'    '}
-              "Student of PUCIT. Developing{'\n'}
-              {'    '}this app as FYP and to provide{'\n'}
-              {'    '}a digitized solution of FYP{'\n'}
-              {'    '}interaction problems."
-              {'\n'}
-              {'\n'}
-              {'\n'}
-              {'\n'} Taimoor Hassan{'\n'}
-              "Student of PUCIT. Developing{'\n'}this app as FYP and to provide
-              {'\n'}a digitized solution of FYP{'\n'}interaction problems."
->>>>>>> 906abf2bc5b0ca901fa162d35f9bc3f2b7e86540
             </Text>
           </View>
 
@@ -119,46 +79,11 @@ export default class AboutUsActivity extends Component {
               <Image source={require('./mypic.jpg')} style={styles.myPic} />
             </Text>
             <Text>
-<<<<<<< HEAD
               {'\n'}
               {'\n'}
               {'\n'}
               {'\n'}{'     '} Fatima Batool{'\n'}{'    '}
                 "Student of PUCIT. Developing{'\n'}{'    '}this app as FYP and to provide{'\n'}{'    '}a digitized solution of FYP{'\n'}{'    '}interaction problems."
-=======
-              {'\n'}
-              {'\n'}
-              {'\n'}
-              {'\n'}
-              {'     '}Taimoor Hassan{'\n'}
-              {'    '}
-              "Student of PUCIT. Developing{'\n'}
-              {'    '}this app as FYP and to provide{'\n'}
-              {'    '}a digitized solution of FYP{'\n'}
-              {'    '}interaction problems."
-              <Image source={require('./mypic.jpg')} style={styles.myPic} />
-            </Text>
-            <Text>
-              <Image source={require('./mypic.jpg')} style={styles.myPic} />
-            </Text>
-            <Text>
-              {'\n'}
-              {'\n'}
-              {'\n'}
-              {'\n'}
-              {'     '}Fatima Batool{'\n'}
-              {'    '}
-              "Student of PUCIT. Developing{'\n'}
-              {'    '}this app as FYP and to provide{'\n'}
-              {'    '}a digitized solution of FYP{'\n'}
-              {'    '}interaction problems."
-              {'\n'}
-              {'\n'}
-              {'\n'}
-              {'\n'} Fatima Batool{'\n'}
-              "Student of PUCIT. Developing{'\n'}this app as FYP and to provide
-              {'\n'}a digitized solution of FYP{'\n'}interaction problems."
->>>>>>> 906abf2bc5b0ca901fa162d35f9bc3f2b7e86540
             </Text>
           </View>
 

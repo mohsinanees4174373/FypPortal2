@@ -22,10 +22,7 @@ import Button from 'react-native-button';
 import {AppStyles} from '../styles/RequestFormStyle';
 import {styles} from '../styles/AppointmentRequestStyles';
 import DatePicker from 'react-native-datepicker';
-<<<<<<< HEAD
 
-=======
->>>>>>> 906abf2bc5b0ca901fa162d35f9bc3f2b7e86540
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 
@@ -65,10 +62,7 @@ class AppointmentRequestScreen extends React.Component {
   render() {
     return (
       <ScrollView>
-<<<<<<< HEAD
 
-=======
->>>>>>> 906abf2bc5b0ca901fa162d35f9bc3f2b7e86540
         <View style={styles.container}>
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
@@ -85,11 +79,8 @@ class AppointmentRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
-<<<<<<< HEAD
             </View>           
-=======
-          </View>
->>>>>>> 906abf2bc5b0ca901fa162d35f9bc3f2b7e86540
+         
 
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>
@@ -106,15 +97,9 @@ class AppointmentRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
-<<<<<<< HEAD
             </View>
 
-            <View style={styles.DateTimeContainer}>
-=======
-          </View>
-
           <View style={styles.DateTimeContainer}>
->>>>>>> 906abf2bc5b0ca901fa162d35f9bc3f2b7e86540
             <View style={styles.DateSectionStyle}>
               <Image
                 source={require('../assets/icons/date.png')}
@@ -171,12 +156,8 @@ class AppointmentRequestScreen extends React.Component {
                 }}
               />
             </View>
-<<<<<<< HEAD
             </View>
 
-=======
-          </View>
->>>>>>> 906abf2bc5b0ca901fa162d35f9bc3f2b7e86540
           <View style={styles.InputContainer}>
             <View style={styles.description}>
               <Image
@@ -195,12 +176,8 @@ class AppointmentRequestScreen extends React.Component {
                 underlineColorAndroid="transparent"
               />
             </View>
-<<<<<<< HEAD
             </View>
 
-=======
-          </View>
->>>>>>> 906abf2bc5b0ca901fa162d35f9bc3f2b7e86540
           <Button
             containerStyle={[
               styles.facebookContainer,
