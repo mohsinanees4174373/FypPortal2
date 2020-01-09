@@ -42,19 +42,19 @@ class AppointmentsActivity extends Component {
       id : 1,
       avatar_url: faker.image.avatar(),
       //name : faker.name.firstName(),
-      description: "Sadia Shahzad has  your appointment request.",
+      description: "Sadia Shahzad has rejected your appointment request.",
     },
     {
       id : 1,
       avatar_url: faker.image.avatar(),
       //name : faker.name.firstName(),
-      description: "Shahzad Sadfar has accepted your appointment request.",
+      description: "Khadija Mariyam has rejected your appointment request.",
     },
     {
       id : 1,
       avatar_url: faker.image.avatar(),
       //name : faker.name.firstName(),
-      description: "Shahzad Sadfar has accepted your appointment request.",
+      description: "Anzar Ahmad has accepted your appointment request.",
     },
     
     )
@@ -93,7 +93,7 @@ class AppointmentsActivity extends Component {
       subtitle={item.description}
       leftAvatar={{ source: { uri: item.avatar_url } ,size:70}}
       bottomDivider
-      //chevron={{color:'#2b60de',raised:true,name:'visibility',size:20, onPress:this.navigateToProfile.bind(this,item) }}
+      chevron={{color:'#2b60de',raised:true,name:'visibility',size:20, onPress:this.navigateToProfile.bind(this,item) }}
     />
     )
     render() {

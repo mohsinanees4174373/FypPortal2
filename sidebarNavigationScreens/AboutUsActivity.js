@@ -22,7 +22,7 @@ export default class AboutUsActivity extends Component {
           />
           <Text style={styles.missionHeading}>{'\n'}Our Mission</Text>
           <Text style={styles.mission}>
-            To reduce manual work and moves toward Smart Campus
+            To reduce manual work and move towards Smart Campus
           </Text>
           <View style={styles.line} />
         
