@@ -37,7 +37,7 @@ class ChangePwdActivity extends Component {
                   'https://paperpks.com/wp-content/uploads/2018/12/pucit.png',
               }}
             />
-            
+
             <View style={styles.line} />
             <TouchableHighlight style={styles.headingContainer}>
               <Text style={styles.heading}>Change Password{'\n'}</Text>
@@ -81,11 +81,10 @@ class ChangePwdActivity extends Component {
             <TouchableOpacity
               style={[styles.buttonContainer, styles.chngPwdButton]}
               //onPress={() =>
-               // this.props.navigation.navigate('StudentHomeScreen')}
-              >
+              // this.props.navigation.navigate('StudentHomeScreen')}
+            >
               <Text style={styles.btnText}>Change Password</Text>
             </TouchableOpacity>
-
           </View>
         </ScrollView>
       </SafeAreaView>

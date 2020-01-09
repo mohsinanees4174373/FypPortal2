@@ -132,7 +132,7 @@ class Custom_Side_Menu extends Component {
               <Text
                 style={styles.menuText}
                 onPress={() => {
-                  this.props.navigation.navigate('Settings');}}>Settings</Text>
+                  this.props.navigation.navigate('UpdatePswd');}}>Update Password</Text>
   
             </View>
   
