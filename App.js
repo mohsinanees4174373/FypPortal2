@@ -45,9 +45,10 @@ import Adv_AdvisorProfile from './ProfileScreens/Adv_AdvisorProfile';
 import SingleChatActivity from './StudentBottomNavigationScreens/SingleChat';
 
 import AdvisorEditProfileActivity from './sidebarNavigationScreens/AdvisorEditProfileActivity';
-import StudentEditProfileActivity from './sidebarNavigationScreens/EditProfileActivity'
+import StudentEditProfileActivity from './sidebarNavigationScreens/EditProfileActivity';
 import AdvisorCustom_Side_Menu from './StudentHomeAfterLogin/AdvisorCustom_Side_Menu';
 import AdvSignupActivity from './LoginSignupScreens/AdvSignupActivity';
+import ChangePwdActivity from './sidebarNavigationScreens/ChangePwdActivity';
 const StudentTabNavigator = createMaterialBottomTabNavigator(
   {
     // Second: {
@@ -74,8 +75,7 @@ const StudentTabNavigator = createMaterialBottomTabNavigator(
     },
     Appointments: {
       screen: AppointmentsActivity,
-      navigationOptions:  {
-        
+      navigationOptions: {
         tabBarIcon: ({tintColor}) => (
           <View>
             <Image
@@ -246,7 +246,7 @@ const AdvisorEditProfileActivity_StackNavigator = createStackNavigator({
   AdvisorEditProfile: {
     screen: Adv_AdvisorProfile,
     navigationOptions: ({navigation}) => ({
-      header:null,
+      header: null,
     }),
   },
 });
@@ -279,11 +279,11 @@ const ContactUsActivity_StackNavigator = createStackNavigator({
     }),
   },
 });
-const SettingsActivity_StackNavigator = createStackNavigator({
-  Settings: {
-    screen: SettingsActivity,
+const UpdatePswdActivity_StackNavigator = createStackNavigator({
+  UpdatePswd: {
+    screen: ChangePwdActivity,
     navigationOptions: ({navigation}) => ({
-      title: 'Settings',
+      title: 'Update Password',
       headerLeft: <HamburgerIcon navigationProps={navigation} />,
 
       headerStyle: {
@@ -310,7 +310,7 @@ const StudentDrawerNavigator = createDrawerNavigator(
       screen: ContactUsActivity_StackNavigator,
     },
     FifthStack: {
-      screen: SettingsActivity_StackNavigator,
+      screen: UpdatePswdActivity_StackNavigator,
     },
   },
   {
@@ -334,7 +334,7 @@ const AdvisorDrawerNavigator = createDrawerNavigator(
       screen: ContactUsActivity_StackNavigator,
     },
     FifthStack: {
-      screen: SettingsActivity_StackNavigator,
+      screen: UpdatePswdActivity_StackNavigator,
     },
   },
   {
@@ -446,10 +446,7 @@ const MainNavigator = createStackNavigator({
       headerTintColor: '#fff',
     }),
   },
-
-},
-
-);
+});
 
 const App = createAppContainer(MainNavigator);
 export default App;

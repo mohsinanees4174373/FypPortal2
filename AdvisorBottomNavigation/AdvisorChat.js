@@ -72,6 +72,7 @@ class AdvisorChat extends Component {
       titleStyle={styles.title}
       subtitle={item.description}
       leftAvatar={{source: {uri: item.avatar_url}, size: 70}}
+      bottomDivider
       onPress={ this.navigateToProfile.bind(this, item)}
     />
   );
