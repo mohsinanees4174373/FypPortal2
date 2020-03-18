@@ -1,4 +1,11 @@
-
+/* eslint-disable react/jsx-no-duplicate-props */
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow
+ */
 
 import React, {Component} from 'react';
 import {
@@ -15,6 +22,7 @@ import Button from 'react-native-button';
 import {AppStyles} from '../styles/RequestFormStyle';
 import {styles} from '../styles/AppointmentRequestStyles';
 import DatePicker from 'react-native-datepicker';
+
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 
@@ -54,6 +62,7 @@ class AppointmentRequestScreen extends React.Component {
   render() {
     return (
       <ScrollView>
+
         <View style={styles.container}>
           <View style={styles.InputContainer}>
             <View style={styles.SectionStyle}>

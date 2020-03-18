@@ -269,7 +269,7 @@ const ContactUsActivity_StackNavigator = createStackNavigator({
   ContactUs: {
     screen: ContactUsActivity,
     navigationOptions: ({navigation}) => ({
-      title: 'Settings',
+      title: 'Contact Us',
       headerLeft: <HamburgerIcon navigationProps={navigation} />,
 
       headerStyle: {
