@@ -18,6 +18,7 @@ import {
 } from 'react-native';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
+var url = require('../url');
 class LoginActivity extends Component {
   constructor(props) {
     super(props);
@@ -31,10 +32,73 @@ class LoginActivity extends Component {
       password: '',
     };
   }
+ 
   checkLogin() {
-    const {email, password} = this.state;
+    
+
+    if (this.state.email== '') {
+      Alert.alert('Email cannot be empty!');
+    }
+    else if (this.state.password == '') {
+
+      Alert.alert('Password cannot be empty!');
+
+    }
+    else
+    {
+      
+    fetch(url.base_url + "/checkStudentLogin", {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          email: this.state.email,
+          password: this.state.password,
+      })
+    })
+    .then((response) => response.json())
+    .then((responseJson) => {
+        if(responseJson[0])
+        {
+          console.log(responseJson);
+          this.props.navigation.navigate('StudentHomeScreen');
+        }
+        else
+        {
+          fetch( url.base_url + "/checkAdvisorLogin", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              email: this.state.email,
+              password: this.state.password,
+          })
+        })
+        .then((response) => response.json())
+        .then((responseJson) => {
+            if(responseJson[0])
+            {
+              this.props.navigation.navigate('AdvisorHomeScreen'); 
+            }
+            else
+            {
+              Alert.alert('Invalid Username/Password');
+            }
+          })
+    
+    
+        }
+      })
+      
+  }
+
+
     // eslint-disable-next-line eqeqeq
-    if (email == 'student@gmail.com' && password == 'student') {
+    /*if (email == 'student@gmail.com' && password == 'student') {
       this.props.navigation.navigate('StudentHomeScreen');
     } else if (email == 'advisor@gmail.com' && password == 'advisor') {
       this.props.navigation.navigate('AdvisorHomeScreen');
@@ -42,7 +106,7 @@ class LoginActivity extends Component {
       Alert.alert('Email/Password cannot be empty!');
     } else {
       Alert.alert('Invalid Username/Password');
-    }
+    }*/
   }
 
   render() {
