@@ -1,6 +1,6 @@
 /* eslint-disable eqeqeq */
-import React, {Component} from 'react';
-
+import React , {Component} from 'react';
+import {AsyncStorage} from 'react-native'
 import {
   StyleSheet,
   Text,
@@ -32,7 +32,48 @@ class LoginActivity extends Component {
       password: '',
     };
   }
- 
+  _storeStudentData = async () => {
+    try {
+      console.log('storing Data');
+      await AsyncStorage.setItem('email', this.state.email);
+      await AsyncStorage.setItem('password', this.state.password);
+      await AsyncStorage.setItem('user', 'student');
+      const value = await AsyncStorage.getItem('user');
+      console.log(value);
+    } catch (error) {
+      console.log('ethy v error bro');
+    }
+  };
+  _storeAdvisorData = async () => {
+    try {
+      console.log('storing Data');
+      await AsyncStorage.setItem('email', this.state.email);
+      await AsyncStorage.setItem('password', this.state.password);
+      await AsyncStorage.setItem('user', 'advisor');
+      const value = await AsyncStorage.getItem('user');
+      console.log(value);
+    } catch (error) {
+      console.log('ethy v error bro');
+    }
+  };
+  _retriveData = async () => {
+    try {
+      console.log('retrivingData')
+      const value = await AsyncStorage.getItem("user");
+      console.log(value);
+      if (value !== null) {
+        if(value === 'student')
+        {
+          this.props.navigation.navigate('StudentHomeScreen');
+        }else if(value ==='advisor')
+        {
+          this.props.navigation.navigate('AdvisorHomeScreen'); 
+        }
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   checkLogin() {
     
 
@@ -63,6 +104,8 @@ class LoginActivity extends Component {
         if(responseJson[0])
         {
           console.log(responseJson);
+
+          this._storeStudentData();
           this.props.navigation.navigate('StudentHomeScreen');
         }
         else
@@ -82,6 +125,7 @@ class LoginActivity extends Component {
         .then((responseJson) => {
             if(responseJson[0])
             {
+              this._storeAdvisorData();
               this.props.navigation.navigate('AdvisorHomeScreen'); 
             }
             else
@@ -96,19 +140,11 @@ class LoginActivity extends Component {
       
   }
 
-
-    // eslint-disable-next-line eqeqeq
-    /*if (email == 'student@gmail.com' && password == 'student') {
-      this.props.navigation.navigate('StudentHomeScreen');
-    } else if (email == 'advisor@gmail.com' && password == 'advisor') {
-      this.props.navigation.navigate('AdvisorHomeScreen');
-    } else if (email == '' || password == '') {
-      Alert.alert('Email/Password cannot be empty!');
-    } else {
-      Alert.alert('Invalid Username/Password');
-    }*/
   }
-
+  componentDidMount(){
+    console.log('calling')
+    this._retriveData();
+  }
   render() {
     return (
       <SafeAreaView>
