@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-
+import {AsyncStorage} from 'react-native';
+var url = require('../url');
 import {
   StyleSheet,
   Text,
@@ -22,7 +23,100 @@ class ChangePwdActivity extends Component {
     YellowBox.ignoreWarnings([
       'Warning: componentWillMount is deprecated',
       'Warning: componentWillReceiveProps is deprecated',
+      'Warning: AsyncStorage has been extracted',
     ]);
+    this.state={
+      oldPass:'',
+      newPass:'',
+      email:'',
+      user:'',
+      OldPassword:''
+    }
+  }
+  _retriveData = async () => {
+    try {
+      console.log('retrivingData')
+      this.state.email = await AsyncStorage.getItem("email");
+      this.state.OldPassword = await AsyncStorage.getItem("password");
+      this.state.user = await AsyncStorage.getItem("user");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  _storeData = async () => {
+    try {
+      console.log('storing Data');
+      
+      await AsyncStorage.removeItem("password");
+      await AsyncStorage.setItem("password", this.state.newPass);
+      this.state.OldPassword = await AsyncStorage.getItem("password");
+
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  updatePassword()
+  {
+    if(this.state.newPass == '')
+    {
+      Alert.alert('Please fill the new password filed.');
+    }
+    else if (this.state.oldPass == '')
+    {
+      Alert.alert('Please fill the old password filed.');
+    }
+    else
+    {
+      console.log(this.state.oldPass);
+      if(this.state.oldPass !== this.state.OldPassword)
+      {
+        Alert.alert('Old password dosnt match!');
+      }
+      else{
+        console.log(this.state.user);
+        var callUrl;
+        if(this.state.user === 'student')
+        {
+          callUrl = "/changeStudentPassword";
+        }
+        else
+        {
+          callUrl = "/changeAdvisorPassword";
+        }
+        fetch( url.base_url + callUrl, {
+          method: 'POST',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: this.state.email,
+            newPassword: this.state.newPass,
+        })
+        })
+        .then((response) => response.json())
+        .then((responseJson) => {
+            console.log(responseJson);
+            if(responseJson)
+            {
+            this.OldPassword = this.state.newPass;
+            console.log(this.state.newPass);
+            console.log(this.state.OldPassword);
+            this._storeData();
+            Alert.alert('Password Changed Successfully !')
+            this.newPass='';
+            this.oldPass='';
+            }
+
+          })
+              
+        
+      }
+    }  
+  }
+  componentDidMount(){
+    console.log('calling')
+    this._retriveData();
   }
 
   render() {
@@ -57,7 +151,7 @@ class ChangePwdActivity extends Component {
                 secureTextEntry={true}
                 returnKeyType="next"
                 //underlineColorAndroid='transparent'
-                onChangeText={password => this.setState({password})}
+                onChangeText={oldPass=> this.setState({oldPass})}
               />
             </View>
             <View style={styles.inputContainer}>
@@ -74,14 +168,13 @@ class ChangePwdActivity extends Component {
                 secureTextEntry={true}
                 returnKeyType="next"
                 //underlineColorAndroid='transparent'
-                onChangeText={password => this.setState({password})}
+                onChangeText={newPass => this.setState({newPass})}
               />
             </View>
 
             <TouchableOpacity
               style={[styles.buttonContainer, styles.chngPwdButton]}
-              //onPress={() =>
-              // this.props.navigation.navigate('StudentHomeScreen')}
+              onPress={() => this.updatePassword()}
             >
               <Text style={styles.btnText}>Change Password</Text>
             </TouchableOpacity>

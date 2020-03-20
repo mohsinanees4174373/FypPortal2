@@ -1,6 +1,6 @@
 /* eslint-disable eqeqeq */
-import React , {Component} from 'react';
-import {AsyncStorage} from 'react-native'
+import React , {Component, useEffect} from 'react';
+import {AsyncStorage, Navigator, BackHandler} from 'react-native'
 import {
   StyleSheet,
   Text,
@@ -26,6 +26,7 @@ class LoginActivity extends Component {
     YellowBox.ignoreWarnings([
       'Warning: componentWillMount is deprecated',
       'Warning: componentWillReceiveProps is deprecated',
+      'Warning: AsyncStorage has been extracted',
     ]);
     this.state = {
       email: '',
@@ -42,6 +43,7 @@ class LoginActivity extends Component {
       console.log(value);
     } catch (error) {
       console.log('ethy v error bro');
+      
     }
   };
   _storeAdvisorData = async () => {
@@ -50,8 +52,6 @@ class LoginActivity extends Component {
       await AsyncStorage.setItem('email', this.state.email);
       await AsyncStorage.setItem('password', this.state.password);
       await AsyncStorage.setItem('user', 'advisor');
-      const value = await AsyncStorage.getItem('user');
-      console.log(value);
     } catch (error) {
       console.log('ethy v error bro');
     }
@@ -59,12 +59,17 @@ class LoginActivity extends Component {
   _retriveData = async () => {
     try {
       console.log('retrivingData')
+      //await AsyncStorage.removeItem("password");
+      //await AsyncStorage.removeItem("user");
+      //await AsyncStorage.removeItem("email");
       const value = await AsyncStorage.getItem("user");
       console.log(value);
       if (value !== null) {
         if(value === 'student')
         {
           this.props.navigation.navigate('StudentHomeScreen');
+          
+          
         }else if(value ==='advisor')
         {
           this.props.navigation.navigate('AdvisorHomeScreen'); 
@@ -141,10 +146,14 @@ class LoginActivity extends Component {
   }
 
   }
+  
+  
+
   componentDidMount(){
     console.log('calling')
     this._retriveData();
   }
+
   render() {
     return (
       <SafeAreaView>
