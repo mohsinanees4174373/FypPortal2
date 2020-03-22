@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@react-native-community/cli-platform-android": "^3.0.3",
+    "express": "^4.17.1",
     "faker": "^4.1.0",
     "jetifier": "^1.6.5",
+    "mysql": "^2.18.1",
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-button": "^2.4.0",

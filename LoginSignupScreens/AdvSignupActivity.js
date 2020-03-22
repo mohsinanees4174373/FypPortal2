@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {AsyncStorage, Navigator, BackHandler} from 'react-native'
 import {
   StyleSheet,
   Text,
@@ -18,6 +19,8 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import LoginActivity from './LoginActivity';
 
+var url = require('../url');
+
 class AdvSignupActivity extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +28,125 @@ class AdvSignupActivity extends Component {
       'Warning: componentWillMount is deprecated',
       'Warning: componentWillReceiveProps is deprecated',
     ]);
+    this.state = {
+      Name : '',
+      email : '',
+      phone : '',
+      password : '',
+      cnfrmPassword: '',
+      Qualification: '',
+      Designation: '',
+    };
   }
+
+  _storeAdvisorSignUpData = async () => {
+    try {
+      console.log('storing Data');
+      await AsyncStorage.setItem('Name', this.state.Name);
+      await AsyncStorage.setItem('email', this.state.email);
+      await AsyncStorage.setItem('phone', this.state.phone);
+      await AsyncStorage.setItem('password', this.state.password);
+      await AsyncStorage.setItem('Qualification', this.state.Qualification);
+      await AsyncStorage.setItem('Designation', this.state.Designation);
+      //await AsyncStorage.setItem('user', 'student');
+      //const value = await AsyncStorage.getItem('user');
+      //console.log(value);
+    } catch (error) {
+      console.log('ethy v error bro');
+      
+    }
+  };
+   
+  checkSignup() {
+    if (this.state.Name== '') {
+      Alert.alert('Name cannot be empty!');
+    }
+    else if (this.state.email== '') {
+      Alert.alert('Email cannot be empty!');
+    }
+    else if (this.state.phone== '') {
+      Alert.alert('Phone # cannot be empty!');
+    }
+    else if (this.state.password== '') {
+      Alert.alert('Password cannot be empty!');
+    }
+    else if (this.state.cnfrmPassword== '') {
+      Alert.alert('Confirm Password cannot be empty!');
+    }
+    else if (this.state.Qualification == '') {
+      Alert.alert('Qualification cannot be empty!');
+    }
+    else if (this.state.Designation == '') {
+      Alert.alert('Designation cannot be empty!');
+    }
+    else if (this.state.cnfrmPassword != this.state.password) {
+      Alert.alert('Paswword and Confirm Password does not match!');
+    }
+    else if (!((/^[a-zA-Z]+ [a-zA-Z]+$/).test(this.state.Name)) && !((/^[A-Za-z]+$/).test(this.state.Name))){
+        Alert.alert('Invalid Name!');
+    }
+    else if (this.state.phone.length != 5 || isNaN(parseInt(this.state.phone))){
+      Alert.alert('Invalid Phone #!');
+    }
+    else if(this.state.email != ''){
+      if(this.state.email.includes("@pucit.edu.pk")){
+          var mail = this.state.email.split("@");
+          if(mail.length == 2){
+              if(mail[1] == "pucit.edu.pk"){
+                  fetch(url.base_url + "/checkAdvAvailibility", {
+                      method: 'POST',
+                      headers: {
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json'
+                  },
+                      body: JSON.stringify({
+                      email: this.state.email,
+                      })
+                  })
+                  .then((response) => response.json())
+                  .then((responseJson) => {
+                      if(!responseJson[0])
+                      {
+                          fetch(url.base_url + "/insertAdvisor", {
+                          method: 'POST',
+                          headers: {
+                          'Accept': 'application/json',
+                          'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify({
+                          Name: this.state.Name,
+                          phone: this.state.phone,
+                          email: this.state.email,
+                          password: this.state.password,
+                          Qualification: this.state.Qualification,
+                          Designation: this.state.Designation,
+                      })
+                  })
+                  .then((response) => response.json())
+                  .then((responseJson) => {
+                  console.log(responseJson);
+                  this._storeAdvisorSignUpData();
+                  this.props.navigation.navigate('AdvisorHomeScreen');
+                  })
+                  }
+                  else{
+                       Alert.alert('Already Exist!');
+                  }
+                  })
+              }
+              else{
+                  Alert.alert('Invalid Email!');
+              }
+          }
+          else{
+              Alert.alert('Invalid Email!');
+          }
+      }
+      else{
+          Alert.alert('Invalid Email!');
+      }
+    }
+  };
 
   render() {
     return (
@@ -59,7 +180,7 @@ class AdvSignupActivity extends Component {
                 returnKeyType="next"
                 //keyboardType="email-address"
                 //underlineColorAndroid='transparent'
-                onChangeText={name => this.setState({name})}
+                onChangeText={Name => this.setState({Name})}
               />
             </View>
 
@@ -94,7 +215,7 @@ class AdvSignupActivity extends Component {
                 returnKeyType="next"
                 keyboardType="phone-pad"
                 //underlineColorAndroid='transparent'
-                onChangeText={ph => this.setState({ph})}
+                onChangeText={phone => this.setState({phone})}
               />
             </View>
 
@@ -130,7 +251,7 @@ class AdvSignupActivity extends Component {
                 secureTextEntry={true}
                 returnKeyType="next"
                 //underlineColorAndroid='transparent'
-                onChangeText={cfmpwd => this.setState({cfmpwd})}
+                onChangeText={cnfrmPassword => this.setState({cnfrmPassword})}
               />
             </View>
 
@@ -148,7 +269,7 @@ class AdvSignupActivity extends Component {
                 returnKeyType="next"
                 //keyboardType="email-address"
                 //underlineColorAndroid='transparent'
-                //onChangeText={qualification => this.setState({qualification})}
+                onChangeText={Qualification => this.setState({Qualification})}
               />
             </View>
 
@@ -165,13 +286,13 @@ class AdvSignupActivity extends Component {
                 placeholder="Designation"
                 returnKeyType="go"
                 //underlineColorAndroid='transparent'
-                //onChangeText={email => this.setState({email})}
+                onChangeText={Designation => this.setState({Designation})}
               />
             </View>
 
             <TouchableOpacity
               style={[styles.buttonContainer, styles.signupButton]}
-              onPress={() => this.props.navigation.navigate('Login')}>
+              onPress={() => this.checkSignup()}>
               <Text style={styles.signupText}>CREATE ACCOUNT</Text>
             </TouchableOpacity>
 

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {AsyncStorage, Navigator, BackHandler} from 'react-native'
 import {
   StyleSheet,
   Text,
@@ -19,6 +20,8 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import LoginActivity from './LoginActivity';
 
+var url = require('../url');
+
 class SignupActivity extends Component {
   constructor(props) {
     super(props);
@@ -27,9 +30,152 @@ class SignupActivity extends Component {
       'Warning: componentWillReceiveProps is deprecated',
     ]);
     this.state = {
-      degree: '',
+      Name : '',
+      Roll_number : '',
+      email : '',
+      phone : '',
+      Degree: 'BSSE',
+      address : '',
+      password : '',
+      cnfrmPassword: '',
     };
   }
+
+  _storeStudentSignUpData = async () => {
+    try {
+      console.log('storing Data');
+      await AsyncStorage.setItem('Name', this.state.Name);
+      await AsyncStorage.setItem('Roll_number', this.state.Roll_number);
+      await AsyncStorage.setItem('email', this.state.email);
+      await AsyncStorage.setItem('phone', this.state.phone);
+      await AsyncStorage.setItem('Degree', this.state.Degree);
+      await AsyncStorage.setItem('address', this.state.address);
+      await AsyncStorage.setItem('password', this.state.password);
+      //await AsyncStorage.setItem('user', 'student');
+      //const value = await AsyncStorage.getItem('user');
+      //console.log(value);
+    } catch (error) {
+      console.log('ethy v error bro');
+      
+    }
+  };
+
+  checkSignup() {
+    if (this.state.Name== '') {
+      Alert.alert('Name cannot be empty!');
+    }
+    else if (this.state.email== '') {
+      Alert.alert('Email cannot be empty!');
+    }
+    else if (this.state.phone== '') {
+      Alert.alert('Phone # cannot be empty!');
+    }
+    else if (this.state.password== '') {
+      Alert.alert('Password cannot be empty!');
+    }
+    else if (this.state.cnfrmPassword== '') {
+      Alert.alert('Confirm Password cannot be empty!');
+    }
+    else if (this.state.Degree == '') {
+      Alert.alert('Degree cannot be empty!');
+    }
+    else if (this.state.cnfrmPassword != this.state.password) {
+      Alert.alert('Paswword and Confirm Password does not match!');
+    }
+    else if (!((/^[a-zA-Z]+ [a-zA-Z]+$/).test(this.state.Name)) && !((/^[A-Za-z]+$/).test(this.state.Name))){
+        Alert.alert('Invalid Name!');
+    }
+    else if (this.state.phone.length != 5 || isNaN(parseInt(this.state.phone))){
+      Alert.alert('Invalid Phone #!');
+    }
+    else if(this.state.email != ''){
+      if(this.state.email.includes("@pucit.edu.pk")){
+          var mail = this.state.email.split("@");
+          if(mail.length == 2){
+              if(mail[1] == "pucit.edu.pk"){
+                  if(mail[0].length == 10){
+                      var rollNum = Array.from(mail[0]);
+                      var dgre = rollNum[0] + rollNum[1] + rollNum[2];
+                      if((dgre == 'bse' || dgre == 'bcs' || dgre == 'bit' || dgre == 'mcs') && rollNum[3] == 'f' && (rollNum[6] == 'm' || rollNum[6] == 'a')){
+                          var yr = rollNum[4] + rollNum[5];
+                          if(!isNaN(parseInt(yr))){
+                              var rn = rollNum[7] + rollNum[8] + rollNum[9];
+                              if(isNaN(parseInt(rn))){
+                                  Alert.alert('Invalid Email!');
+                              }else{
+                                  if((dgre == 'bse' && this.state.Degree == 'BSSE') || (dgre == 'bcs' && this.state.Degree == 'BSCS') || (dgre == 'bit' && this.state.Degree == 'BSIT') || (dgre == 'mcs' && this.state.Degree == 'MCS')){
+                                      fetch(url.base_url + "/checkStdAvailibility", {
+                                        method: 'POST',
+                                        headers: {
+                                            'Accept': 'application/json',
+                                            'Content-Type': 'application/json'
+                                      },
+                                      body: JSON.stringify({
+                                          email: this.state.email,
+                                      })
+                                    })
+                                    .then((response) => response.json())
+                                    .then((responseJson) => {
+                                          if(!responseJson[0])
+                                            {
+                                              fetch(url.base_url + "/insertStudent", {
+                                                method: 'POST',
+                                                headers: {
+                                                    'Accept': 'application/json',
+                                                    'Content-Type': 'application/json'
+                                              },
+                                              body: JSON.stringify({
+                                                  Name: this.state.Name,
+                                                  Degree: this.state.Degree,
+                                                  phone: this.state.phone,
+                                                  email: this.state.email,
+                                                  password: this.state.password,
+                                                  address: this.state.address,
+                                              })
+                                            })
+                                            .then((response) => response.json())
+                                            .then((responseJson) => {
+                                                  console.log(responseJson);
+                                                  this._storeStudentSignUpData();
+                                                  this.props.navigation.navigate('StudentHomeScreen');
+                                              })
+                                            }
+                                          else{
+                                              Alert.alert('Already Exist!');
+                                          }
+                                      })
+                                      }
+                                          
+                                  else{
+                                      Alert.alert('Invalid Email or Degree!');
+                                  }
+                              }
+                          }
+                          else{
+                              Alert.alert('Invalid Email!');
+                          }
+                      }
+                      else{
+                          Alert.alert('Invalid Email!');
+                      }
+                  }
+                  else{
+                      Alert.alert('Invalid Email!');
+                  }
+              }
+              else{
+                  Alert.alert('Invalid Email!');
+              }
+          }
+          else{
+              Alert.alert('Invalid Email!');
+          }
+      }
+      else{
+          Alert.alert('Invalid Email!');
+      }
+    }
+  };
 
   render() {
     return (
@@ -63,7 +209,7 @@ class SignupActivity extends Component {
                 returnKeyType="next"
                 //keyboardType="email-address"
                 //underlineColorAndroid='transparent'
-                onChangeText={name => this.setState({name})}
+                onChangeText={Name => this.setState({Name})}
               />
             </View>
 
@@ -98,7 +244,25 @@ class SignupActivity extends Component {
                 returnKeyType="next"
                 keyboardType="phone-pad"
                 //underlineColorAndroid='transparent'
-                onChangeText={ph => this.setState({ph})}
+                onChangeText={phone => this.setState({phone})}
+              />
+            </View>
+
+            <View style={styles.inputContainer}>
+              <Image
+                style={styles.inpIcons}
+                source={{
+                  uri:
+                    'https://lh3.googleusercontent.com/proxy/BvbjW27NltRI6L4-rDQx1wHVayUfsFLtVXhOPk8hcyjxJLq6q4IPFyXffC8nRrm894PC65RFoX0GQeMNKbmJHoT9lGS86WDx7TY2EzF2xp1TvuoRJTA',
+                }}
+              />
+              <TextInput
+                style={styles.inputs}
+                placeholder="Address"
+                returnKeyType="next"
+                //keyboardType="phone-pad"
+                //underlineColorAndroid='transparent'
+                onChangeText={address => this.setState({address})}
               />
             </View>
 
@@ -134,7 +298,7 @@ class SignupActivity extends Component {
                 secureTextEntry={true}
                 returnKeyType="next"
                 //underlineColorAndroid='transparent'
-                onChangeText={cfmpwd => this.setState({cfmpwd})}
+                onChangeText={cnfrmPassword => this.setState({cnfrmPassword})}
               />
             </View>
 
@@ -148,23 +312,22 @@ class SignupActivity extends Component {
               />
               <Picker
                 style={styles.inputs}
-                itemStyle={styles.inputs}
-                mode="dropdown"
-                selectedValue={this.state.degree}
+                //itemStyle={styles.inputs}
+                //mode="dropdown"
+                selectedValue={this.state.Degree}
                 onValueChange={(itemValue, itemIndex) =>
-                  this.setState({degree: itemValue})
+                  this.setState({Degree: itemValue})
                 }>
                 <Picker.Item label="BSSE" value="BSSE" />
                 <Picker.Item label="BSCS" value="BSCS" />
                 <Picker.Item label="BSIT" value="BSIT" />
-                <Picker.Item label="MSE" value="MSE" />
                 <Picker.Item label="MCS" value="MCS" />
               </Picker>
             </View>
 
             <TouchableOpacity
               style={[styles.buttonContainer, styles.signupButton]}
-              onPress={() => this.props.navigation.navigate('Login')}>
+              onPress={() => this.checkSignup()}>
               <Text style={styles.signupText}>CREATE ACCOUNT</Text>
             </TouchableOpacity>
 
