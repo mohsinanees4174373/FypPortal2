@@ -1,17 +1,22 @@
 /* eslint-disable no-undef */
 import React, {Component} from 'react';
+import {AsyncStorage, Navigator, BackHandler} from 'react-native'
 import {
   StyleSheet,
   FlatList,
   Text,
   View,
   Button,
+  Alert,
   YellowBox,
 } from 'react-native';
 import {BottomNavigation} from 'react-native-paper';
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 import faker from 'faker';
 import {SearchBar, ListItem} from 'react-native-elements';
+
+var url = require('../url');
+
 class AdvisorsListActivity extends Component {
   
 
@@ -22,82 +27,47 @@ class AdvisorsListActivity extends Component {
       search: '',
     };
     this.arrayholder = [];
-    for (i=0 ; i <30 ; i++)
-    {
-      this.state.data.push(
-        {
-      id : 1,
-      avatar_url: faker.image.avatar(),
-      name : "Fareed-ul-Hassan Baig",
-      description: "PF, Object Oriented Programming, Data Structures",    
-    },
-    {
-      id : 2,
-      avatar_url: faker.image.avatar(),
-      name : "Abdul Khaliq",
-      description: "DLD, COAL",    
-    },
-    {
-      id : 3,
-      avatar_url: faker.image.avatar(),
-      name : "M.Abdullah",
-      description: "COAL, OOP, DLD",    
-    },
-    {
-      id : 4,
-      avatar_url: faker.image.avatar(),
-      name : "Shahzad Safdar",
-      description: "Operating Systems, Computer Networks",    
-    },
-    {
-      id : 5,
-      avatar_url: faker.image.avatar(),
-      name : "Murtaza Yousaf",
-      description: "Computer Networks",    
-    },
-    {
-      id : 6,
-      avatar_url: faker.image.avatar(),
-      name : "Zia Afzal",
-      description: "Calculus",    
-    },
-    {
-      id : 1,
-      avatar_url: faker.image.avatar(),
-      name : "Fareed-ul-Hassan Baig",
-      description: "PF, Object Oriented Programming, Data Structures",    
-    },
-    {
-      id : 2,
-      avatar_url: faker.image.avatar(),
-      name : "Abdul Khaliq",
-      description: "DLD, COAL",    
-    },
-    {
-      id : 3,
-      avatar_url: faker.image.avatar(),
-      name : "M.Abdullah",
-      description: "COAL, OOP, DLD",    
-    },
-    {
-      id : 4,
-      avatar_url: faker.image.avatar(),
-      name : "Shahzad Safdar",
-      description: "Operating Systems, Computer Networks",    
-    },
-    {
-      id : 5,
-      avatar_url: faker.image.avatar(),
-      name : "Murtaza Yousaf",
-      description: "Computer Networks",    
-    },
-    {
-      id : 6,
-      avatar_url: faker.image.avatar(),
-      name : "Zia Afzal",
-      description: "Calculus",    
-    }
-    )}
+    
+    fetch(url.base_url + "/fetchAdvisors", {
+                      method: 'POST',
+                      headers: {
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json'
+                  },
+                      body: JSON.stringify({
+                  })
+    })
+    .then((response) => response.json())
+     .then((responseJson) => {
+            console.log(responseJson);
+            if(responseJson[0]){
+               //Alert.alert(responseJson[1].Designation)
+               var i =0;
+               for (i; i < Object.keys(responseJson).length ; i++)
+                {
+                    if(responseJson[i].profile_Pic == null) {
+                      this.state.data.push(
+                        {
+                      id : responseJson[i].adv_ID,
+                      avatar_url: responseJson[i].profile_Pic,
+                      name : responseJson[i].Name,
+                      description: responseJson[i].Designation,    
+                      })
+                    }
+                    else {
+                      this.state.data.push(
+                        {
+                      id : responseJson[i].adv_ID,
+                      avatar_url: responseJson[i].profile_Pic.toString(),
+                      name : responseJson[i].Name,
+                      description: responseJson[i].Designation,    
+                    })
+                }
+                }
+            }
+            //else{ Alert.alert('masleee :/') }
+            })
+
     this.arrayholder = this.state.data;
 
     YellowBox.ignoreWarnings([
@@ -107,7 +77,7 @@ class AdvisorsListActivity extends Component {
   }
   navigateToProfile = item =>
     this.props.navigation.navigate('Stu_AdvisorProfile', {
-      image: faker.image.avatar(),
+      image: item.avatar_url,
       name: item.name,
       description: item.description,
       slots: 2,

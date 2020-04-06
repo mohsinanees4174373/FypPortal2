@@ -82,7 +82,7 @@ class AdvSignupActivity extends Component {
     else if (this.state.cnfrmPassword != this.state.password) {
       Alert.alert('Paswword and Confirm Password does not match!');
     }
-    else if (!((/^[a-zA-Z]+ [a-zA-Z]+$/).test(this.state.Name)) && !((/^[A-Za-z]+$/).test(this.state.Name))){
+    else if (!((/^[a-zA-Z]{2,40}( [a-zA-Z]{2,40})+$/).test(this.state.Name)) && !((/^[a-zA-Z]{2,40}( [a-zA-Z]{2,40})+$/).test(this.state.Name))){
         Alert.alert('Invalid Name!');
     }
     else if (this.state.phone.length != 5 || isNaN(parseInt(this.state.phone))){

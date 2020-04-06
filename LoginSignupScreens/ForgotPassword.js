@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {AsyncStorage, Navigator, BackHandler} from 'react-native'
 
 import {
   StyleSheet,
@@ -17,6 +18,10 @@ import {
 } from 'react-native';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
+import EmailSender from 'react-native-smtp';
+
+var url = require('../url');
+
 class ForgotPassword extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +30,158 @@ class ForgotPassword extends Component {
       'Warning: componentWillMount is deprecated',
       'Warning: componentWillReceiveProps is deprecated',
     ]);
+    
+    this.state = {
+      email : '',
+      newPassword: '',
+      user: '',
+      RandomNumber: 0,
+    };
   }
+
+  _storeEmail = async () => {
+    try {
+      console.log('storing Data');
+      await AsyncStorage.setItem('email', this.state.email);
+    } catch (error) {
+      console.log('ethy v error bro');
+    }
+  };
+   
+  sendEmail() {
+      EmailSender.config({
+      host: 'smtp.gmail.com',
+      port: '587', // Optional. Default to 465
+      username: 'mohsinanees62@gmail.com',
+      password: 'fypaccount',
+      isAuth: 'true', // Optional. Default to `true`
+      tls: 'true' // Optional. Default to `true`
+    });
+
+    /*
+     * Used react-native-fs module to get file path.
+     * Keep this array empty if there is no attachment.
+     */
+    const attachments = [];
+
+    // Now send the mail
+    EmailSender.send(
+      {
+        from: 'mohsinanees62@gmail.com',
+        to: this.state.email,
+        subject: 'Reset Password',
+        body: 'Your New Password : ' + this.state.RandomNumber.toString(),
+      },
+      attachments, // This second parameter is mandatory. You can send an empty array.
+    );
+  }
+
+  resetPwd() {
+      this.state.RandomNumber = Math.floor(Math.random() * 10000) + 99999 ;
+      this.state.newPassword = this.state.RandomNumber.toString();
+      if (this.state.user !== null) {
+        if(this.state.user === 'student')
+        {
+            fetch( url.base_url + "/changeStudentPassword", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              email: this.state.email,
+              newPassword: this.state.newPassword,
+          })
+        })
+        .then((response) => response.json())
+        .then((responseJson) => {
+                console.log(responseJson);
+                this._storeEmail();
+                this.sendEmail();
+                Alert.alert('New password sent successfully.!');
+                this.props.navigation.navigate('Login'); 
+                
+          })
+        }
+        else if(this.state.user ==='advisor')
+        {
+          fetch( url.base_url + "/changeAdvisorPassword", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              email: this.state.email,
+              newPassword: this.state.newPassword,
+          })
+        })
+        .then((response) => response.json())
+        .then((responseJson) => {
+                console.log(responseJson);
+                this._storeEmail();
+                this.sendEmail();
+                Alert.alert('New password sent successfully.!');
+                this.props.navigation.navigate('Login'); 
+          })
+        }
+      }
+  }
+
+  checkFields() {
+    if (this.state.email== '') {
+        Alert.alert('Email cannot be empty!');
+    }
+    else{
+        fetch(url.base_url + "/checkStdAvailibility", {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          email: this.state.email,
+      })
+    })
+    .then((response) => response.json())
+    .then((responseJson) => {
+        if(responseJson[0])
+        {
+            console.log(responseJson);
+            this.state.user = 'student';
+            this._storeEmail();
+            this.resetPwd();
+        }
+        else
+        {
+          fetch( url.base_url + "/checkAdvAvailibility", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              email: this.state.email,
+          })
+        })
+        .then((response) => response.json())
+        .then((responseJson) => {
+            if(responseJson[0])
+            {
+                console.log(responseJson);
+                this.state.user = 'advisor';
+                this._storeEmail();
+                this.resetPwd();
+            }
+            else
+            {
+              Alert.alert('Invalid Email!');
+            }
+          })
+        }
+      })  
+  }
+}
 
   render() {
     return (
@@ -75,9 +231,7 @@ class ForgotPassword extends Component {
 
             <TouchableOpacity
               style={[styles.buttonContainer, styles.loginButton]}
-              onPress={() =>
-                this.props.navigation.navigate('StudentHomeScreen')
-              }>
+                onPress={() => this.checkFields()}>
               <Text style={styles.loginText}>Get Verification Code</Text>
             </TouchableOpacity>
           </View>
