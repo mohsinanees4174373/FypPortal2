@@ -75,9 +75,10 @@ export default class  AdvisorFypRequestActivity extends Component {
         raised:true, 
         name:'visibility',
         size:20, 
-        onPress: () => this.props.navigation.navigate('FypRequestView')
-        
+      
        }}
+       onPress={ () => this.props.navigation.navigate('FypRequestView')}
+        
     />
     
   )

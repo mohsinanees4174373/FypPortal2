@@ -75,9 +75,8 @@ export default class  AdvisorAppointmentsActivity extends Component {
         raised:true, 
         name:'visibility',
         size:20, 
-        onPress: () => this.props.navigation.navigate('AppointmentView')
-        
        }}
+       onPress= {() => this.props.navigation.navigate('AppointmentView')}
     />
     
   )

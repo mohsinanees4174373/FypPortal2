@@ -26,14 +26,14 @@ class Custom_Side_Menu extends Component {
   };
   render() {
     return (
-      <View style={styles.sideMenuContainer}>
-        <Image
-          source={{
-            uri:'https://www.dontshake.org/media/k2/items/cache/71f67488b0857639cee631943a3fc6fa_XL.jpg',
-          }}
-          style={styles.sideMenuProfileIcon}
-        />
-
+      <View style={styles.sideMenuContainer}>   
+        <Icon
+                iconStyle={styles.sideMenuProfileIcon}
+                color="#2b60de"
+                name="user-circle-o"
+                size={150}
+                type="font-awesome"
+              />
         <View
           style={{
             width: '100%',

@@ -16,76 +16,61 @@ export default class AboutUsActivity extends Component {
         <View style={styles.container}>
           <Image
             style={styles.logo}
-            source={{
-              uri: 'https://paperpks.com/wp-content/uploads/2018/12/pucit.png',
-            }}
+            source={require('../assets/images/Pu.png')}
           />
-          <Text style={styles.missionHeading}>{'\n'}Our Mission</Text>
+          <View style={styles.line} />
+          <Text style={styles.missionHeading}>Our Mission</Text>
           <Text style={styles.mission}>
             To reduce manual work and moves toward Smart Campus
           </Text>
-          <View style={styles.line} />
-        
-          <View style={styles.developerContainer}>
-            <Text>
-              <Image source={require('./mahroosh.jpg')} style={styles.myPic} />
+          <View style={styles.aboutContainer}>
+            <Image source={require('./mahroosh.jpg')} style={styles.myPic} />
+            <View style={styles.descriptionText}>
+            <Text style={{fontWeight:'bold'}}>Mahroosh Hashmi
             </Text>
-              <Text>{'\n'}{'\n'}{'\n'}{'\n'}{'     '}Mahroosh Hashmi{'\n'}{'    '}
-                "Student of PUCIT. Developing{'\n'}{'    '}this app as FYP and to provide{'\n'}{'    '}a digitized solution of FYP{'\n'}{'    '}interaction problems."
+              <Text>Mahroosh Hashmi Student of PUCIT. Developing this app as FYP and to provide a digitized solution of FYP interaction problems.
             </Text>
+            </View>
           </View>
 
-          <View style={styles.developerContainer}>
-            <Text>
-              <Image source={require('./mypic.jpg')} style={styles.myPic} />
+          <View style={styles.aboutContainer}>
+            <Image source={require('./mypic.jpg')} style={styles.myPic} />
+            <View style={styles.descriptionText}>
+            <Text style={{fontWeight:'bold'}}>Mohsin Anees</Text>
+              <Text>Student of PUCIT. Developing this app as FYP and to provide a digitized solution of FYP interaction problems.
             </Text>
-            <Text>
-              {'\n'}
-              {'\n'}
-              {'\n'}
-              {'\n'}{'     '} Mohsin Anees{'\n'}{'    '}
-                "Student of PUCIT. Developing{'\n'}{'    '}this app as FYP and to provide{'\n'}{'    '}a digitized solution of FYP{'\n'}{'    '}interaction problems."
-            </Text>
+            </View>
           </View>
 
-          <View style={styles.developerContainer}>
-            <Text>
-              <Image source={require('./mypic.jpg')} style={styles.myPic} />
+          <View style={styles.aboutContainer}>
+            <Image source={require('./mypic.jpg')} style={styles.myPic} />
+            <View style={styles.descriptionText}>
+            <Text style={{fontWeight:'bold'}}>Aroob Kausar</Text>
+              <Text>Student of PUCIT. Developing this app as FYP and to provide a digitized solution of FYPinteraction problems.
             </Text>
-            <Text>
-              {'\n'}
-              {'\n'}
-              {'\n'}
-              {'\n'}{'     '} Aroob Kausar{'\n'}{'    '}
-                "Student of PUCIT. Developing{'\n'}{'    '}this app as FYP and to provide{'\n'}{'    '}a digitized solution of FYP{'\n'}{'    '}interaction problems."
-            </Text>
+            </View>
           </View>
 
-          <View style={styles.developerContainer}>
-            <Text>
-              <Image source={require('./mypic.jpg')} style={styles.myPic} />
+          <View style={styles.aboutContainer}>
+            <Image source={require('./mypic.jpg')} style={styles.myPic} />
+            <View style={styles.descriptionText}>
+            <Text style={{fontWeight:'bold'}}>Taimoor Hassan</Text>
+              <Text>Student of PUCIT. Developing this app as FYP and to provide a digitized solution of FYP interaction problems.
             </Text>
-            <Text>
-              {'\n'}
-              {'\n'}
-              {'\n'}
-              {'\n'}{'     '} Taimoor Hassan{'\n'}{'    '}
-                "Student of PUCIT. Developing{'\n'}{'    '}this app as FYP and to provide{'\n'}{'    '}a digitized solution of FYP{'\n'}{'    '}interaction problems."
-            </Text>
+            </View>
           </View>
 
-          <View style={styles.developerContainer}>
-            <Text>
-              <Image source={require('./mypic.jpg')} style={styles.myPic} />
+          
+          <View style={styles.aboutContainer}>
+            <Image source={require('./mypic.jpg')} style={styles.myPic} />
+            <View style={styles.descriptionText}>
+            <Text style={{fontWeight:'bold'}}>Fatima Batool</Text>
+              <Text>Student of PUCIT. Developing this app as FYP and to provide a digitized solution of FYP interaction problems.
             </Text>
-            <Text>
-              {'\n'}
-              {'\n'}
-              {'\n'}
-              {'\n'}{'     '} Fatima Batool{'\n'}{'    '}
-                "Student of PUCIT. Developing{'\n'}{'    '}this app as FYP and to provide{'\n'}{'    '}a digitized solution of FYP{'\n'}{'    '}interaction problems."
-            </Text>
+            </View>
           </View>
+
+         
 
           <View style={styles.line} />
         </View>
@@ -115,25 +100,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     textAlign: 'center',
-    fontSize: 30,
+    fontSize: 25,
     fontFamily: 'serif',
     color: 'black',
+    marginTop:5
   },
   mission: {
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 15,
     fontFamily: 'serif',
     color: 'grey',
+    marginVertical:6
   },
   line: {
     flex: 1,
     backgroundColor: 'black',
     height: 1,
     width: 175,
-    marginTop: 20,
+    marginVertical: 15,
   },
   developerContainer: {
     flex: 1,
@@ -145,6 +132,27 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 150,
     width: 110,
-    marginLeft: 20,
+    marginLeft: 10,
+    marginVertical:10,
+    alignItems:'center',
+    justifyContent:'center'
   },
+  aboutContainer: {
+    flex: 1,
+    flexDirection:'row',
+    padding: 5,
+    margin:5,
+    borderRadius: 5,
+    elevation: 2,
+  },
+  descriptionText:{
+    flex: 1,
+    flexDirection: 'column',
+    padding: 10,
+    marginHorizontal:8,
+    marginTop: 8,
+    marginBottom: 8,
+    borderRadius: 5,
+    backgroundColor: '#FFF',
+  }
 });

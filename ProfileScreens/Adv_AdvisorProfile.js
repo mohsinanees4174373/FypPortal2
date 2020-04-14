@@ -41,12 +41,14 @@ export default class Adv_AdvisorProfile extends Component {
       hours:'',
       file_name:'',
       file_description:'',
-      file:''
+      file:'',
+      refresh:false,
     };
 } 
    componentDidMount(){
     console.log('calling')
     this.getUser();
+    this.setState({refresh:true});
   }
   fetchFileContent = async () =>
   {
@@ -351,8 +353,11 @@ export default class Adv_AdvisorProfile extends Component {
    return readings;  
  };
 
-  navigateToEditProfile = item =>
-    this.props.navigation.navigate('AppointmentView');
+  navigateToEditProfile =() =>
+  {
+    this.setState({refresh:false});
+    this.props.navigation.navigate('Adv_EditProfile');
+  }
   navigateToAppointmentView = item =>
     this.props.navigation.navigate('AppointmentView');
 
@@ -427,6 +432,8 @@ export default class Adv_AdvisorProfile extends Component {
   }
   
   render() {
+    {console.log(this.state.refresh);
+    this.state.refresh?null:this.componentDidMount();}
     return (
       <View>
         <ScrollView>
@@ -454,7 +461,7 @@ export default class Adv_AdvisorProfile extends Component {
                     name="account-edit"
                     size={35}
                     type="material-community"
-                    onPress={() => this.props.navigation.navigate('Adv_EditProfile')}
+                    onPress={this.navigateToEditProfile}
                   />
                 </View>
               </View>

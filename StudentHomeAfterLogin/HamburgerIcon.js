@@ -13,6 +13,7 @@ import {
   Dimensions,
   Button,
 } from 'react-native';
+import {Icon} from 'react-native-elements';
 
 class HamburgerIcon extends Component {
     toggleDrawer = () => {
@@ -24,13 +25,13 @@ class HamburgerIcon extends Component {
       return (
         <View style={{flexDirection: 'row'}}>
           <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
-            <Image
-              source={{
-                uri:
-                  'https://reactnativecode.com/wp-content/uploads/2018/04/hamburger_icon.png',
-              }}
-              style={{width: 25, height: 25, marginLeft: 5}}
-            />
+           <Icon
+            iconStyle={styles.sideMenuIcon}
+            color="#fff"
+            name="menu"
+            size={28}
+            type="material-community"
+          />
           </TouchableOpacity>
         </View>
       );
@@ -83,6 +84,12 @@ class HamburgerIcon extends Component {
       color: '#222222',
       marginBottom:8,
   
+    },
+    sideMenuIcon: {
+      resizeMode: 'center',
+      width: 26,
+      height: 26,
+     margin:15,
     },
   });
   export default HamburgerIcon;

@@ -15,6 +15,7 @@ import {
   ScrollView,
   SafeAreaView,
 } from 'react-native';
+import {Icon, Input,ListItem, Divider} from 'react-native-elements';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import LoginActivity from './LoginActivity';
@@ -155,10 +156,7 @@ class AdvSignupActivity extends Component {
           <View style={styles.container}>
             <Image
               style={styles.logo}
-              source={{
-                uri:
-                  'https://paperpks.com/wp-content/uploads/2018/12/pucit.png',
-              }}
+              source={require('../assets/images/Pu.png')}
             />
             <TouchableHighlight style={styles.headingContainer}>
               <Text style={styles.header}>FYP PORTAL</Text>
@@ -167,131 +165,137 @@ class AdvSignupActivity extends Component {
             <TouchableHighlight style={styles.headingContainer}>
               <Text style={styles.signin}>Create Account{'\n'}</Text>
             </TouchableHighlight>
-            <View style={styles.inputContainer}>
-              <Image
-                style={styles.inpIcons}
-                source={{
-                  uri: 'https://image.flaticon.com/icons/png/128/44/44948.png',
-                }}
-              />
-              <TextInput
-                style={styles.inputs}
-                placeholder="Person Name"
-                returnKeyType="next"
-                //keyboardType="email-address"
-                //underlineColorAndroid='transparent'
-                onChangeText={Name => this.setState({Name})}
-              />
-            </View>
+           
+            <View style={styles.inputContainer}>           
+             <Input
+                 label="Name"
+                 inputContainer={styles.inputs}
+                 placeholder='abc'
+                 leftIcon={
+                   <Icon
+                   iconStyle={styles.sideMenuIcon}
+                     name='person'
+                     size={24}
+                     color='#2b60de'
+                   />  } 
+                   onChangeText={Name => this.setState({Name})}
+                 returnKeyType="next"
+               />    
+             </View>
+             <View style={styles.inputContainer}>           
+             <Input
+                 label="Email"
+                 inputContainer={styles.inputs}
+                 placeholder='abc@pucit.edu.pk'
+                 leftIcon={
+                   <Icon
+                   iconStyle={styles.sideMenuIcon}
+                     name='email'
+                     size={24}
+                     color='#2b60de'
+                   />  } 
+                   onChangeText={email => this.setState({email})}
+                 returnKeyType="next"
+                 keyboardType="email-address"
+               />    
+             </View>
+             <View style={styles.inputContainer}>           
+             <Input
+                 label="Password"
+                 inputContainer={styles.inputs}
+                 placeholder='*********'
+                 leftIcon={
+                   <Icon
+                   iconStyle={styles.sideMenuIcon}
+                     name='lock'
+                     size={24}
+                     color='#2b60de'
 
-            <View style={styles.inputContainer}>
-              <Image
-                style={styles.inpIcons}
-                source={{
-                  uri: 'https://i.dlpng.com/static/png/287100_thumb.png',
-                }}
-              />
-              <TextInput
-                style={styles.inputs}
-                placeholder="Email Address"
-                returnKeyType="next"
-                keyboardType="email-address"
-                //underlineColorAndroid='transparent'
-                onChangeText={email => this.setState({email})}
-              />
-            </View>
+                   />  } 
+                   onChangeText={password => this.setState({password})}
+                   returnKeyType="next"
+                   secureTextEntry={true} 
+                />    
+             </View>
+             <View style={styles.inputContainer}>           
+             <Input
+                 label="Confirm Password"
+                 inputContainer={styles.inputs}
+                 placeholder='*********'
+                 leftIcon={
+                   <Icon
+                   iconStyle={styles.sideMenuIcon}
+                     name='lock'
+                     size={24}
+                     color='#2b60de'
 
-            <View style={styles.inputContainer}>
-              <Image
-                style={styles.inpIcons}
-                source={{
-                  uri:
-                    'https://cdn1.iconfinder.com/data/icons/web-62/48/23-512.png',
-                }}
-              />
-              <TextInput
-                style={styles.inputs}
-                placeholder="Phone Number"
-                returnKeyType="next"
-                keyboardType="phone-pad"
-                //underlineColorAndroid='transparent'
-                onChangeText={phone => this.setState({phone})}
-              />
-            </View>
-
-            <View style={styles.inputContainer}>
-              <Image
-                style={styles.inpIcons}
-                source={{
-                  uri:
-                    'https://i.pinimg.com/originals/4d/eb/3c/4deb3c920b25c70288af20d66c559b72.png',
-                }}
-              />
-              <TextInput
-                style={styles.inputs}
-                placeholder="Password"
-                secureTextEntry={true}
-                returnKeyType="next"
-                //underlineColorAndroid='transparent'
-                onChangeText={password => this.setState({password})}
-              />
-            </View>
-
-            <View style={styles.inputContainer}>
-              <Image
-                style={styles.inpIcons}
-                source={{
-                  uri:
-                    'https://i.pinimg.com/originals/4d/eb/3c/4deb3c920b25c70288af20d66c559b72.png',
-                }}
-              />
-              <TextInput
-                style={styles.inputs}
-                placeholder="Confirm Password"
-                secureTextEntry={true}
-                returnKeyType="next"
-                //underlineColorAndroid='transparent'
-                onChangeText={cnfrmPassword => this.setState({cnfrmPassword})}
-              />
-            </View>
-
-            <View style={styles.inputContainer}>
-              <Image
-                style={styles.inpIcons}
-                source={{
-                  uri:
-                    'https://www.bendutter.com/wp-content/uploads/2014/08/graduation-cap.png',
-                }}
-              />
-              <TextInput
-                style={styles.inputs}
-                placeholder="Qualification"
-                returnKeyType="next"
-                //keyboardType="email-address"
-                //underlineColorAndroid='transparent'
-                onChangeText={Qualification => this.setState({Qualification})}
-              />
-            </View>
-
-            <View style={styles.inputContainer}>
-              <Image
-                style={styles.inpIcons}
-                source={{
-                  uri:
-                    'https://www.vippng.com/png/detail/4-45539_label-shapes-png-transparent-background-white-label-icon.png',
-                }}
-              />
-              <TextInput
-                style={styles.inputs}
-                placeholder="Designation"
-                returnKeyType="go"
-                //underlineColorAndroid='transparent'
-                onChangeText={Designation => this.setState({Designation})}
-              />
-            </View>
+                   />  } 
+                   onChangeText={cnfrmPassword => this.setState({cnfrmPassword})}
+                   returnKeyType="next"
+                   secureTextEntry={true}
+  
+                />    
+             </View>
+             <View style={styles.inputContainer}>           
+             <Input
+                 label="Mobile No."
+                 inputContainer={styles.inputs}
+                 placeholder='0123456'
+                 leftIcon={
+                   <Icon
+                   iconStyle={styles.sideMenuIcon}
+                     name='phone'
+                     size={24}
+                     color='#2b60de'
+                   />  } 
+                   onChangeText={phone => this.setState({phone})}
+                   returnKeyType="next"
+                   keyboardType="phone-pad"
+                />    
+             </View>
+           
+             <View style={styles.inputContainer}>           
+             <Input
+                 label="Qualifiaction"
+                 inputContainer={styles.inputs}
+                 placeholder='BSc ...'
+                 leftIcon={
+                   <Icon
+                   name='graduation-cap'
+                    size={24}
+                    type='font-awesome'
+                   iconStyle={styles.sideMenuIcon}
+                    
+                     color='#2b60de'
+                   />  } 
+                   onChangeText={Qualification => this.setState({Qualification})}
+                 returnKeyType="next"
+               />    
+             </View>
+             
+             <View style={styles.inputContainer}>           
+             <Input
+                 label="Designation"
+                 inputContainer={styles.inputs}
+                 placeholder='Professor,Lecturer..'
+                 leftIcon={
+                   <Icon
+                   name='tag'
+                    size={24}
+                    type='font-awesome'
+                   iconStyle={styles.sideMenuIcon}
+                    
+                     color='#2b60de'
+                   />  } 
+                   onChangeText={Designation => this.setState({Designation})}
+                 returnKeyType="go"
+               />    
+             </View>
+           
+            
 
             <TouchableOpacity
-              style={[styles.buttonContainer, styles.signupButton]}
+              style={[styles.buttonContainer, styles.signupButton,{marginTop:20}]}
               onPress={() => this.checkSignup()}>
               <Text style={styles.signupText}>CREATE ACCOUNT</Text>
             </TouchableOpacity>
@@ -371,16 +375,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   inputContainer: {
-    borderColor: '#2B60DE',
     //backgroundColor: '#FFFFFF',
-    borderRadius: 50,
-    borderWidth: 1,
+    borderRadius: 50,   
     //width:300,
     alignSelf: 'stretch',
     marginLeft: 20,
     marginRight: 20,
     height: 35,
-    marginBottom: 15,
+    marginTop:20,
+    marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -389,8 +392,8 @@ const styles = StyleSheet.create({
     //marginLeft:16,
     borderBottomColor: '#FFFFFF',
     flex: 1,
+    margin:10,
     textAlign: 'center',
-    fontStyle: 'italic',
   },
   buttonContainer: {
     height: 45,
@@ -425,7 +428,7 @@ const styles = StyleSheet.create({
     flex: 0,
     borderWidth: 1,
     borderColor: '#2B60DE',
-    marginBottom: 150,
+    marginBottom: 20,
   },
   signupText: {
     color: 'white',
@@ -436,6 +439,12 @@ const styles = StyleSheet.create({
     height: 1,
     width: 175,
     marginBottom: 20,
+  },
+  sideMenuIcon: {
+    resizeMode: 'center',
+    width: 26,
+    height: 26,
+    marginRight:12,
   },
 });
 

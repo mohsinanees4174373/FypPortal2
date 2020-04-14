@@ -16,6 +16,8 @@ import {
   ScrollView,
   SafeAreaView,
 } from 'react-native';
+import {Icon, Input,ListItem, Divider} from 'react-native-elements';
+
 class ChangePwdActivity extends Component {
   constructor(props) {
     super(props);
@@ -126,10 +128,8 @@ class ChangePwdActivity extends Component {
           <View style={styles.container}>
             <Image
               style={styles.logo}
-              source={{
-                uri:
-                  'https://paperpks.com/wp-content/uploads/2018/12/pucit.png',
-              }}
+                source={require('../assets/images/Pu.png')}
+
             />
 
             <View style={styles.line} />
@@ -137,41 +137,43 @@ class ChangePwdActivity extends Component {
               <Text style={styles.heading}>Change Password{'\n'}</Text>
             </TouchableHighlight>
 
-            <View style={styles.inputContainer}>
-              <Image
-                style={styles.inpIcons}
-                source={{
-                  uri:
-                    'https://i.pinimg.com/originals/4d/eb/3c/4deb3c920b25c70288af20d66c559b72.png',
-                }}
-              />
-              <TextInput
-                style={styles.inputs}
-                placeholder="Old Password"
-                secureTextEntry={true}
-                returnKeyType="next"
-                //underlineColorAndroid='transparent'
-                onChangeText={oldPass=> this.setState({oldPass})}
-              />
-            </View>
-            <View style={styles.inputContainer}>
-              <Image
-                style={styles.inpIcons}
-                source={{
-                  uri:
-                    'https://i.pinimg.com/originals/4d/eb/3c/4deb3c920b25c70288af20d66c559b72.png',
-                }}
-              />
-              <TextInput
-                style={styles.inputs}
-                placeholder="New Password"
-                secureTextEntry={true}
-                returnKeyType="next"
-                //underlineColorAndroid='transparent'
-                onChangeText={newPass => this.setState({newPass})}
-              />
-            </View>
+            <View style={styles.inputContainer}>           
+             <Input
+                 label="Old Password"
+                 inputContainer={styles.inputs}
+                 placeholder='*********'
+                 leftIcon={
+                   <Icon
+                   iconStyle={styles.sideMenuIcon}
+                     name='lock'
+                     size={24}
+                     color='#2b60de'
 
+                   />  } 
+                   onChangeText={oldPass=> this.setState({oldPass})}
+                   returnKeyType="next"
+                   secureTextEntry={true} 
+                />    
+             </View>
+             <View style={styles.inputContainer}>           
+             <Input
+                 label="New Password"
+                 inputContainer={styles.inputs}
+                 placeholder='*********'
+                 leftIcon={
+                   <Icon
+                   iconStyle={styles.sideMenuIcon}
+                     name='lock'
+                     size={24}
+                     color='#2b60de'
+
+                   />  } 
+                   onChangeText={newPass => this.setState({newPass})}
+                   returnKeyType="go"
+                   secureTextEntry={true}
+  
+                />    
+             </View>
             <TouchableOpacity
               style={[styles.buttonContainer, styles.chngPwdButton]}
               onPress={() => this.updatePassword()}
@@ -228,15 +230,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   inputContainer: {
-    borderColor: '#2B60DE',
     //backgroundColor: '#FFFFFF',
-    borderRadius: 50,
-    borderWidth: 1,
+    borderRadius: 50,   
     //width:300,
     alignSelf: 'stretch',
     marginLeft: 20,
     marginRight: 20,
     height: 35,
+    marginTop:20,
     marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
@@ -246,8 +247,8 @@ const styles = StyleSheet.create({
     //marginLeft:16,
     borderBottomColor: '#FFFFFF',
     flex: 1,
+    margin:10,
     textAlign: 'center',
-    fontStyle: 'italic',
   },
   buttonContainer: {
     height: 45,
@@ -262,6 +263,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   chngPwdButton: {
+    marginTop:20,
     backgroundColor: '#2B60DE',
   },
   btnText: {
@@ -274,6 +276,12 @@ const styles = StyleSheet.create({
     width: 175,
     marginBottom: 20,
     marginTop: 20,
+  },
+  sideMenuIcon: {
+    resizeMode: 'center',
+    width: 26,
+    height: 26,
+    marginRight:12,
   },
 });
 export default ChangePwdActivity;

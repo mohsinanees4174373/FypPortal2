@@ -69,11 +69,13 @@ class LoginActivity extends Component {
       if (value !== null) {
         if(value === 'student')
         {
+          this.setState({email:'',password:''});
           this.props.navigation.navigate('StudentHomeScreen');
           
           
         }else if(value ==='advisor')
         {
+          this.setState({email:'',password:''});
           this.props.navigation.navigate('AdvisorHomeScreen'); 
         }
       }
@@ -113,6 +115,7 @@ class LoginActivity extends Component {
           console.log(responseJson);
 
           this._storeStudentData();
+          this.setState({email:'',password:''});
           this.props.navigation.navigate('StudentHomeScreen');
         }
         else
@@ -133,6 +136,7 @@ class LoginActivity extends Component {
             if(responseJson[0])
             {
               this._storeAdvisorData();
+              this.setState({email:'',password:''});
               this.props.navigation.navigate('AdvisorHomeScreen'); 
             }
             else
@@ -190,6 +194,7 @@ class LoginActivity extends Component {
                      color='#2b60de'
                    />  } 
                    onChangeText={email => this.setState({email})}
+                   value={this.state.email}
                />    
              </View>
             <View style={styles.inputContainer}>
@@ -208,6 +213,7 @@ class LoginActivity extends Component {
                   />  } 
                 onChangeText={password => this.setState({password})}
                 secureTextEntry={true}
+                value={this.state.password}
               />    
             </View>
           

@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import email from 'react-native-email';
+import {Icon, Input,ListItem, Divider} from 'react-native-elements';
 
 export default class ContactUsActivity extends Component {
   constructor(props) {
@@ -28,50 +29,52 @@ export default class ContactUsActivity extends Component {
         <View style={styles.container}>
           <Image
             style={styles.logo}
-            source={{
-              uri: 'https://paperpks.com/wp-content/uploads/2018/12/pucit.png',
-            }}
+            source={require('../assets/images/Pu.png')}
           />
 
           <View style={styles.line} />
 
-          <Text style={styles.heading}>
-            {'\n'}Get in Touch{'\n'}
-          </Text>
+          <Text style={styles.heading}> Get in Touch </Text>
 
+         
           <View style={styles.inputContainer}>
-            <Image
-              style={styles.inpIcons}
-              source={{
-                uri:
-                  'https://cdn1.iconfinder.com/data/icons/communication-bold-line-4/48/167-512.png',
-              }}
-            />
-            <TextInput
-              style={styles.inputs}
-              placeholder="Subject"
-              returnKeyType="next"
-              onChangeText={subject => this.setState({subject})}
-            />
-          </View>
-
-          <View style={styles.inputMsgContainer}>
-            <Image
-              style={styles.inpIcons}
-              source={{
-                uri:
-                  'https://cdn4.iconfinder.com/data/icons/devine_icons/Black/PNG/System%20and%20Internet/JAVA.png',
-              }}
-            />
-            <TextInput
-              style={styles.inputs}
-              placeholder="Your Message Here"
-              returnKeyType="go"
+             
+             <Input
+                 label="Subject"
+                 inputContainer={styles.inputs}
+                 placeholder='Write subject here...'
+                 returnKeyType="next"
+                 leftIcon={
+                   <Icon
+                   iconStyle={styles.sideMenuIcon}
+                     name='subject'
+                     size={24}
+                     type='material-icons'
+                     color='#2b60de'
+                   />  } 
+                   onChangeText={subject => this.setState({subject})}
+               />    
+             </View>
+            <View style={styles.inputMsgContainer}>
+             
+                        
+            <Input
+                 label="Message"
+                 inputContainer={styles.inputs}
+                 placeholder='Write Message here...'
+                 leftIcon={
+                   <Icon
+                   iconStyle={styles.sideMenuIcon}
+                     name='edit'
+                     size={24}
+                     type='font-awesome'
+                     color='#2b60de'
+                   />  } 
+                   returnKeyType="go"
               multiline={true}
               onChangeText={message => this.setState({message})}
-            />
-          </View>
-
+               />    
+            </View>
           <TouchableOpacity
             style={[styles.buttonContainer, styles.loginButton]}
             onPress={this.handleEmail.bind(this)}>
@@ -112,6 +115,7 @@ const styles = StyleSheet.create({
     height: 1,
     width: 175,
     marginTop: 20,
+    marginBottom:20
   },
   contactContainer: {
     flex: 1,
@@ -128,6 +132,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#2B60DE',
     fontSize: 22,
+    marginBottom:15
+
   },
   inpIcons: {
     padding: 10,
@@ -138,41 +144,38 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   inputContainer: {
-    borderColor: '#2B60DE',
     //backgroundColor: '#FFFFFF',
-    borderRadius: 50,
-    borderWidth: 1,
+    borderRadius: 50,   
     //width:300,
     alignSelf: 'stretch',
     marginLeft: 20,
     marginRight: 20,
     height: 35,
-    marginBottom: 15,
+    marginTop:20,
+    marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  inputMsgContainer: {
-    borderColor: '#2B60DE',
-    //backgroundColor: '#FFFFFF',
-    borderRadius: 30,
-    borderWidth: 1,
-    //width:300,
-    alignSelf: 'stretch',
-    marginLeft: 20,
-    marginRight: 20,
-    height: 150,
-    marginBottom: 15,
-    flexDirection: 'row',
-    //alignItems: 'center',
   },
   inputs: {
     height: 45,
     //marginLeft:16,
     borderBottomColor: '#FFFFFF',
     flex: 1,
+    margin:10,
     textAlign: 'center',
-    fontStyle: 'italic',
   },
+  inputMsgContainer: {
+
+    //width:300,
+    alignSelf: 'stretch',
+    marginLeft: 20,
+    marginRight: 20,
+    height: 120,
+    marginBottom: 15,
+    flexDirection: 'row',
+    //alignItems: 'center',
+  },
+ 
   buttonContainer: {
     height: 45,
     flexDirection: 'row',
@@ -190,5 +193,11 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: 'white',
+  },
+  sideMenuIcon: {
+    resizeMode: 'center',
+    width: 26,
+    height: 26,
+    marginRight:12,
   },
 });

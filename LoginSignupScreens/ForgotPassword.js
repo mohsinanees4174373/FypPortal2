@@ -16,6 +16,7 @@ import {
   ScrollView,
   SafeAreaView,
 } from 'react-native';
+import {Icon, Input,ListItem, Divider} from 'react-native-elements';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import EmailSender from 'react-native-smtp';
@@ -190,44 +191,42 @@ class ForgotPassword extends Component {
           <View style={styles.container}>
             <Image
               style={styles.logo}
-              source={{
-                uri:
-                  'https://paperpks.com/wp-content/uploads/2018/12/pucit.png',
-              }}
+              source={require('../assets/images/Pu.png')}
             />
             <TouchableHighlight style={styles.headingContainer}>
               <Text style={styles.header}>FYP PORTAL</Text>
             </TouchableHighlight>
             <View style={styles.line} />
-            <Image
-              style={styles.fpasswordIcon}
-              source={{
-                uri:
-                  'https://tse4.mm.bing.net/th?id=OIP.-Of0VjQL5FFB-DYzDlQPigHaHa&pid=Api&P=0&w=300&h=300',
-              }}
-            />
+            <Icon
+                    name='lock-question'
+                    size={40}
+                    type='material-community'
+                    color='#2b60de'
+                  
+                  />
             <TouchableHighlight style={styles.headingContainer}>
               <Text style={styles.signin}>Recover your Password{'\n'}</Text>
             </TouchableHighlight>
             <View style={styles.line} />
 
-            <View style={styles.inputContainer}>
-              <Image
-                style={styles.inpIcons}
-                source={{
-                  uri:
-                    'https://i.dlpng.com/static/png/287100_thumb.png',
-                }}
-              />
-              <TextInput
-                style={styles.inputs}
-                placeholder="Your Email Address"
-                returnKeyType="next"
-                keyboardType="email-address"
-                //underlineColorAndroid='transparent'
-                onChangeText={email => this.setState({email})}
-              />
-            </View>
+            <View style={styles.inputContainer}>           
+             <Input
+                 label="Email"
+                 inputContainer={styles.inputs}
+                 placeholder='abc@pucit.edu.pk'
+                 leftIcon={
+                   <Icon
+                   iconStyle={styles.sideMenuIcon}
+                     name='email'
+                     size={24}
+                     color='#2b60de'
+                   />  } 
+                   onChangeText={email => this.setState({email})}
+                 returnKeyType="next"
+                 keyboardType="email-address"
+               />    
+             </View>
+
 
             <TouchableOpacity
               style={[styles.buttonContainer, styles.loginButton]}
@@ -307,15 +306,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   inputContainer: {
-    borderColor: '#2B60DE',
     //backgroundColor: '#FFFFFF',
-    borderRadius: 50,
-    borderWidth: 1,
+    borderRadius: 50,   
     //width:300,
     alignSelf: 'stretch',
     marginLeft: 20,
     marginRight: 20,
     height: 35,
+    marginTop:20,
     marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
@@ -339,6 +337,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     marginLeft: 20,
     marginRight: 20,
+    marginTop:20
   },
   buttonContainerForgetPwd: {
     flex: 0,
