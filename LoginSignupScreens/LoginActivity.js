@@ -18,6 +18,8 @@ import {
 } from 'react-native';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
+import {Icon, Input,ListItem, Divider} from 'react-native-elements';
+
 var url = require('../url');
 class LoginActivity extends Component {
   constructor(props) {
@@ -161,10 +163,7 @@ class LoginActivity extends Component {
           <View style={styles.container}>
             <Image
               style={styles.logo}
-              source={{
-                uri:
-                  'https://paperpks.com/wp-content/uploads/2018/12/pucit.png',
-              }}
+              source={require('../assets/images/Pu.png')}
             />
             <TouchableHighlight style={styles.headingContainer}>
               <Text style={styles.header}>FYP PORTAL</Text>
@@ -173,40 +172,45 @@ class LoginActivity extends Component {
             <TouchableHighlight style={styles.headingContainer}>
               <Text style={styles.signin}>LOGIN{'\n'}</Text>
             </TouchableHighlight>
-            <View style={styles.inputContainer}>
-              <Image
-                style={styles.inpIcons}
-                source={{
-                  uri: 'https://i.dlpng.com/static/png/287100_thumb.png',
-                }}
-              />
-              <TextInput
-                style={styles.inputs}
-                placeholder="Your Email Address"
-                returnKeyType="next"
-                keyboardType="email-address"
-                //underlineColorAndroid='transparent'
-                onChangeText={email => this.setState({email})}
-              />
-            </View>
 
             <View style={styles.inputContainer}>
-              <Image
-                style={styles.inpIcons}
-                source={{
-                  uri:
-                    'https://i.pinimg.com/originals/4d/eb/3c/4deb3c920b25c70288af20d66c559b72.png',
-                }}
-              />
-              <TextInput
-                style={styles.inputs}
-                placeholder="Password"
-                secureTextEntry={true}
-                returnKeyType="go"
-                //underlineColorAndroid='transparent'
+             
+             <Input
+                 label="Email"
+                 inputContainer={styles.inputs}
+                 placeholder='abc@pucit.edu.pk'
+                 returnKeyType="next"
+                 keyboardType="email-address"
+                 leftIcon={
+                   <Icon
+                   iconStyle={styles.sideMenuIcon}
+                     name='email'
+                     size={24}
+                     type='material-community'
+                     color='#2b60de'
+                   />  } 
+                   onChangeText={email => this.setState({email})}
+               />    
+             </View>
+            <View style={styles.inputContainer}>
+             
+            <Input
+                label="Password"
+                inputContainer={styles.inputs}
+                placeholder='Password'
+                leftIcon={
+                  <Icon
+                  iconStyle={styles.sideMenuIcon}
+                    name='lock'
+                    size={24}
+                    type='material-community'
+                    color='#2b60de'
+                  />  } 
                 onChangeText={password => this.setState({password})}
-              />
+                secureTextEntry={true}
+              />    
             </View>
+          
 
             <TouchableOpacity
               style={[styles.buttonContainer, styles.loginButton]}
@@ -303,15 +307,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   inputContainer: {
-    borderColor: '#2B60DE',
     //backgroundColor: '#FFFFFF',
-    borderRadius: 50,
-    borderWidth: 1,
+    borderRadius: 50,   
     //width:300,
     alignSelf: 'stretch',
     marginLeft: 20,
     marginRight: 20,
     height: 35,
+    marginTop:20,
     marginBottom: 20,
     flexDirection: 'row',
     alignItems: 'center',
@@ -321,8 +324,8 @@ const styles = StyleSheet.create({
     //marginLeft:16,
     borderBottomColor: '#FFFFFF',
     flex: 1,
+    margin:10,
     textAlign: 'center',
-    fontStyle: 'italic',
   },
   buttonContainer: {
     height: 45,
@@ -331,6 +334,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     //marginBottom:10,
     //width:300,
+    marginTop:20,
     borderRadius: 50,
     alignSelf: 'stretch',
     marginLeft: 20,
@@ -349,9 +353,11 @@ const styles = StyleSheet.create({
     //marginLeft: 220,
     marginRight: 10,
   },
+
   forgetPwd: {
     flex: 1,
     textAlign: 'right',
+    color:'#2b60de',
     textDecorationLine: 'underline',
     alignSelf: 'stretch',
     marginTop: 10,
@@ -398,6 +404,12 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     marginLeft: 10,
     height:45
+  },
+  sideMenuIcon: {
+    resizeMode: 'center',
+    width: 26,
+    height: 26,
+    marginRight:12,
   },
 });
 export default LoginActivity;

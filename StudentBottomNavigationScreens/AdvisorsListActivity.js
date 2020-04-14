@@ -48,27 +48,41 @@ class AdvisorsListActivity extends Component {
                     if(responseJson[i].profile_Pic == null) {
                       this.state.data.push(
                         {
-                      id : responseJson[i].adv_ID,
-                      avatar_url: responseJson[i].profile_Pic,
-                      name : responseJson[i].Name,
-                      description: responseJson[i].Designation,    
-                      })
+                          id : responseJson[i].adv_ID,
+                          avatar_url: responseJson[i].profile_Pic,
+                          name : responseJson[i].Name,
+                          email: responseJson[i].Email,
+                          phone: responseJson[i].Phone,  
+                          visiting_hour: responseJson[i].visitng_hurs,
+                          total_slots : responseJson[i].fyp_total_slots,
+                          available_slots: responseJson[i].fyp_availiable_slots,
+                          designation: responseJson[i].designation,
+                          description: responseJson[i].description,
+                          availability: responseJson[i].availability, 
+
+                        })
                     }
                     else {
                       this.state.data.push(
                         {
-                      id : responseJson[i].adv_ID,
-                      avatar_url: responseJson[i].profile_Pic.toString(),
-                      name : responseJson[i].Name,
-                      description: responseJson[i].Designation,    
+                          id : responseJson[i].adv_ID,
+                        //  avatar_url: responseJson[i].profile_Pic,
+                          name : responseJson[i].Name,
+                          email: responseJson[i].email,
+                          phone: responseJson[i].Phone,  
+                          visiting_hour: responseJson[i].visitng_hurs,
+                          total_slots : responseJson[i].fyp_total_slots,
+                          available_slots: responseJson[i].fyp_availiable_slots,
+                          designation: responseJson[i].designation,
+                          description: responseJson[i].description, 
+                          availability: responseJson[i].availability,    
                     })
                 }
                 }
             }
-            //else{ Alert.alert('masleee :/') }
-            })
+          })
 
-    this.arrayholder = this.state.data;
+      this.arrayholder = this.state.data;
 
     YellowBox.ignoreWarnings([
       'Warning: componentWillMount is deprecated',
@@ -77,14 +91,14 @@ class AdvisorsListActivity extends Component {
   }
   navigateToProfile = item =>
     this.props.navigation.navigate('Stu_AdvisorProfile', {
+      id:item.id,
       image: item.avatar_url,
-      name: item.name,
-      description: item.description,
-      slots: 2,
-      available: true,
+      email:item.email
     });
 
   searchFilterFunction = text => {
+    console.log("arraySearch"+this.arrayholder);
+
     const newData = this.arrayholder.filter(item => {
       const itemData = `${item.name[0].toUpperCase()}`;
       const textData = text.toUpperCase();
@@ -99,7 +113,7 @@ class AdvisorsListActivity extends Component {
     <ListItem
       title={item.name}
       titleStyle={styles.title}
-      subtitle={item.description}
+      subtitle={item.designation}
       leftAvatar={{source: {uri: item.avatar_url}, size: 70}}
       bottomDivider
       chevron={{
@@ -109,10 +123,13 @@ class AdvisorsListActivity extends Component {
         size: 20,
         onPress: this.navigateToProfile.bind(this, item),
       }}
+      onPress ={this.navigateToProfile.bind(this, item)}
     />
   );
   render() {
     const {search} = this.state.search;
+    console.log("array"+this.arrayholder);
+    console.log("data"+this.state.data);
 
     return (
       <View style={{flex: 1}}>

@@ -12,148 +12,128 @@ import {
   YellowBox,
   Dimensions,
   Button,
+  AsyncStorage
 } from 'react-native';
+import {Icon} from 'react-native-elements';
 
 class AdvisorCustom_Side_Menu extends Component {
-    render() {
-      return (
-        <View style={styles.sideMenuContainer}>
-          <Image
-            source={{
-              uri:
 
+  logout =async()=>{
+    await AsyncStorage.setItem('user', '');
+    console.log('user');
+    this.props.navigation.navigate('Login');
+    console.log('logout');
+    await AsyncStorage.clear();
 
-  'https://www.dontshake.org/media/k2/items/cache/71f67488b0857639cee631943a3fc6fa_XL.jpg',
-            }}
-            style={styles.sideMenuProfileIcon}
-          />
+  };
 
-          <View
-            style={{
-              width: '100%',
-              height: 1,
-              backgroundColor: '#e2e2e2',
-              marginTop: 20,
-            }}
-          />
+  render() 
+  {
+    return (
+      <View style={styles.sideMenuContainer}>
+        <Image
+          source={{
+            uri:'https://www.dontshake.org/media/k2/items/cache/71f67488b0857639cee631943a3fc6fa_XL.jpg',
+          }}
+          style={styles.sideMenuProfileIcon}
+        />
 
-          <View style={{width: '100%'}}>
-            <View
-              style={{flexDirection: 'row', alignItems: 'center', marginTop:
+        <View
+          style={{
+            width: '100%',
+            height: 1,
+            backgroundColor: '#e2e2e2',
+            marginTop: 20,}}
+        />
 
-  20}}>
-              <Image
-
-                source={{
-                  uri:
-                    'https://image.flaticon.com/icons/png/512/2/2144.png',
-                }}
-                style={styles.sideMenuIcon}
+        <View style={{width: '100%'}}>
+          <TouchableOpacity onPress ={() => {this.props.navigation.navigate('AdvisorHome');}}>
+            <View style={{flexDirection: 'row', alignItems: 'center', marginTop:20}} >
+              <Icon
+                iconStyle={styles.sideMenuIcon}
+                color="#2b60de"
+                name="home"
+                size={26}
+                type="material-community"
               />
-              <Text
-                style={styles.menuText}
-                onPress={() => {
-                  this.props.navigation.navigate('AdvisorHome');}}>Home</Text>
-
+              <Text style={styles.menuText}> Home</Text>
             </View>
-            <View
-              style={{flexDirection: 'row', alignItems: 'center', marginTop:
-
-  20}}>
-              <Image
-                source={{
-                  uri:
-
-
-  'https://image.flaticon.com/icons/png/512/149/149995.png',
-                }}
-                style={styles.sideMenuIcon}
+          </TouchableOpacity>
+          
+          <TouchableOpacity onPress ={() => {this.props.navigation.navigate('AdvisorEditProfile');}}>
+            <View style={{flexDirection: 'row', alignItems: 'center', marginTop:20}}>
+              <Icon
+                iconStyle={styles.sideMenuIcon}
+                color="#2b60de"
+                name="person"
+                size={26}
               />
-
-              <Text
-                style={styles.menuText}
-                onPress={() => {
-                  this.props.navigation.navigate('AdvisorEditProfile');
-                }}>
-                
-                View Profile{' '}
-              </Text>
+              <Text style={styles.menuText}> View Profile{' '} </Text>
             </View>
-
-
-
-
-
-
-            <View
-              style={{flexDirection: 'row', alignItems: 'center', marginTop:
-
-  20}}>
-              <Image
-                source={{
-                  uri:
-                    'https://image.flaticon.com/icons/png/512/15/15659.png',
-                }}
-                style={styles.sideMenuIcon}
+          </TouchableOpacity>
+          
+          <TouchableOpacity onPress ={() => {this.props.navigation.navigate('AboutUs');}}>
+            <View style={{flexDirection: 'row', alignItems: 'center', marginTop:20}}>
+              <Icon
+                iconStyle={styles.sideMenuIcon}
+                color="#2b60de"
+                name="group"
+                size={26}
               />
-              <Text
-                style={styles.menuText}
-                onPress={() => {
-                  this.props.navigation.navigate('AboutUs');}}>About Us</Text>
-
+              <Text style={styles.menuText}>About Us</Text>
             </View>
-            <View
-              style={{flexDirection: 'row', alignItems: 'center', marginTop:
+          </TouchableOpacity>
 
-  20}}>
-              <Image
-                source={{
-                  uri:
-                    'https://image.flaticon.com/icons/png/512/15/15659.png',
-                }}
-                style={styles.sideMenuIcon}
+          <TouchableOpacity  onPress={() => {this.props.navigation.navigate('ContactUs');}}>
+            <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 20}}>
+              <Icon
+                iconStyle={styles.sideMenuIcon}
+                color="#2b60de"
+                name="contacts"
+                size={26}
               />
-              <Text
-                style={styles.menuText}
-                onPress={() => {
-                  this.props.navigation.navigate('ContactUs');}}>Contact Us</Text>
-
-            </View>
-            <View
-              style={{flexDirection: 'row', alignItems: 'center', marginTop:
-
-  20}}>
-              <Image
-                source={{
-                  uri:
-                    'https://cdn3.iconfinder.com/data/icons/vector-icons-for-mobile-apps-2/512/Settings_black-512.png',
-                }}
-                style={styles.sideMenuIcon}
+              <Text style={styles.menuText}>Contact Us</Text>
+            </View>           
+          </TouchableOpacity>  
+          
+          <TouchableOpacity  onPress={() => {this.props.navigation.navigate('UpdatePswd');}}>
+            <View style={{flexDirection: 'row', alignItems: 'center', marginTop:20}}>
+              <Icon
+                iconStyle={styles.sideMenuIcon}
+                color="#2b60de"
+                name="settings"
+                size={26}
               />
-              <Text
-                style={styles.menuText}
-                onPress={() => {
-                  this.props.navigation.navigate('UpdatePswd');}}>Update Password</Text>
-
+              <Text style={styles.menuText}>Update Password</Text>
             </View>
+          </TouchableOpacity>
 
-
-
-
-          </View>
-
-          <View
-            style={{
-              width: '100%',
-              height: 1,
-              backgroundColor: '#e2e2e2',
-              marginTop: 15,
-            }}
-          />
+          <TouchableOpacity  onPress={this.logout}>
+            <View style={{flexDirection: 'row', alignItems: 'center', marginTop:20}}>
+              <Icon
+                iconStyle={styles.sideMenuIcon}
+                color="#2b60de"
+                name="logout"
+                size={26}
+                type='material-community'
+              />
+              <Text style={styles.menuText}>Log out</Text>
+            </View>
+          </TouchableOpacity>
         </View>
-      );
-    }
+
+        <View
+          style={{
+            width: '100%',
+            height: 1,
+            backgroundColor: '#e2e2e2',
+            marginTop: 15,
+          }}
+        />
+      </View>
+    );
   }
+}
 
   class MainActivity extends Component {
     constructor(props) {
@@ -208,8 +188,8 @@ class AdvisorCustom_Side_Menu extends Component {
 
     sideMenuIcon: {
       resizeMode: 'center',
-      width: 25,
-      height: 25,
+      width: 26,
+      height: 26,
       marginLeft: 15,
       marginRight: 20,
       marginBottom:8,

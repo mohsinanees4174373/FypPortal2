@@ -184,10 +184,7 @@ class SignupActivity extends Component {
           <View style={styles.container}>
             <Image
               style={styles.logo}
-              source={{
-                uri:
-                  'https://paperpks.com/wp-content/uploads/2018/12/pucit.png',
-              }}
+              source={require('../assets/images/Pu.png')}
             />
             <TouchableHighlight style={styles.headingContainer}>
               <Text style={styles.header}>FYP PORTAL</Text>
