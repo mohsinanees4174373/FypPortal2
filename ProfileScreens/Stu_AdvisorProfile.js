@@ -259,7 +259,7 @@ export default class Stu_AdvisorProfile extends Component {
     )};
 
   navigateToAppointmentForm = item =>
-    this.props.navigation.navigate('AppointmentForm');
+    this.props.navigation.navigate('AppointmentForm',{id: this.state.id});
 
   navigateToFYPForm = item => this.props.navigation.navigate('FypForm');
 
@@ -334,7 +334,7 @@ export default class Stu_AdvisorProfile extends Component {
                   icon={{name: 'send', size: 25, color: '#FFF'}}
                   buttonStyle={styles.buttonStyle}
                   title="Send Request"
-                  onPress={() => this.props.navigation.navigate('FypForm')}
+                  onPress={() => this.props.navigation.navigate('FypForm',{id: this.state.id})}
                 />
               </View>
               <Divider
