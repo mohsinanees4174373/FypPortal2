@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   },
   Icon: {
     padding: 10,
-    width: 10,
+    width: "5%",
     height: 10,
   },
   idIcon: {
@@ -88,7 +88,15 @@ export const styles = StyleSheet.create({
   },
   InputContainer: {
     width: '87%',
-    marginTop: 10,
+    marginTop: 15,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: AppStyles.color.grey,
+    borderRadius: AppStyles.borderRadius.main,
+  },
+  InputContainerMain: {
+    width: '87%',
+    marginTop: "10%",
     borderWidth: 1,
     borderStyle: 'solid',
     borderColor: AppStyles.color.grey,
@@ -99,6 +107,7 @@ export const styles = StyleSheet.create({
     height: 40,
     paddingLeft: 20,
     paddingRight: 20,
+    width:'76%',
     color: AppStyles.color.text,
   },
   facebookContainer: {

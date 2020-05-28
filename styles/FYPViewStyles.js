@@ -44,7 +44,14 @@ export const styles = StyleSheet.create({
   sideBySideContainer: {
     width: AppStyles.textInputWidth.main,
     flexDirection:"row",
-    marginTop:15,
+    marginTop:"5%",
+    borderBottomWidth:1,
+  },
+  sideBySideContainer1:
+  {
+    width: AppStyles.textInputWidth.main,
+    flexDirection:"row",
+    marginTop:'10%',
     borderBottomWidth:1,
   },
   side1:{
@@ -75,8 +82,9 @@ export const styles = StyleSheet.create({
   },
   InputContainer: {
     width: AppStyles.textInputWidth.main,
-    marginTop: 15,
+    marginTop: '5%',
     borderWidth: 0,
+    marginBottom: '3%',
     borderBottomWidth:1,
     /*borderStyle: "solid",
     borderColor: AppStyles.color.grey,

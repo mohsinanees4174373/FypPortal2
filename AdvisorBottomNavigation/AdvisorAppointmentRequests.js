@@ -1,115 +1,8 @@
-/*import React, { Component } from 'react';
-import faker from 'faker';
-import {View, FlatList,StyleSheet,} from 'react-native';
-import {SearchBar,ListItem} from 'react-native-elements';
-
-
-
-export default class  AdvisorAppointmentsActivity extends Component {
- 
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: [],      
-      search:'',
-    };
-    this.arrayholder = [];
-    for (i=0 ; i <100 ; i++)
-    {
-      this.state.data.push(
-    {
-      id : i,
-      avatar_url: faker.image.avatar(),
-      name : "Aroob Kausar",
-      description: "You have received appointment request from Aroob",    
-    },
-    {
-      id : i,
-      avatar_url: faker.image.avatar(),
-      name : "Fatima Batool",
-      description: "You have received appointment request from Fatima",    
-    },
-    {
-      id : i,
-      avatar_url: faker.image.avatar(),
-      name : "Mohsin Anees",
-      description: "You have received appointment request from Mohsin",    
-    },
-    {
-      id : i,
-      avatar_url: faker.image.avatar(),
-      name : "Mahroosh Hashmi",
-      description: "You have received appointment request from Mahroosh",    
-    },
-    {
-      id : i,
-      avatar_url: faker.image.avatar(),
-      name : "Taimoor Hasaan",
-      description: "You have received appointment request from Taimoor",    
-    },
-
-    
-    )}
-    this.arrayholder = this.state.data;
-  }
-
-  searchFilterFunction = text => {   
-    const newData = this.arrayholder.filter(item => {      
-      const itemData = `${item.name[0].toUpperCase()}`;      
-      const textData = text.toUpperCase();       
-           return itemData.indexOf(textData) > -1;    
-        });  
-      this.setState({ data: newData ,search:text});  
-      };
-
-  keyExtractor = (item, index) => index.toString()
-
-  renderItem = ({ item }) => (
-    <ListItem
-      title={item.name}
-      titleStyle={styles.title}
-      subtitle={item.description}
-      leftAvatar={{ source: { uri: item.avatar_url } ,size:70}}
-      bottomDivider chevron={{
-        color:'#2b60de', 
-        raised:true, 
-        name:'visibility',
-        size:20, 
-       }}
-       onPress= {() => this.props.navigation.navigate('AppointmentView')}
-    />
-    
-  )
-  render() {
-    const { search } = this.state.search;
-  
-      return (
-        <View>  
-          
-          <FlatList
-            keyExtractor={this.keyExtractor}
-            data={this.state.data}
-            renderItem={this.renderItem}
-          />
-        </View>
-      );
-    }
-}
-
-const styles = StyleSheet.create({
-  title: {
-    color:'#2b60de',fontWeight:'bold'
-  },
-  container: {
-    backgroundColor:'#2b60de'
-  },
-});
-*/
-
 import React, { Component } from 'react';
 import faker from 'faker';
-import {View, FlatList,StyleSheet, AsyncStorage,YellowBox} from 'react-native';
+import {View, FlatList,StyleSheet, AsyncStorage,YellowBox,Image} from 'react-native';
 import {SearchBar,ListItem} from 'react-native-elements';
+import RNFetchBlob from 'rn-fetch-blob';
 var url = require('../url');
 
 
@@ -121,6 +14,7 @@ export default class  AdvisorAppointmentsActivity extends Component {
     this.state = {
       data: [],      
       search:'',
+      uri:'',
     };
     YellowBox.ignoreWarnings([
       'Warning: componentWillMount is deprecated',
@@ -156,34 +50,43 @@ export default class  AdvisorAppointmentsActivity extends Component {
     .then((responseJson) => {
         if(responseJson)
         {
+          console.log("profile");
+          RNFetchBlob
+          .fetch('GET', url.base_url + "/getfile?path=" + responseJson[0].profile_pic , {})
+          .then((res) => {    
+            
+          this.setState({uri:res.data});
+          //console.log(this.state.uri);
+           })
+          .catch((e) => {
+          console.log(e)
+          });
            this.setState({data: [{id : responseJson[0].app_ID,
-            avatar_url: responseJson[0].profile_Pic,
+            avatar_url: this.state.uri,
             name :responseJson[0].Name,
             description: 'You have received appointment Request from '+ responseJson[0].Name,  }]})
 
           var i =0;
                for (i=1; i < Object.keys(responseJson).length ; i++)
                 {
-                    if(responseJson[i].profile_Pic == null) {
-                     // alert(responseJson[i].app_ID
-                     
+                      console.log("profile");
+                      RNFetchBlob
+                      .fetch('GET', url.base_url + "/getfile?path=" + responseJson[0].profile_pic , {})
+                      .then((res) => {    
+                        
+                      this.setState({uri:res.data});
+                      //console.log(this.state.uri);
+                      })
+                      .catch((e) => {
+                      console.log(e)
+                      });
                       this.state.data.push(
                         {
                       id : responseJson[i].app_ID,
-                      avatar_url: responseJson[i].profile_Pic,
+                      avatar_url: this.state.uri,
                       name : responseJson[i].Name,
                       description: 'You have received appointment request from '+ responseJson[i].Name,
                       })
-                    }
-                    else {
-                      this.state.data.push(
-                        {
-                      id : responseJson[i].app_ID,
-                      avatar_url: responseJson[i].profile_Pic.toString(),
-                      name : responseJson[i].Name,
-                      description: 'You have received appointment request from '+ responseJson[i].Name,  
-                    })
-                  }
                 }
                
         }
@@ -220,7 +123,9 @@ export default class  AdvisorAppointmentsActivity extends Component {
       title={item.name}
       titleStyle={styles.title}
       subtitle={item.description}
-      leftAvatar={{ source: { uri: item.avatar_url } ,size:70}}
+      //leftAvatar={{ source: { uri: item.avatar_url } ,size:70}}
+      leftAvatar ={ item.avatar_url ? <Image source={{uri: `data:jpeg;base64,${item.avatar_url}`}}  style={styles.circleImageLayout} /> :<Image source={require('../assets/images/av2.png')} style={styles.circleImageLayout}/>}
+      
       onPress={ () => this.props.navigation.navigate('AppointmentView',{
         app_id: item.id,
       })}
@@ -251,6 +156,16 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor:'#2b60de'
   },
+  circleImageLayout: {
+    width: 70,
+    height: 70,
+    borderRadius: 200 / 2,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    borderColor:'#FFF',
+    borderWidth:2,
+    marginVertical:10
+    
+  },
 });
-
 
