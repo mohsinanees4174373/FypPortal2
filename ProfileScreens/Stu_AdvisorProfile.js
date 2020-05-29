@@ -328,7 +328,7 @@ export default class Stu_AdvisorProfile extends Component {
                   icon={{name: 'send', size: 25, color: '#FFF'}}
                   buttonStyle={styles.buttonStyle}
                   title="Send Appointment"
-                  onPress={this.navigateToAppointmentForm}
+                  onPress={() => this.props.navigation.navigate('AppointmentForm',{id: this.state.id})}
                 />
                 <Button
                   icon={{name: 'send', size: 25, color: '#FFF'}}

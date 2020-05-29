@@ -7,7 +7,7 @@ import RNFetchBlob from 'rn-fetch-blob';
 
 
 
-export default class  AdvisorAppointmentsActivity extends Component {
+export default class  AdvisorFypRequestActivity extends Component {
  
   constructor(props) {
     super(props);
