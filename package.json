@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@react-native-community/cli-platform-android": "^3.0.3",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "faker": "^4.1.0",
     "jetifier": "^1.6.5",
     "moment": "^2.24.0",
